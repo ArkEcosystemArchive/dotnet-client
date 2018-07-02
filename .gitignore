@@ -1,0 +1,24 @@
+[Oo]bj
+[Bb]in
+*.csproj.user
+*ReSharper*
+*resharper*
+*.suo
+*.xap
+*.bak
+*.cache
+_cache
+_cache\*
+*log.txt
+*.svclog
+*.docstates
+
+packages/
+
+*/ClientBin
+*/Generated_Code
+
+# Database projects
+*.dbmdl*
+*.dbproj.*
+sql/
