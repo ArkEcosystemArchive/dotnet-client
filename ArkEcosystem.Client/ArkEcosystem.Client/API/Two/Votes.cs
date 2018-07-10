@@ -33,7 +33,7 @@ namespace ArkEcosystem.Client.API.Two
 
         public async Task<JObject> ShowAsync(string id)
         {
-            var response = await httpClient.GetStringAsync(string.Format("votes/{0}"));
+            var response = await httpClient.GetStringAsync(string.Format("votes/{0}", id));
 
             return JObject.Parse(response);
         }

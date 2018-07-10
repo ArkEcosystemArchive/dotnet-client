@@ -11,7 +11,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("transactions");
 
-            var response = Helpers.MockConnection(1).Transactions().All();
+            var response = Helpers.MockOneConnection().Transactions.All();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -21,7 +21,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("transactions");
 
-            var response = await Helpers.MockConnection(1).Transactions().AllAsync();
+            var response = await Helpers.MockOneConnection().Transactions.AllAsync();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -31,7 +31,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("transactions/get");
 
-            var response = Helpers.MockConnection(1).Transactions().Show("dummy");
+            var response = Helpers.MockOneConnection().Transactions.Show("dummy");
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -41,7 +41,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("transactions/get");
 
-            var response = await Helpers.MockConnection(1).Transactions().ShowAsync("dummy");
+            var response = await Helpers.MockOneConnection().Transactions.ShowAsync("dummy");
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -51,7 +51,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("transactions/unconfirmed");
 
-            var response = Helpers.MockConnection(1).Transactions().AllUnconfirmed();
+            var response = Helpers.MockOneConnection().Transactions.AllUnconfirmed();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -61,7 +61,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("transactions/unconfirmed");
 
-            var response = await Helpers.MockConnection(1).Transactions().AllUnconfirmedAsync();
+            var response = await Helpers.MockOneConnection().Transactions.AllUnconfirmedAsync();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -71,7 +71,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("transactions/unconfirmed/get");
 
-            var response = Helpers.MockConnection(1).Transactions().ShowUnconfirmed("dummy");
+            var response = Helpers.MockOneConnection().Transactions.ShowUnconfirmed("dummy");
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -81,7 +81,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("transactions/unconfirmed/get");
 
-            var response = await Helpers.MockConnection(1).Transactions().ShowUnconfirmedAsync("dummy");
+            var response = await Helpers.MockOneConnection().Transactions.ShowUnconfirmedAsync("dummy");
 
             Helpers.AssertSuccessResponse(response);
         }

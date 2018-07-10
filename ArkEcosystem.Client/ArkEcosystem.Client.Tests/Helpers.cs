@@ -19,12 +19,23 @@ namespace ArkEcosystem.Client.Tests
                 .Respond("application/json", "{'success' : true}");
         }
 
-        public static Connection MockConnection(int version)
+        public static Connections.One MockOneConnection()
         {
             var client = mockHttp.ToHttpClient();
             client.BaseAddress = new Uri(mockHost);
 
-            var connection = new Connection(mockHost, version);
+            var connection = new Connections.One(mockHost);
+            connection.SetClient(client);
+
+            return connection;
+        }
+
+        public static Connections.Two MockTwoConnection()
+        {
+            var client = mockHttp.ToHttpClient();
+            client.BaseAddress = new Uri(mockHost);
+
+            var connection = new Connections.Two(mockHost);
             connection.SetClient(client);
 
             return connection;

@@ -11,6 +11,9 @@ namespace ArkEcosystem.Client.API.One
         JObject All(Dictionary<string, string> parameters = null);
         Task<JObject> AllAsync(Dictionary<string, string> parameters = null);
 
+        JObject Show(string id);
+        Task<JObject> ShowAsync(string id);
+
         JObject Epoch();
         Task<JObject> EpochAsync();
 

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -11,7 +12,7 @@ namespace ArkEcosystem.Client.Tests.API.Two
         {
             Helpers.MockHttpRequest("blocks");
 
-            var response = Helpers.MockConnection(2).Blocks().All();
+            var response = Helpers.MockTwoConnection().Blocks.All();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -21,7 +22,7 @@ namespace ArkEcosystem.Client.Tests.API.Two
         {
             Helpers.MockHttpRequest("blocks");
 
-            var response = await Helpers.MockConnection(2).Blocks().AllAsync();
+            var response = await Helpers.MockTwoConnection().Blocks.AllAsync();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -29,9 +30,9 @@ namespace ArkEcosystem.Client.Tests.API.Two
         [TestMethod]
         public void Show()
         {
-            Helpers.MockHttpRequest("blocks/{$id}");
+            Helpers.MockHttpRequest("blocks/dummy");
 
-            var response = Helpers.MockConnection(2).Blocks().Show();
+            var response = Helpers.MockTwoConnection().Blocks.Show("dummy");
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -39,9 +40,9 @@ namespace ArkEcosystem.Client.Tests.API.Two
         [TestMethod]
         public async Task ShowAsync()
         {
-            Helpers.MockHttpRequest("blocks/{$id}");
+            Helpers.MockHttpRequest("blocks/dummy");
 
-            var response = await Helpers.MockConnection(2).Blocks().ShowAsync();
+            var response = await Helpers.MockTwoConnection().Blocks.ShowAsync("dummy");
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -49,9 +50,9 @@ namespace ArkEcosystem.Client.Tests.API.Two
         [TestMethod]
         public void Transactions()
         {
-            Helpers.MockHttpRequest("blocks/{$id}/transactions");
+            Helpers.MockHttpRequest("blocks/dummy/transactions");
 
-            var response = Helpers.MockConnection(2).Blocks().Transactions();
+            var response = Helpers.MockTwoConnection().Blocks.Transactions("dummy");
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -59,9 +60,9 @@ namespace ArkEcosystem.Client.Tests.API.Two
         [TestMethod]
         public async Task TransactionsAsync()
         {
-            Helpers.MockHttpRequest("blocks/{$id}/transactions");
+            Helpers.MockHttpRequest("blocks/dummy/transactions");
 
-            var response = await Helpers.MockConnection(2).Blocks().TransactionsAsync();
+            var response = await Helpers.MockTwoConnection().Blocks.TransactionsAsync("dummy");
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -71,7 +72,12 @@ namespace ArkEcosystem.Client.Tests.API.Two
         {
             Helpers.MockHttpRequest("blocks/search");
 
-            var response = Helpers.MockConnection(2).Blocks().Search();
+            var parameters = new Dictionary<string, string>
+            {
+                { "id", "dummy" }
+            };
+
+            var response = Helpers.MockTwoConnection().Blocks.Search(parameters);
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -81,7 +87,12 @@ namespace ArkEcosystem.Client.Tests.API.Two
         {
             Helpers.MockHttpRequest("blocks/search");
 
-            var response = await Helpers.MockConnection(2).Blocks().SearchAsync();
+            var parameters = new Dictionary<string, string>
+            {
+                { "id", "dummy" }
+            };
+
+            var response = await Helpers.MockTwoConnection().Blocks.SearchAsync(parameters);
 
             Helpers.AssertSuccessResponse(response);
         }

@@ -11,7 +11,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("loader/status");
 
-            var response = Helpers.MockConnection(1).Loader().Status();
+            var response = Helpers.MockOneConnection().Loader.Status();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -21,7 +21,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("loader/status");
 
-            var response = await Helpers.MockConnection(1).Loader().StatusAsync();
+            var response = await Helpers.MockOneConnection().Loader.StatusAsync();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -31,7 +31,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("loader/status/sync");
 
-            var response = Helpers.MockConnection(1).Loader().Sync();
+            var response = Helpers.MockOneConnection().Loader.Sync();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -41,7 +41,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("loader/status/sync");
 
-            var response = await Helpers.MockConnection(1).Loader().SyncAsync();
+            var response = await Helpers.MockOneConnection().Loader.SyncAsync();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -51,7 +51,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("loader/autoconfigure");
 
-            var response = Helpers.MockConnection(1).Loader().AutoConfigure();
+            var response = Helpers.MockOneConnection().Loader.AutoConfigure();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -61,7 +61,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("loader/autoconfigure");
 
-            var response = await Helpers.MockConnection(1).Loader().AutoConfigureAsync();
+            var response = await Helpers.MockOneConnection().Loader.AutoConfigureAsync();
 
             Helpers.AssertSuccessResponse(response);
         }

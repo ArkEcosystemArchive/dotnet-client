@@ -11,7 +11,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("accounts/getAllAccounts");
 
-            var response = Helpers.MockConnection(1).Accounts().All();
+            var response = Helpers.MockOneConnection().Accounts.All();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -21,7 +21,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("accounts/getAllAccounts");
 
-            var response = await Helpers.MockConnection(1).Accounts().AllAsync();
+            var response = await Helpers.MockOneConnection().Accounts.AllAsync();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -31,7 +31,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("accounts");
 
-            var response = Helpers.MockConnection(1).Accounts().Show("dummy");
+            var response = Helpers.MockOneConnection().Accounts.Show("dummy");
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -41,7 +41,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("accounts");
 
-            var response = await Helpers.MockConnection(1).Accounts().ShowAsync("dummy");
+            var response = await Helpers.MockOneConnection().Accounts.ShowAsync("dummy");
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -51,7 +51,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("accounts/count");
 
-            var response = Helpers.MockConnection(1).Accounts().Count();
+            var response = Helpers.MockOneConnection().Accounts.Count();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -61,7 +61,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("accounts/count");
 
-            var response = await Helpers.MockConnection(1).Accounts().CountAsync();
+            var response = await Helpers.MockOneConnection().Accounts.CountAsync();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -71,7 +71,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("accounts/delegates");
 
-            var response = Helpers.MockConnection(1).Accounts().Delegates("dummy");
+            var response = Helpers.MockOneConnection().Accounts.Delegates("dummy");
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -81,7 +81,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("accounts/delegates");
 
-            var response = await Helpers.MockConnection(1).Accounts().DelegatesAsync("dummy");
+            var response = await Helpers.MockOneConnection().Accounts.DelegatesAsync("dummy");
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -91,7 +91,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("accounts/delegates/fee");
 
-            var response = Helpers.MockConnection(1).Accounts().Fee();
+            var response = Helpers.MockOneConnection().Accounts.Fee();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -101,7 +101,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("accounts/delegates/fee");
 
-            var response = await Helpers.MockConnection(1).Accounts().FeeAsync();
+            var response = await Helpers.MockOneConnection().Accounts.FeeAsync();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -111,7 +111,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("accounts/getBalance");
 
-            var response = Helpers.MockConnection(1).Accounts().Balance("dummy");
+            var response = Helpers.MockOneConnection().Accounts.Balance("dummy");
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -121,7 +121,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("accounts/getBalance");
 
-            var response = await Helpers.MockConnection(1).Accounts().BalanceAsync("dummy");
+            var response = await Helpers.MockOneConnection().Accounts.BalanceAsync("dummy");
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -131,7 +131,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("accounts/getPublicKey");
 
-            var response = Helpers.MockConnection(1).Accounts().PublicKey("dummy");
+            var response = Helpers.MockOneConnection().Accounts.PublicKey("dummy");
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -141,7 +141,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("accounts/getPublicKey");
 
-            var response = await Helpers.MockConnection(1).Accounts().PublicKeyAsync("dummy");
+            var response = await Helpers.MockOneConnection().Accounts.PublicKeyAsync("dummy");
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -151,7 +151,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("accounts/top");
 
-            var response = Helpers.MockConnection(1).Accounts().Top();
+            var response = Helpers.MockOneConnection().Accounts.Top();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -161,7 +161,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("accounts/top");
 
-            var response = await Helpers.MockConnection(1).Accounts().TopAsync();
+            var response = await Helpers.MockOneConnection().Accounts.TopAsync();
 
             Helpers.AssertSuccessResponse(response);
         }

@@ -11,7 +11,7 @@ namespace ArkEcosystem.Client.Tests.API.Two
         {
             Helpers.MockHttpRequest("peers");
 
-            var response = Helpers.MockConnection(2).Peers().All();
+            var response = Helpers.MockTwoConnection().Peers.All();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -21,7 +21,7 @@ namespace ArkEcosystem.Client.Tests.API.Two
         {
             Helpers.MockHttpRequest("peers");
 
-            var response = await Helpers.MockConnection(2).Peers().AllAsync();
+            var response = await Helpers.MockTwoConnection().Peers.AllAsync();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -29,9 +29,9 @@ namespace ArkEcosystem.Client.Tests.API.Two
         [TestMethod]
         public void Show()
         {
-            Helpers.MockHttpRequest("peers/{$ip}");
+            Helpers.MockHttpRequest("peers/dummy");
 
-            var response = Helpers.MockConnection(2).Peers().Show();
+            var response = Helpers.MockTwoConnection().Peers.Show("dummy");
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -39,9 +39,9 @@ namespace ArkEcosystem.Client.Tests.API.Two
         [TestMethod]
         public async Task ShowAsync()
         {
-            Helpers.MockHttpRequest("peers/{$ip}");
+            Helpers.MockHttpRequest("peers/dummy");
 
-            var response = await Helpers.MockConnection(2).Peers().ShowAsync();
+            var response = await Helpers.MockTwoConnection().Peers.ShowAsync("dummy");
 
             Helpers.AssertSuccessResponse(response);
         }

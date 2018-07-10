@@ -11,7 +11,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("blocks");
 
-            var response = Helpers.MockConnection(1).Blocks().All();
+            var response = Helpers.MockOneConnection().Blocks.All();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -21,7 +21,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("blocks");
 
-            var response = await Helpers.MockConnection(1).Blocks().AllAsync();
+            var response = await Helpers.MockOneConnection().Blocks.AllAsync();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -31,7 +31,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("blocks/get");
 
-            var response = Helpers.MockConnection(1).Blocks().Show("dummy");
+            var response = Helpers.MockOneConnection().Blocks.Show("dummy");
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -41,7 +41,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("blocks/get");
 
-            var response = await Helpers.MockConnection(1).Blocks().ShowAsync("dummy");
+            var response = await Helpers.MockOneConnection().Blocks.ShowAsync("dummy");
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -51,7 +51,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("blocks/getEpoch");
 
-            var response = Helpers.MockConnection(1).Blocks().Epoch();
+            var response = Helpers.MockOneConnection().Blocks.Epoch();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -61,7 +61,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("blocks/getEpoch");
 
-            var response = await Helpers.MockConnection(1).Blocks().EpochAsync();
+            var response = await Helpers.MockOneConnection().Blocks.EpochAsync();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -71,7 +71,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("blocks/getFee");
 
-            var response = Helpers.MockConnection(1).Blocks().Fee();
+            var response = Helpers.MockOneConnection().Blocks.Fee();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -81,7 +81,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("blocks/getFee");
 
-            var response = await Helpers.MockConnection(1).Blocks().FeeAsync();
+            var response = await Helpers.MockOneConnection().Blocks.FeeAsync();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -91,7 +91,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("blocks/getFees");
 
-            var response = Helpers.MockConnection(1).Blocks().Fees();
+            var response = Helpers.MockOneConnection().Blocks.Fees();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -101,7 +101,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("blocks/getFees");
 
-            var response = await Helpers.MockConnection(1).Blocks().FeesAsync();
+            var response = await Helpers.MockOneConnection().Blocks.FeesAsync();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -111,7 +111,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("blocks/getHeight");
 
-            var response = Helpers.MockConnection(1).Blocks().Height();
+            var response = Helpers.MockOneConnection().Blocks.Height();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -121,7 +121,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("blocks/getHeight");
 
-            var response = await Helpers.MockConnection(1).Blocks().HeightAsync();
+            var response = await Helpers.MockOneConnection().Blocks.HeightAsync();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -131,7 +131,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("blocks/getMilestone");
 
-            var response = Helpers.MockConnection(1).Blocks().Milestone();
+            var response = Helpers.MockOneConnection().Blocks.Milestone();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -141,7 +141,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("blocks/getMilestone");
 
-            var response = await Helpers.MockConnection(1).Blocks().MilestoneAsync();
+            var response = await Helpers.MockOneConnection().Blocks.MilestoneAsync();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -151,7 +151,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("blocks/getNethash");
 
-            var response = Helpers.MockConnection(1).Blocks().Nethash();
+            var response = Helpers.MockOneConnection().Blocks.Nethash();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -161,7 +161,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("blocks/getNethash");
 
-            var response = await Helpers.MockConnection(1).Blocks().NethashAsync();
+            var response = await Helpers.MockOneConnection().Blocks.NethashAsync();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -171,7 +171,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("blocks/getReward");
 
-            var response = Helpers.MockConnection(1).Blocks().Reward();
+            var response = Helpers.MockOneConnection().Blocks.Reward();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -181,7 +181,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("blocks/getReward");
 
-            var response = await Helpers.MockConnection(1).Blocks().RewardAsync();
+            var response = await Helpers.MockOneConnection().Blocks.RewardAsync();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -191,7 +191,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("blocks/getStatus");
 
-            var response = Helpers.MockConnection(1).Blocks().Status();
+            var response = Helpers.MockOneConnection().Blocks.Status();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -201,7 +201,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("blocks/getStatus");
 
-            var response = await Helpers.MockConnection(1).Blocks().StatusAsync();
+            var response = await Helpers.MockOneConnection().Blocks.StatusAsync();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -211,7 +211,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("blocks/getSupply");
 
-            var response = Helpers.MockConnection(1).Blocks().Supply();
+            var response = Helpers.MockOneConnection().Blocks.Supply();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -221,7 +221,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("blocks/getSupply");
 
-            var response = await Helpers.MockConnection(1).Blocks().SupplyAsync();
+            var response = await Helpers.MockOneConnection().Blocks.SupplyAsync();
 
             Helpers.AssertSuccessResponse(response);
         }

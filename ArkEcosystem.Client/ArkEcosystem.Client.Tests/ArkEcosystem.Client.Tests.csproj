@@ -16,4 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ArkEcosystem.Client\ArkEcosystem.Client.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="ConnectionManagerTest.cs" />
+  </ItemGroup>
 </Project>

@@ -11,7 +11,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("signatures/fee");
 
-            var response = Helpers.MockConnection(1).Signatures().Fee();
+            var response = Helpers.MockOneConnection().Signatures.Fee();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -21,7 +21,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("signatures/fee");
 
-            var response = await Helpers.MockConnection(1).Signatures().FeeAsync();
+            var response = await Helpers.MockOneConnection().Signatures.FeeAsync();
 
             Helpers.AssertSuccessResponse(response);
         }

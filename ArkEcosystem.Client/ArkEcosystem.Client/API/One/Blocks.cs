@@ -35,8 +35,10 @@ namespace ArkEcosystem.Client.API.One
 
         public async Task<JObject> ShowAsync(string id)
         {
-            var parameters = new Dictionary<string, string>();
-            parameters.Add("id", id);
+            var parameters = new Dictionary<string, string>
+            {
+                { "id", id }
+            };
 
             var uri = QueryBuilder.Build("blocks/get", parameters);
 

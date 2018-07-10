@@ -8,8 +8,8 @@ namespace ArkEcosystem.Client.API.Two
 {
     public interface IBlocks
     {
-        JObject All(Dictionary<string, string> parameters);
-        Task<JObject> AllAsync(Dictionary<string, string> parameters);
+        JObject All(Dictionary<string, string> parameters = null);
+        Task<JObject> AllAsync(Dictionary<string, string> parameters = null);
 
         JObject Show(string id);
         Task<JObject> ShowAsync(string id);
@@ -17,7 +17,7 @@ namespace ArkEcosystem.Client.API.Two
         JObject Transactions(string id, Dictionary<string, string> parameters = null);
         Task<JObject> TransactionsAsync(string id, Dictionary<string, string> parameters = null);
 
-        JObject Search(Dictionary<string, string> parameters = null);
-        Task<JObject> SearchAsync(Dictionary<string, string> parameters = null);
+        JObject Search(Dictionary<string, string> parameters);
+        Task<JObject> SearchAsync(Dictionary<string, string> parameters);
     }
 }

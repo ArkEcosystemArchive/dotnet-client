@@ -11,7 +11,7 @@ namespace ArkEcosystem.Client.Tests.API.Two
         {
             Helpers.MockHttpRequest("node/status");
 
-            var response = Helpers.MockConnection(2).Node().Status();
+            var response = Helpers.MockTwoConnection().Node.Status();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -21,7 +21,7 @@ namespace ArkEcosystem.Client.Tests.API.Two
         {
             Helpers.MockHttpRequest("node/status");
 
-            var response = await Helpers.MockConnection(2).Node().StatusAsync();
+            var response = await Helpers.MockTwoConnection().Node.StatusAsync();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -31,7 +31,7 @@ namespace ArkEcosystem.Client.Tests.API.Two
         {
             Helpers.MockHttpRequest("node/syncing");
 
-            var response = Helpers.MockConnection(2).Node().Syncing();
+            var response = Helpers.MockTwoConnection().Node.Syncing();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -41,7 +41,7 @@ namespace ArkEcosystem.Client.Tests.API.Two
         {
             Helpers.MockHttpRequest("node/syncing");
 
-            var response = await Helpers.MockConnection(2).Node().SyncingAsync();
+            var response = await Helpers.MockTwoConnection().Node.SyncingAsync();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -51,7 +51,7 @@ namespace ArkEcosystem.Client.Tests.API.Two
         {
             Helpers.MockHttpRequest("node/configuration");
 
-            var response = Helpers.MockConnection(2).Node().Configuration();
+            var response = Helpers.MockTwoConnection().Node.Configuration();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -61,7 +61,7 @@ namespace ArkEcosystem.Client.Tests.API.Two
         {
             Helpers.MockHttpRequest("node/configuration");
 
-            var response = await Helpers.MockConnection(2).Node().ConfigurationAsync();
+            var response = await Helpers.MockTwoConnection().Node.ConfigurationAsync();
 
             Helpers.AssertSuccessResponse(response);
         }

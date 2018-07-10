@@ -14,6 +14,9 @@ namespace ArkEcosystem.Client.API.One
         JObject Show(Dictionary<string, string> parameters = null);
         Task<JObject> ShowAsync(Dictionary<string, string> parameters = null);
 
+        JObject Count();
+        Task<JObject> CountAsync();
+
         JObject Fee();
         Task<JObject> FeeAsync();
 

@@ -11,7 +11,7 @@ namespace ArkEcosystem.Client.Tests.API.Two
         {
             Helpers.MockHttpRequest("votes");
 
-            var response = Helpers.MockConnection(2).Votes().All();
+            var response = Helpers.MockTwoConnection().Votes.All();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -21,7 +21,7 @@ namespace ArkEcosystem.Client.Tests.API.Two
         {
             Helpers.MockHttpRequest("votes");
 
-            var response = await Helpers.MockConnection(2).Votes().AllAsync();
+            var response = await Helpers.MockTwoConnection().Votes.AllAsync();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -29,9 +29,9 @@ namespace ArkEcosystem.Client.Tests.API.Two
         [TestMethod]
         public void Show()
         {
-            Helpers.MockHttpRequest("votes/{$id}");
+            Helpers.MockHttpRequest("votes/dummy");
 
-            var response = Helpers.MockConnection(2).Votes().Show();
+            var response = Helpers.MockTwoConnection().Votes.Show("dummy");
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -39,9 +39,9 @@ namespace ArkEcosystem.Client.Tests.API.Two
         [TestMethod]
         public async Task ShowAsync()
         {
-            Helpers.MockHttpRequest("votes/{$id}");
+            Helpers.MockHttpRequest("votes/dummy");
 
-            var response = await Helpers.MockConnection(2).Votes().ShowAsync();
+            var response = await Helpers.MockTwoConnection().Votes.ShowAsync("dummy");
 
             Helpers.AssertSuccessResponse(response);
         }

@@ -11,7 +11,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("peers");
 
-            var response = Helpers.MockConnection(1).Peers().All();
+            var response = Helpers.MockOneConnection().Peers.All();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -21,7 +21,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("peers");
 
-            var response = await Helpers.MockConnection(1).Peers().AllAsync();
+            var response = await Helpers.MockOneConnection().Peers.AllAsync();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -31,7 +31,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("peers/get");
 
-            var response = Helpers.MockConnection(1).Peers().Show("dummy", 1234);
+            var response = Helpers.MockOneConnection().Peers.Show("dummy", 1234);
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -41,7 +41,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("peers/get");
 
-            var response = await Helpers.MockConnection(1).Peers().ShowAsync("dummy", 1234);
+            var response = await Helpers.MockOneConnection().Peers.ShowAsync("dummy", 1234);
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -51,7 +51,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("peers/version");
 
-            var response = Helpers.MockConnection(1).Peers().Version();
+            var response = Helpers.MockOneConnection().Peers.Version();
 
             Helpers.AssertSuccessResponse(response);
         }
@@ -61,7 +61,7 @@ namespace ArkEcosystem.Client.Tests.API.One
         {
             Helpers.MockHttpRequest("peers/version");
 
-            var response = await Helpers.MockConnection(1).Peers().VersionAsync();
+            var response = await Helpers.MockOneConnection().Peers.VersionAsync();
 
             Helpers.AssertSuccessResponse(response);
         }

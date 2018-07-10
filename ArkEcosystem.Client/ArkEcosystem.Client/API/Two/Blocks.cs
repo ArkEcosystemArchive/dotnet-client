@@ -15,12 +15,12 @@ namespace ArkEcosystem.Client.API.Two
             httpClient = client;
         }
 
-        public JObject All(Dictionary<string, string> parameters)
+        public JObject All(Dictionary<string, string> parameters = null)
         {
             return AllAsync(parameters).Result;
         }
 
-        public async Task<JObject> AllAsync(Dictionary<string, string> parameters)
+        public async Task<JObject> AllAsync(Dictionary<string, string> parameters = null)
         {
             var uri = QueryBuilder.Build("blocks", parameters);
 
