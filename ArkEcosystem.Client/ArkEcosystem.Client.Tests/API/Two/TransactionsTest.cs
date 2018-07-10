@@ -27,25 +27,35 @@ namespace ArkEcosystem.Client.Tests.API.Two
             Helpers.AssertSuccessResponse(response);
         }
 
-        //[TestMethod]
-        //public void Create()
-        //{
-        //    Helpers.MockHttpRequest("transactions");
+        [TestMethod]
+        public void Create()
+        {
+            Helpers.MockHttpRequest("transactions");
 
-        //    var response = Helpers.MockTwoConnection().Transactions.Create();
+            var parameters = new Dictionary<string, dynamic>
+            {
+                { "amount", 1 }
+            };
 
-        //    Helpers.AssertSuccessResponse(response);
-        //}
+            var response = Helpers.MockTwoConnection().Transactions.Create(parameters);
 
-        //[TestMethod]
-        //public async Task CreateAsync()
-        //{
-        //    Helpers.MockHttpRequest("transactions");
+            Helpers.AssertSuccessResponse(response);
+        }
 
-        //    var response = await Helpers.MockTwoConnection().Transactions.CreateAsync();
+        [TestMethod]
+        public async Task CreateAsync()
+        {
+            Helpers.MockHttpRequest("transactions");
 
-        //    Helpers.AssertSuccessResponse(response);
-        //}
+            var parameters = new Dictionary<string, dynamic>
+            {
+                { "amount", 1 }
+            };
+
+            var response = await Helpers.MockTwoConnection().Transactions.CreateAsync(parameters);
+
+            Helpers.AssertSuccessResponse(response);
+        }
 
         [TestMethod]
         public void Show()

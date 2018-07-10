@@ -11,8 +11,8 @@ namespace ArkEcosystem.Client.API.Two
         JObject All(Dictionary<string, string> parameters = null);
         Task<JObject> AllAsync(Dictionary<string, string> parameters = null);
 
-        // public JObject Create(Dictionary<string, dynamic> parameters);
-        // public Task<JObject> CreateAsync(Dictionary<string, dynamic> parameters);
+        JObject Create(Dictionary<string, dynamic> parameters);
+        Task<JObject> CreateAsync(Dictionary<string, dynamic> parameters);
 
         JObject Show(string id);
         Task<JObject> ShowAsync(string id);

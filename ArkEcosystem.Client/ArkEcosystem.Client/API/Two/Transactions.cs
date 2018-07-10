@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using ArkEcosystem.Client.Helpers;
 using Newtonsoft.Json.Linq;
@@ -29,19 +30,19 @@ namespace ArkEcosystem.Client.API.Two
             return JObject.Parse(response);
         }
 
-        //public JObject Create(Dictionary<string, dynamic> parameters)
-        //{
-        //    return CreateAsync(parameters).Result;
-        //}
+        public JObject Create(Dictionary<string, dynamic> parameters)
+        {
+            return CreateAsync(parameters).Result;
+        }
 
-        //public async Task<JObject> CreateAsync(Dictionary<string, dynamic> parameters)
-        //{
-        //    var formParams = new FormUrlEncodedContent(parameters);
+        public async Task<JObject> CreateAsync(Dictionary<string, dynamic> parameters)
+        {
+            var content = new StringContent(parameters.ToString(), Encoding.UTF8, "application/json");
 
-        //    var response = await httpClient.PostAsync("transactions", formParams);
+            var response = await httpClient.PostAsync("transactions", content);
 
-        //    return JObject.Parse(await response.Content.ReadAsStringAsync());
-        //}
+            return JObject.Parse(await response.Content.ReadAsStringAsync());
+        }
 
         public JObject Show(string id)
         {
