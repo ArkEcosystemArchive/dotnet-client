@@ -21,9 +21,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System.Collections.Generic;
-using System.Net.Http;
 using System.Threading.Tasks;
-using ArkEcosystem.Client.Helpers;
 using Newtonsoft.Json.Linq;
 
 namespace ArkEcosystem.Client.API.One
