@@ -1,10 +1,10 @@
-# ARK .NET - Client
+# Ark .NET - Client
 
 <p align="center">
     <img src="https://github.com/ArkEcosystem/dotnet-client/blob/master/banner.png" />
 </p>
 
-> A simple .NET API client for the ARK Blockchain.
+> A simple .NET API client for the Ark Blockchain.
 
 [![Build Status](https://img.shields.io/travis/ArkEcosystem/dotnet-client/master.svg?style=flat-square)](https://travis-ci.org/ArkEcosystem/dotnet-client)
 [![Latest Version](https://img.shields.io/github/release/ArkEcosystem/dotnet-client.svg?style=flat-square)](https://github.com/ArkEcosystem/dotnet-client/releases)
