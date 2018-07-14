@@ -3,4 +3,4 @@ mono: none
 dotnet: 2.1
 script:
   - dotnet build ./lib/ArkEcosystem.Client
-  - dotnet test ./tests/ArkEcosystem.Client.Tests/ArkEcosystem.Client.Tests.sln
+  - dotnet test ./tests/ArkEcosystem.Client.Tests

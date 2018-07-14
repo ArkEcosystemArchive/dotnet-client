@@ -23,6 +23,11 @@ namespace ArkEcosystem.Client.API.One
             Signatures = new Signatures(client);
             Transactions = new Transactions(client);
         }
+
+        public override string Version()
+        {
+            return "1";
+        }
     }
 
 }

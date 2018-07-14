@@ -8,6 +8,8 @@ namespace ArkEcosystem.Client.API {
         public Api(HttpClient client) {
             Client = client;
         }
+
+        public abstract string Version();
     }
 
 }

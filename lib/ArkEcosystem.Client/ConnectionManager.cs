@@ -25,18 +25,16 @@ using ArkEcosystem.Client.API;
 
 namespace ArkEcosystem.Client
 {
-    public class ConnectionManager<T> where T : Api
+    public class ConnectionManager
     {
         string defaultConnection = "main";
 
-        readonly Dictionary<string, Connection<T>> connections = new Dictionary<string, Connection<T>>();
+        readonly Dictionary<string, Connection<Api>> connections = new Dictionary<string, Connection<Api>>();
 
-        public Connection<T> Connect(Connection<T> connection, string name = "main")
+        public Connection<T> Connect<T>(Connection<T> connection, string name = "main") where T : Api
         {
-
-            connections[name] = connection;
-
-            return connections[name];
+            connections[name] = connection as Connection<Api>;
+            return connection;
         }
 
         public void Disconnect(string name = null)
@@ -44,9 +42,9 @@ namespace ArkEcosystem.Client
             connections.Remove(name ?? GetDefaultConnection());
         }
 
-        public Connection<T> Connection(string name = null)
+        public Connection<T> Connection<T>(string name = null) where T : Api
         {
-            return connections[name ?? GetDefaultConnection()];
+            return connections[name ?? GetDefaultConnection()] as Connection<T>;
         }
 
         public string GetDefaultConnection()
@@ -59,7 +57,7 @@ namespace ArkEcosystem.Client
             defaultConnection = name;
         }
 
-        public Dictionary<string, Connection<T>> GetConnections()
+        public Dictionary<string, Connection<Api>> GetConnections()
         {
             return connections;
         }

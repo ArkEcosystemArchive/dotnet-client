@@ -23,6 +23,11 @@ namespace ArkEcosystem.Client.API.Two
             Votes = new Votes(client);
             Wallets = new Wallets(client);
         }
+
+        public override string Version()
+        {
+            return "2";
+        }
     }
 
 }
