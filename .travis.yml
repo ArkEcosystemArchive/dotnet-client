@@ -2,5 +2,5 @@ language: csharp
 mono: none
 dotnet: 2.1
 script:
-  - dotnet build ./ArkEcosystem.Client/ArkEcosystem.Client
-  - dotnet test ./ArkEcosystem.Client/ArkEcosystem.Client.Tests/ArkEcosystem.Client.Tests.sln
+  - dotnet build ./lib/ArkEcosystem.Client
+  - dotnet test ./tests/ArkEcosystem.Client.Tests/ArkEcosystem.Client.Tests.sln
