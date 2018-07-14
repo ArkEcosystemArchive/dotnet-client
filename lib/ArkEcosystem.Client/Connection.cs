@@ -7,36 +7,33 @@ namespace ArkEcosystem.Client
 {
     public sealed class Connection<T> where T : Api
     {
-        public HttpClient Client { get;}
+        public HttpClient Client { get; }
 
         public T Api { get; }
 
-        public Connection(string host)
-        {
-            Client = CreateClient(host);
-            Api = CreateApi();
-        }
+        public Connection(string host) : this(CreateClient(host)) { }
 
         public Connection(HttpClient client)
         {
+            Api = CreateApi(client);
+
+            Client.DefaultRequestHeaders.TryAddWithoutValidation("API-Version", Api.Version());
             Client = client;
-            Api = CreateApi();
         }
 
-        private HttpClient CreateClient(string host)
+        private static HttpClient CreateClient(string host)
         {
             var client = new HttpClient
             {
                 BaseAddress = new System.Uri(host)
             };
 
-            client.DefaultRequestHeaders.TryAddWithoutValidation("API-Version", "1");
             return client;
         }
 
-        private T CreateApi()
+        private static T CreateApi(HttpClient client)
         {
-            return (T)Activator.CreateInstance(typeof(T), new object[] { Client } );
+            return (T)Activator.CreateInstance(typeof(T), new object[] { client });
         }
 
     }

@@ -1,11 +1,13 @@
 using System.Net.Http;
 
-namespace ArkEcosystem.Client.API {
+namespace ArkEcosystem.Client.API
+{
     public abstract class Api
     {
         HttpClient Client { get; }
 
-        public Api(HttpClient client) {
+        public Api(HttpClient client)
+        {
             Client = client;
         }
 
