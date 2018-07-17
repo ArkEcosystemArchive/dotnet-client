@@ -7,15 +7,9 @@
 > A simple .NET API client for the Ark Blockchain.
 
 [![Build Status](https://img.shields.io/travis/ArkEcosystem/dotnet-client/master.svg)](https://travis-ci.org/ArkEcosystem/dotnet-client)
-[![Codecov](https://codecov.io/gh/arkecosystem/dotnet-client)](https://img.shields.io/codecov/c/github/arkecosystem/dotnet-client.svg)
+[![Codecov](https://img.shields.io/codecov/c/github/arkecosystem/dotnet-client.svg)](https://codecov.io/gh/arkecosystem/dotnet-client)
 [![Latest Version](https://img.shields.io/github/release/ArkEcosystem/dotnet-client.svg)](https://github.com/ArkEcosystem/dotnet-client/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-## Installation
-
-```bash
-...
-```
 
 ## Documentation
 
