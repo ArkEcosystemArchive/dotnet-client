@@ -16,6 +16,10 @@
 ...
 ```
 
+## Documentation
+
+You can find installation instructions and detailed instructions on how to use this package at the [dedicated documentation site](https://docs.ark.io/v1.0/docs/clients-dotnet).
+
 ## Security
 
 If you discover a security vulnerability within this package, please send an e-mail to security@ark.io. All security vulnerabilities will be promptly addressed.
