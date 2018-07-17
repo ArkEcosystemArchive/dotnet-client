@@ -1,7 +1,6 @@
 using System;
 using System.Net.Http;
 using ArkEcosystem.Client.API;
-using ArkEcosystem.Client.API.Two;
 
 namespace ArkEcosystem.Client
 {
@@ -17,21 +16,21 @@ namespace ArkEcosystem.Client
         {
             Api = CreateApi(client);
 
-            Client.DefaultRequestHeaders.TryAddWithoutValidation("API-Version", Api.Version());
             Client = client;
+            Client.DefaultRequestHeaders.TryAddWithoutValidation("API-Version", Api.Version());
         }
 
-        private static HttpClient CreateClient(string host)
+        static HttpClient CreateClient(string host)
         {
             var client = new HttpClient
             {
-                BaseAddress = new System.Uri(host)
+                BaseAddress = new Uri(host)
             };
 
             return client;
         }
 
-        private static T CreateApi(HttpClient client)
+        static T CreateApi(HttpClient client)
         {
             return (T)Activator.CreateInstance(typeof(T), new object[] { client });
         }
