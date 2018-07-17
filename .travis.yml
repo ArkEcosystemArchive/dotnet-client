@@ -8,5 +8,8 @@ script:
   - dotnet build ./lib/ArkEcosystem.Client
   - dotnet test ./tests/ArkEcosystem.Client.Tests
 
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
 git:
   depth: 1
