@@ -5,8 +5,8 @@ mono: none
 dotnet: 2.1
 
 script:
-  - dotnet build ./lib/ArkEcosystem.Client
-  - dotnet test ./tests/ArkEcosystem.Client.Tests
+  - dotnet build ./ArkEcosystem.Client
+  - dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover ./ArkEcosystem.Client.Tests
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
