@@ -2,6 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <PackOnBuild>true</PackOnBuild>
+    <PackageVersion>0.1.0</PackageVersion>
+    <PackageLicenseUrl>https://github.com/ArkEcosystem/dotnet-client/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Owners>Ark Ecosystem</Owners>
+    <PackageProjectUrl>https://github.com/ArkEcosystem/dotnet-client</PackageProjectUrl>
+    <Summary>A simple .NET API client for the Ark Blockchain.</Summary>
+    <Title>ArkEcosystem Client</Title>
+    <Description>A simple .NET API client for the Ark Blockchain.</Description>
+    <PackageId>arkecosystem-client</PackageId>
+    <Authors>Brian Faust</Authors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugType>Full</DebugType>
@@ -14,6 +25,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="NuGet.Build.Packaging" Version="0.2.0" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
