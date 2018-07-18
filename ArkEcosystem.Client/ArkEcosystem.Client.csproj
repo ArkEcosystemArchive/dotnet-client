@@ -11,7 +11,7 @@
     <Summary>A simple .NET API client for the Ark Blockchain.</Summary>
     <Title>ArkEcosystem Client</Title>
     <Description>A simple .NET API client for the Ark Blockchain.</Description>
-    <PackageId>arkecosystem-client</PackageId>
+    <PackageId>ArkEcosystem.Client</PackageId>
     <Authors>Brian Faust</Authors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
