@@ -9,7 +9,7 @@ namespace ArkEcosystem.Client.API.Two.Models
     {
         public string Address { get; set; }
         public string PublicKey { get; set; }
-        public string Balance { get; set; }
+        public long Balance { get; set; }
         public bool IsDelegate { get; set; }
     }
 }
