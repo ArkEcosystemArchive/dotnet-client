@@ -23,9 +23,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ArkEcosystem.Client.API.Two;
 using ArkEcosystem.Client.API.Two.Models;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ArkEcosystem.Client.Tests.API.Two
 {

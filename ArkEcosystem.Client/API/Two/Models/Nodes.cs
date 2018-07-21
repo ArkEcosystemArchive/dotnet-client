@@ -14,7 +14,7 @@ namespace ArkEcosystem.Client.API.Two.Models
         public int Version { get; set; }
         public Dictionary<string, Int16> Ports { get; set; }
         public NodeConstants Constants { get; set; }
-        public FeeStatistics FeeStatistics { get; set; }
+        public List<FeeStatistics> FeeStatistics { get; set; }
     }
 
     [JsonObject]

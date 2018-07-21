@@ -23,6 +23,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using ArkEcosystem.Client.API.Two.Models;
 
 namespace ArkEcosystem.Client.API.Two
 {
@@ -35,40 +36,37 @@ namespace ArkEcosystem.Client.API.Two
             httpClient = client;
         }
 
-        public JObject Status()
+        public Response<NodeStatus> Status()
         {
             return StatusAsync().Result;
         }
 
-        public async Task<JObject> StatusAsync()
+        public async Task<Response<NodeStatus>> StatusAsync()
         {
             var response = await httpClient.GetStringAsync("node/status");
-
-            return JObject.Parse(response);
+            return Two.ConvertResponse<NodeStatus>(response);
         }
 
-        public JObject Syncing()
+        public Response<NodeSyncing> Syncing()
         {
             return SyncingAsync().Result;
         }
 
-        public async Task<JObject> SyncingAsync()
+        public async Task<Response<NodeSyncing>> SyncingAsync()
         {
             var response = await httpClient.GetStringAsync("node/syncing");
-
-            return JObject.Parse(response);
+            return Two.ConvertResponse<NodeSyncing>(response);
         }
 
-        public JObject Configuration()
+        public Response<NodeConfiguration> Configuration()
         {
             return ConfigurationAsync().Result;
         }
 
-        public async Task<JObject> ConfigurationAsync()
+        public async Task<Response<NodeConfiguration>> ConfigurationAsync()
         {
             var response = await httpClient.GetStringAsync("node/configuration");
-
-            return JObject.Parse(response);
+            return Two.ConvertResponse<NodeConfiguration>(response);
         }
     }
 }
