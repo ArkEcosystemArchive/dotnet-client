@@ -23,9 +23,9 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 using ArkEcosystem.Client.API.Two.Models;
 using ArkEcosystem.Client.Helpers;
-using Newtonsoft.Json.Linq;
 
 namespace ArkEcosystem.Client.API.Two
 {
