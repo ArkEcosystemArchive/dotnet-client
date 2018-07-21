@@ -20,7 +20,11 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using ArkEcosystem.Client.API.Two;
+using ArkEcosystem.Client.API.Two.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ArkEcosystem.Client.Tests.API.Two
@@ -34,40 +38,49 @@ namespace ArkEcosystem.Client.Tests.API.Two
         public void All()
         {
             TestHelper.MockHttpRequestTwo("votes");
-
             var response = TestHelper.MockConnection<Two>().Api.Votes.All();
-
-            TestHelper.AssertSuccessResponse(response);
+            AssertResponseListOfVotes(response);
         }
 
         [TestMethod]
         public async Task AllAsync()
         {
             TestHelper.MockHttpRequestTwo("votes");
-
             var response = await TestHelper.MockConnection<Two>().Api.Votes.AllAsync();
-
-            TestHelper.AssertSuccessResponse(response);
+            AssertResponseListOfVotes(response);
         }
 
         [TestMethod]
         public void Show()
         {
-            TestHelper.MockHttpRequestTwo("votes/dummy");
-
-            var response = TestHelper.MockConnection<Two>().Api.Votes.Show("dummy");
-
-            TestHelper.AssertSuccessResponse(response);
+            // TODO: missing fixture
+            // TestHelper.MockHttpRequestTwo("votes/dummy");
+            // var response = TestHelper.MockConnection<Two>().Api.Votes.Show("dummy");
         }
 
         [TestMethod]
         public async Task ShowAsync()
         {
-            TestHelper.MockHttpRequestTwo("votes/dummy");
+            // TODO: missing fixture
+            // TestHelper.MockHttpRequestTwo("votes/dummy");
+            // svar response = await TestHelper.MockConnection<Two>().Api.Votes.ShowAsync("dummy");
+        }
 
-            var response = await TestHelper.MockConnection<Two>().Api.Votes.ShowAsync("dummy");
+        private static void AssertResponseListOfVotes(Response<List<Transaction>> response)
+        {
+            Assert.AreEqual(51, response.Meta.Count);
+            Assert.AreEqual(1, response.Meta.PageCount);
+            Assert.AreEqual(51, response.Meta.TotalCount);
+            Assert.AreEqual(null, response.Meta.Next);
+            Assert.AreEqual(null, response.Meta.Previous);
+            Assert.AreEqual("/api/v2/votes?page=1&limit=100", response.Meta.Self);
+            Assert.AreEqual("/api/v2/votes?page=1&limit=100", response.Meta.First);
+            Assert.AreEqual("/api/v2/votes?page=1&limit=100", response.Meta.Last);
 
-            TestHelper.AssertSuccessResponse(response);
+            CollectionAssert.AllItemsAreInstancesOfType(response.Data, typeof(Transaction));
+            CollectionAssert.AllItemsAreNotNull(response.Data);
+            CollectionAssert.AllItemsAreUnique(response.Data);
+            Assert.AreEqual(51, response.Data.Count());
         }
     }
 }
