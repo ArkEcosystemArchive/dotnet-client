@@ -13,5 +13,4 @@ namespace ArkEcosystem.Client.API
 
         public abstract string Version();
     }
-
 }

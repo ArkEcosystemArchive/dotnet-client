@@ -27,7 +27,6 @@ using Newtonsoft.Json.Linq;
 using RichardSzalay.MockHttp;
 
 using ArkEcosystem.Client.API;
-using ArkEcosystem.Client.API.One.Models;
 
 namespace ArkEcosystem.Client.Tests
 {
@@ -71,12 +70,6 @@ namespace ArkEcosystem.Client.Tests
         public static void VerifyNoOutstandingExpectation()
         {
             mockHttp.VerifyNoOutstandingExpectation();
-        }
-
-        public static void AssertSuccessResponse(Response response)
-        {
-            Assert.IsTrue(response.Success.Value);
-            VerifyNoOutstandingExpectation();
         }
 
         public static void AssertSuccessResponse(JObject response)

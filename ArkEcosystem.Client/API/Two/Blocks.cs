@@ -23,6 +23,7 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using ArkEcosystem.Client.API.Two.Models;
 using ArkEcosystem.Client.Helpers;
 using Newtonsoft.Json.Linq;
 
@@ -37,58 +38,51 @@ namespace ArkEcosystem.Client.API.Two
             httpClient = client;
         }
 
-        public JObject All(Dictionary<string, string> parameters = null)
+        public Response<List<Block>> All(Dictionary<string, string> parameters = null)
         {
             return AllAsync(parameters).Result;
         }
 
-        public async Task<JObject> AllAsync(Dictionary<string, string> parameters = null)
+        public async Task<Response<List<Block>>> AllAsync(Dictionary<string, string> parameters = null)
         {
             var uri = QueryBuilder.Build("blocks", parameters);
-
             var response = await httpClient.GetStringAsync(uri);
-
-            return JObject.Parse(response);
+            return Two.ConvertResponse<List<Block>>(response);
         }
 
-        public JObject Show(string id)
+        public Response<Block> Show(string id)
         {
             return ShowAsync(id).Result;
         }
 
-        public async Task<JObject> ShowAsync(string id)
+        public async Task<Response<Block>> ShowAsync(string id)
         {
             var response = await httpClient.GetStringAsync(string.Format("blocks/{0}", id));
-
-            return JObject.Parse(response);
+            return Two.ConvertResponse<Block>(response);
         }
 
-        public JObject Transactions(string id, Dictionary<string, string> parameters = null)
+        public Response<List<Transaction>> Transactions(string id, Dictionary<string, string> parameters = null)
         {
             return TransactionsAsync(id, parameters).Result;
         }
 
-        public async Task<JObject> TransactionsAsync(string id, Dictionary<string, string> parameters = null)
+        public async Task<Response<List<Transaction>>> TransactionsAsync(string id, Dictionary<string, string> parameters = null)
         {
             var uri = QueryBuilder.Build(string.Format("blocks/{0}/transactions", id), parameters);
-
             var response = await httpClient.GetStringAsync(uri);
-
-            return JObject.Parse(response);
+            return Two.ConvertResponse<List<Transaction>>(response);
         }
 
-        public JObject Search(Dictionary<string, string> parameters = null)
+        public Response<List<Block>> Search(Dictionary<string, string> parameters = null)
         {
             return SearchAsync(parameters).Result;
         }
 
-        public async Task<JObject> SearchAsync(Dictionary<string, string> parameters = null)
+        public async Task<Response<List<Block>>> SearchAsync(Dictionary<string, string> parameters = null)
         {
             var formParams = new FormUrlEncodedContent(parameters);
-
             var response = await httpClient.PostAsync("blocks/search", formParams);
-
-            return JObject.Parse(await response.Content.ReadAsStringAsync());
+            return Two.ConvertResponse<List<Block>>(await response.Content.ReadAsStringAsync());
         }
     }
 }
