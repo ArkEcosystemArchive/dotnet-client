@@ -34,91 +34,91 @@ namespace ArkEcosystem.Client.Tests.API.Two
         [TestMethod]
         public void All()
         {
-            Helpers.MockHttpRequest("blocks");
+            TestHelper.MockHttpRequestTwo("blocks");
 
-            var response = Helpers.MockConnection<Two>().Api.Blocks.All();
+            var response = TestHelper.MockConnection<Two>().Api.Blocks.All();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task AllAsync()
         {
-            Helpers.MockHttpRequest("blocks");
+            TestHelper.MockHttpRequestTwo("blocks");
 
-            var response = await Helpers.MockConnection<Two>().Api.Blocks.AllAsync();
+            var response = await TestHelper.MockConnection<Two>().Api.Blocks.AllAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Show()
         {
-            Helpers.MockHttpRequest("blocks/dummy");
+            TestHelper.MockHttpRequestTwo("blocks/dummy");
 
-            var response = Helpers.MockConnection<Two>().Api.Blocks.Show("dummy");
+            var response = TestHelper.MockConnection<Two>().Api.Blocks.Show("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task ShowAsync()
         {
-            Helpers.MockHttpRequest("blocks/dummy");
+            TestHelper.MockHttpRequestTwo("blocks/dummy");
 
-            var response = await Helpers.MockConnection<Two>().Api.Blocks.ShowAsync("dummy");
+            var response = await TestHelper.MockConnection<Two>().Api.Blocks.ShowAsync("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Transactions()
         {
-            Helpers.MockHttpRequest("blocks/dummy/transactions");
+            TestHelper.MockHttpRequestTwo("blocks/dummy/transactions");
 
-            var response = Helpers.MockConnection<Two>().Api.Blocks.Transactions("dummy");
+            var response = TestHelper.MockConnection<Two>().Api.Blocks.Transactions("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task TransactionsAsync()
         {
-            Helpers.MockHttpRequest("blocks/dummy/transactions");
+            TestHelper.MockHttpRequestTwo("blocks/dummy/transactions");
 
-            var response = await Helpers.MockConnection<Two>().Api.Blocks.TransactionsAsync("dummy");
+            var response = await TestHelper.MockConnection<Two>().Api.Blocks.TransactionsAsync("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Search()
         {
-            Helpers.MockHttpRequest("blocks/search");
+            TestHelper.MockHttpRequestTwo("blocks/search");
 
             var parameters = new Dictionary<string, string>
             {
                 { "id", "dummy" }
             };
 
-            var response = Helpers.MockConnection<Two>().Api.Blocks.Search(parameters);
+            var response = TestHelper.MockConnection<Two>().Api.Blocks.Search(parameters);
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task SearchAsync()
         {
-            Helpers.MockHttpRequest("blocks/search");
+            TestHelper.MockHttpRequestTwo("blocks/search");
 
             var parameters = new Dictionary<string, string>
             {
                 { "id", "dummy" }
             };
 
-            var response = await Helpers.MockConnection<Two>().Api.Blocks.SearchAsync(parameters);
+            var response = await TestHelper.MockConnection<Two>().Api.Blocks.SearchAsync(parameters);
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
     }
 }

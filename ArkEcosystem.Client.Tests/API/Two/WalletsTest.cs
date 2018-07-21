@@ -34,171 +34,171 @@ namespace ArkEcosystem.Client.Tests.API.Two
         [TestMethod]
         public void All()
         {
-            Helpers.MockHttpRequest("wallets");
+            TestHelper.MockHttpRequestTwo("wallets");
 
-            var response = Helpers.MockConnection<Two>().Api.Wallets.All();
+            var response = TestHelper.MockConnection<Two>().Api.Wallets.All();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task AllAsync()
         {
-            Helpers.MockHttpRequest("wallets");
+            TestHelper.MockHttpRequestTwo("wallets");
 
-            var response = await Helpers.MockConnection<Two>().Api.Wallets.AllAsync();
+            var response = await TestHelper.MockConnection<Two>().Api.Wallets.AllAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Show()
         {
-            Helpers.MockHttpRequest("wallets/dummy");
+            TestHelper.MockHttpRequestTwo("wallets/dummy");
 
-            var response = Helpers.MockConnection<Two>().Api.Wallets.Show("dummy");
+            var response = TestHelper.MockConnection<Two>().Api.Wallets.Show("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task ShowAsync()
         {
-            Helpers.MockHttpRequest("wallets/dummy");
+            TestHelper.MockHttpRequestTwo("wallets/dummy");
 
-            var response = await Helpers.MockConnection<Two>().Api.Wallets.ShowAsync("dummy");
+            var response = await TestHelper.MockConnection<Two>().Api.Wallets.ShowAsync("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Transactions()
         {
-            Helpers.MockHttpRequest("wallets/dummy/transactions");
+            TestHelper.MockHttpRequestTwo("wallets/dummy/transactions");
 
-            var response = Helpers.MockConnection<Two>().Api.Wallets.Transactions("dummy");
+            var response = TestHelper.MockConnection<Two>().Api.Wallets.Transactions("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task TransactionsAsync()
         {
-            Helpers.MockHttpRequest("wallets/dummy/transactions");
+            TestHelper.MockHttpRequestTwo("wallets/dummy/transactions");
 
-            var response = await Helpers.MockConnection<Two>().Api.Wallets.TransactionsAsync("dummy");
+            var response = await TestHelper.MockConnection<Two>().Api.Wallets.TransactionsAsync("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void SentTransactions()
         {
-            Helpers.MockHttpRequest("wallets/dummy/transactions/sent");
+            TestHelper.MockHttpRequestTwo("wallets/dummy/transactions/sent");
 
-            var response = Helpers.MockConnection<Two>().Api.Wallets.SentTransactions("dummy");
+            var response = TestHelper.MockConnection<Two>().Api.Wallets.SentTransactions("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task SentTransactionsAsync()
         {
-            Helpers.MockHttpRequest("wallets/dummy/transactions/sent");
+            TestHelper.MockHttpRequestTwo("wallets/dummy/transactions/sent");
 
-            var response = await Helpers.MockConnection<Two>().Api.Wallets.SentTransactionsAsync("dummy");
+            var response = await TestHelper.MockConnection<Two>().Api.Wallets.SentTransactionsAsync("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void ReceivedTransactions()
         {
-            Helpers.MockHttpRequest("wallets/dummy/transactions/received");
+            TestHelper.MockHttpRequestTwo("wallets/dummy/transactions/received");
 
-            var response = Helpers.MockConnection<Two>().Api.Wallets.ReceivedTransactions("dummy");
+            var response = TestHelper.MockConnection<Two>().Api.Wallets.ReceivedTransactions("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task ReceivedTransactionsAsync()
         {
-            Helpers.MockHttpRequest("wallets/dummy/transactions/received");
+            TestHelper.MockHttpRequestTwo("wallets/dummy/transactions/received");
 
-            var response = await Helpers.MockConnection<Two>().Api.Wallets.ReceivedTransactionsAsync("dummy");
+            var response = await TestHelper.MockConnection<Two>().Api.Wallets.ReceivedTransactionsAsync("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Votes()
         {
-            Helpers.MockHttpRequest("wallets/dummy/votes");
+            TestHelper.MockHttpRequestTwo("wallets/dummy/votes");
 
-            var response = Helpers.MockConnection<Two>().Api.Wallets.Votes("dummy");
+            var response = TestHelper.MockConnection<Two>().Api.Wallets.Votes("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task VotesAsync()
         {
-            Helpers.MockHttpRequest("wallets/dummy/votes");
+            TestHelper.MockHttpRequestTwo("wallets/dummy/votes");
 
-            var response = await Helpers.MockConnection<Two>().Api.Wallets.VotesAsync("dummy");
+            var response = await TestHelper.MockConnection<Two>().Api.Wallets.VotesAsync("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Search()
         {
-            Helpers.MockHttpRequest("wallets/search");
+            TestHelper.MockHttpRequestTwo("wallets/search");
 
             var parameters = new Dictionary<string, string>
             {
                 { "username", "dummy" }
             };
 
-            var response = Helpers.MockConnection<Two>().Api.Wallets.Search(parameters);
+            var response = TestHelper.MockConnection<Two>().Api.Wallets.Search(parameters);
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task SearchAsync()
         {
-            Helpers.MockHttpRequest("wallets/search");
+            TestHelper.MockHttpRequestTwo("wallets/search");
 
             var parameters = new Dictionary<string, string>
             {
                 { "username", "dummy" }
             };
 
-            var response = await Helpers.MockConnection<Two>().Api.Wallets.SearchAsync(parameters);
+            var response = await TestHelper.MockConnection<Two>().Api.Wallets.SearchAsync(parameters);
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Top()
         {
-            Helpers.MockHttpRequest("wallets/top");
+            TestHelper.MockHttpRequestTwo("wallets/top");
 
-            var response = Helpers.MockConnection<Two>().Api.Wallets.Top();
+            var response = TestHelper.MockConnection<Two>().Api.Wallets.Top();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task TopAsync()
         {
-            Helpers.MockHttpRequest("wallets/top");
+            TestHelper.MockHttpRequestTwo("wallets/top");
 
-            var response = await Helpers.MockConnection<Two>().Api.Wallets.TopAsync();
+            var response = await TestHelper.MockConnection<Two>().Api.Wallets.TopAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
     }
 }

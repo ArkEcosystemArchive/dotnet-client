@@ -33,41 +33,41 @@ namespace ArkEcosystem.Client.Tests.API.Two
         [TestMethod]
         public void All()
         {
-            Helpers.MockHttpRequest("peers");
+            TestHelper.MockHttpRequestTwo("peers");
 
-            var response = Helpers.MockConnection<Two>().Api.Peers.All();
+            var response = TestHelper.MockConnection<Two>().Api.Peers.All();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task AllAsync()
         {
-            Helpers.MockHttpRequest("peers");
+            TestHelper.MockHttpRequestTwo("peers");
 
-            var response = await Helpers.MockConnection<Two>().Api.Peers.AllAsync();
+            var response = await TestHelper.MockConnection<Two>().Api.Peers.AllAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Show()
         {
-            Helpers.MockHttpRequest("peers/dummy");
+            TestHelper.MockHttpRequestTwo("peers/dummy");
 
-            var response = Helpers.MockConnection<Two>().Api.Peers.Show("dummy");
+            var response = TestHelper.MockConnection<Two>().Api.Peers.Show("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task ShowAsync()
         {
-            Helpers.MockHttpRequest("peers/dummy");
+            TestHelper.MockHttpRequestTwo("peers/dummy");
 
-            var response = await Helpers.MockConnection<Two>().Api.Peers.ShowAsync("dummy");
+            var response = await TestHelper.MockConnection<Two>().Api.Peers.ShowAsync("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
     }
 }

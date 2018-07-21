@@ -33,81 +33,81 @@ namespace ArkEcosystem.Client.Tests.API.Two
         [TestMethod]
         public void All()
         {
-            Helpers.MockHttpRequest("delegates");
+            TestHelper.MockHttpRequestTwo("delegates");
 
-            var response = Helpers.MockConnection<Two>().Api.Delegates.All();
+            var response = TestHelper.MockConnection<Two>().Api.Delegates.All();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task AllAsync()
         {
-            Helpers.MockHttpRequest("delegates");
+            TestHelper.MockHttpRequestTwo("delegates");
 
-            var response = await Helpers.MockConnection<Two>().Api.Delegates.AllAsync();
+            var response = await TestHelper.MockConnection<Two>().Api.Delegates.AllAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Show()
         {
-            Helpers.MockHttpRequest("delegates/dummy");
+            TestHelper.MockHttpRequestTwo("delegates/dummy");
 
-            var response = Helpers.MockConnection<Two>().Api.Delegates.Show("dummy");
+            var response = TestHelper.MockConnection<Two>().Api.Delegates.Show("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task ShowAsync()
         {
-            Helpers.MockHttpRequest("delegates/dummy");
+            TestHelper.MockHttpRequestTwo("delegates/dummy");
 
-            var response = await Helpers.MockConnection<Two>().Api.Delegates.ShowAsync("dummy");
+            var response = await TestHelper.MockConnection<Two>().Api.Delegates.ShowAsync("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Blocks()
         {
-            Helpers.MockHttpRequest("delegates/dummy/blocks");
+            TestHelper.MockHttpRequestTwo("delegates/dummy/blocks");
 
-                var response = Helpers.MockConnection<Two>().Api.Delegates.Blocks("dummy");
+            var response = TestHelper.MockConnection<Two>().Api.Delegates.Blocks("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task BlocksAsync()
         {
-            Helpers.MockHttpRequest("delegates/dummy/blocks");
+            TestHelper.MockHttpRequestTwo("delegates/dummy/blocks");
 
-                var response = await Helpers.MockConnection<Two>().Api.Delegates.BlocksAsync("dummy");
+            var response = await TestHelper.MockConnection<Two>().Api.Delegates.BlocksAsync("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Voters()
         {
-            Helpers.MockHttpRequest("delegates/dummy/voters");
+            TestHelper.MockHttpRequestTwo("delegates/dummy/voters");
 
-                var response = Helpers.MockConnection<Two>().Api.Delegates.Voters("dummy");
+            var response = TestHelper.MockConnection<Two>().Api.Delegates.Voters("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task VotersAsync()
         {
-            Helpers.MockHttpRequest("delegates/dummy/voters");
+            TestHelper.MockHttpRequestTwo("delegates/dummy/voters");
 
-                var response = await Helpers.MockConnection<Two>().Api.Delegates.VotersAsync("dummy");
+            var response = await TestHelper.MockConnection<Two>().Api.Delegates.VotersAsync("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
     }
 }

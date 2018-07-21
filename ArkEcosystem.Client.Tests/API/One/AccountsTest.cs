@@ -33,161 +33,161 @@ namespace ArkEcosystem.Client.Tests.API.One
         [TestMethod]
         public void All()
         {
-            Helpers.MockHttpRequest("accounts/getAllAccounts");
+            TestHelper.MockHttpRequestOne("accounts/getAllAccounts");
 
-            var response = Helpers.MockConnection<One>().Api.Accounts.All();
+            var response = TestHelper.MockConnection<One>().Api.Accounts.All();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task AllAsync()
         {
-            Helpers.MockHttpRequest("accounts/getAllAccounts");
+            TestHelper.MockHttpRequestOne("accounts/getAllAccounts");
 
-            var response = await Helpers.MockConnection<One>().Api.Accounts.AllAsync();
+            var response = await TestHelper.MockConnection<One>().Api.Accounts.AllAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Show()
         {
-            Helpers.MockHttpRequest("accounts");
+            TestHelper.MockHttpRequestOne("accounts");
 
-            var response = Helpers.MockConnection<One>().Api.Accounts.Show("dummy");
+            var response = TestHelper.MockConnection<One>().Api.Accounts.Show("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task ShowAsync()
         {
-            Helpers.MockHttpRequest("accounts");
+            TestHelper.MockHttpRequestOne("accounts");
 
-            var response = await Helpers.MockConnection<One>().Api.Accounts.ShowAsync("dummy");
+            var response = await TestHelper.MockConnection<One>().Api.Accounts.ShowAsync("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Count()
         {
-            Helpers.MockHttpRequest("accounts/count");
+            TestHelper.MockHttpRequestOne("accounts/count");
 
-            var response = Helpers.MockConnection<One>().Api.Accounts.Count();
+            var response = TestHelper.MockConnection<One>().Api.Accounts.Count();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task CountAsync()
         {
-            Helpers.MockHttpRequest("accounts/count");
+            TestHelper.MockHttpRequestOne("accounts/count");
 
-            var response = await Helpers.MockConnection<One>().Api.Accounts.CountAsync();
+            var response = await TestHelper.MockConnection<One>().Api.Accounts.CountAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Delegates()
         {
-            Helpers.MockHttpRequest("accounts/delegates");
+            TestHelper.MockHttpRequestOne("accounts/delegates");
 
-            var response = Helpers.MockConnection<One>().Api.Accounts.Delegates("dummy");
+            var response = TestHelper.MockConnection<One>().Api.Accounts.Delegates("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task DelegatesAsync()
         {
-            Helpers.MockHttpRequest("accounts/delegates");
+            TestHelper.MockHttpRequestOne("accounts/delegates");
 
-            var response = await Helpers.MockConnection<One>().Api.Accounts.DelegatesAsync("dummy");
+            var response = await TestHelper.MockConnection<One>().Api.Accounts.DelegatesAsync("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Fee()
         {
-            Helpers.MockHttpRequest("accounts/delegates/fee");
+            TestHelper.MockHttpRequestOne("accounts/delegates/fee");
 
-            var response = Helpers.MockConnection<One>().Api.Accounts.Fee();
+            var response = TestHelper.MockConnection<One>().Api.Accounts.Fee();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task FeeAsync()
         {
-            Helpers.MockHttpRequest("accounts/delegates/fee");
+            TestHelper.MockHttpRequestOne("accounts/delegates/fee");
 
-            var response = await Helpers.MockConnection<One>().Api.Accounts.FeeAsync();
+            var response = await TestHelper.MockConnection<One>().Api.Accounts.FeeAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Balance()
         {
-            Helpers.MockHttpRequest("accounts/getBalance");
+            TestHelper.MockHttpRequestOne("accounts/getBalance");
 
-            var response = Helpers.MockConnection<One>().Api.Accounts.Balance("dummy");
+            var response = TestHelper.MockConnection<One>().Api.Accounts.Balance("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task BalanceAsync()
         {
-            Helpers.MockHttpRequest("accounts/getBalance");
+            TestHelper.MockHttpRequestOne("accounts/getBalance");
 
-            var response = await Helpers.MockConnection<One>().Api.Accounts.BalanceAsync("dummy");
+            var response = await TestHelper.MockConnection<One>().Api.Accounts.BalanceAsync("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void PublicKey()
         {
-            Helpers.MockHttpRequest("accounts/getPublicKey");
+            TestHelper.MockHttpRequestOne("accounts/getPublicKey");
 
-            var response = Helpers.MockConnection<One>().Api.Accounts.PublicKey("dummy");
+            var response = TestHelper.MockConnection<One>().Api.Accounts.PublicKey("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task PublicKeyAsync()
         {
-            Helpers.MockHttpRequest("accounts/getPublicKey");
+            TestHelper.MockHttpRequestOne("accounts/getPublicKey");
 
-            var response = await Helpers.MockConnection<One>().Api.Accounts.PublicKeyAsync("dummy");
+            var response = await TestHelper.MockConnection<One>().Api.Accounts.PublicKeyAsync("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Top()
         {
-            Helpers.MockHttpRequest("accounts/top");
+            TestHelper.MockHttpRequestOne("accounts/top");
 
-            var response = Helpers.MockConnection<One>().Api.Accounts.Top();
+            var response = TestHelper.MockConnection<One>().Api.Accounts.Top();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task TopAsync()
         {
-            Helpers.MockHttpRequest("accounts/top");
+            TestHelper.MockHttpRequestOne("accounts/top");
 
-            var response = await Helpers.MockConnection<One>().Api.Accounts.TopAsync();
+            var response = await TestHelper.MockConnection<One>().Api.Accounts.TopAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
     }
 }

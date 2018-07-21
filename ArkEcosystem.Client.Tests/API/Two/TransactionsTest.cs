@@ -34,161 +34,161 @@ namespace ArkEcosystem.Client.Tests.API.Two
         [TestMethod]
         public void All()
         {
-            Helpers.MockHttpRequest("transactions");
+            TestHelper.MockHttpRequestTwo("transactions");
 
-            var response = Helpers.MockConnection<Two>().Api.Transactions.All();
+            var response = TestHelper.MockConnection<Two>().Api.Transactions.All();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task AllAsync()
         {
-            Helpers.MockHttpRequest("transactions");
+            TestHelper.MockHttpRequestTwo("transactions");
 
-            var response = await Helpers.MockConnection<Two>().Api.Transactions.AllAsync();
+            var response = await TestHelper.MockConnection<Two>().Api.Transactions.AllAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Create()
         {
-            Helpers.MockHttpRequest("transactions");
+            TestHelper.MockHttpRequestTwo("transactions");
 
             var parameters = new Dictionary<string, dynamic>
             {
                 { "amount", 1 }
             };
 
-            var response = Helpers.MockConnection<Two>().Api.Transactions.Create(parameters);
+            var response = TestHelper.MockConnection<Two>().Api.Transactions.Create(parameters);
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task CreateAsync()
         {
-            Helpers.MockHttpRequest("transactions");
+            TestHelper.MockHttpRequestTwo("transactions");
 
             var parameters = new Dictionary<string, dynamic>
             {
                 { "amount", 1 }
             };
 
-            var response = await Helpers.MockConnection<Two>().Api.Transactions.CreateAsync(parameters);
+            var response = await TestHelper.MockConnection<Two>().Api.Transactions.CreateAsync(parameters);
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Show()
         {
-            Helpers.MockHttpRequest("transactions/dummy");
+            TestHelper.MockHttpRequestTwo("transactions/dummy");
 
-            var response = Helpers.MockConnection<Two>().Api.Transactions.Show("dummy");
+            var response = TestHelper.MockConnection<Two>().Api.Transactions.Show("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task ShowAsync()
         {
-            Helpers.MockHttpRequest("transactions/dummy");
+            TestHelper.MockHttpRequestTwo("transactions/dummy");
 
-            var response = await Helpers.MockConnection<Two>().Api.Transactions.ShowAsync("dummy");
+            var response = await TestHelper.MockConnection<Two>().Api.Transactions.ShowAsync("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void AllUnconfirmed()
         {
-            Helpers.MockHttpRequest("transactions/unconfirmed");
+            TestHelper.MockHttpRequestTwo("transactions/unconfirmed");
 
-            var response = Helpers.MockConnection<Two>().Api.Transactions.AllUnconfirmed();
+            var response = TestHelper.MockConnection<Two>().Api.Transactions.AllUnconfirmed();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task AllUnconfirmedAsync()
         {
-            Helpers.MockHttpRequest("transactions/unconfirmed");
+            TestHelper.MockHttpRequestTwo("transactions/unconfirmed");
 
-            var response = await Helpers.MockConnection<Two>().Api.Transactions.AllUnconfirmedAsync();
+            var response = await TestHelper.MockConnection<Two>().Api.Transactions.AllUnconfirmedAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void ShowUnconfirmed()
         {
-            Helpers.MockHttpRequest("transactions/unconfirmed/dummy");
+            TestHelper.MockHttpRequestTwo("transactions/unconfirmed/dummy");
 
-            var response = Helpers.MockConnection<Two>().Api.Transactions.ShowUnconfirmed("dummy");
+            var response = TestHelper.MockConnection<Two>().Api.Transactions.ShowUnconfirmed("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task ShowUnconfirmedAsync()
         {
-            Helpers.MockHttpRequest("transactions/unconfirmed/dummy");
+            TestHelper.MockHttpRequestTwo("transactions/unconfirmed/dummy");
 
-            var response = await Helpers.MockConnection<Two>().Api.Transactions.ShowUnconfirmedAsync("dummy");
+            var response = await TestHelper.MockConnection<Two>().Api.Transactions.ShowUnconfirmedAsync("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Search()
         {
-            Helpers.MockHttpRequest("transactions/search");
+            TestHelper.MockHttpRequestTwo("transactions/search");
 
             var parameters = new Dictionary<string, string>
             {
                 { "amount", "1" }
             };
 
-            var response = Helpers.MockConnection<Two>().Api.Transactions.Search(parameters);
+            var response = TestHelper.MockConnection<Two>().Api.Transactions.Search(parameters);
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task SearchAsync()
         {
-            Helpers.MockHttpRequest("transactions/search");
+            TestHelper.MockHttpRequestTwo("transactions/search");
 
             var parameters = new Dictionary<string, string>
             {
                 { "amount", "1" }
             };
 
-            var response = await Helpers.MockConnection<Two>().Api.Transactions.SearchAsync(parameters);
+            var response = await TestHelper.MockConnection<Two>().Api.Transactions.SearchAsync(parameters);
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Types()
         {
-            Helpers.MockHttpRequest("transactions/types");
+            TestHelper.MockHttpRequestTwo("transactions/types");
 
-            var response = Helpers.MockConnection<Two>().Api.Transactions.Types();
+            var response = TestHelper.MockConnection<Two>().Api.Transactions.Types();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task TypesAsync()
         {
-            Helpers.MockHttpRequest("transactions/types");
+            TestHelper.MockHttpRequestTwo("transactions/types");
 
-            var response = await Helpers.MockConnection<Two>().Api.Transactions.TypesAsync();
+            var response = await TestHelper.MockConnection<Two>().Api.Transactions.TypesAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
     }
 }

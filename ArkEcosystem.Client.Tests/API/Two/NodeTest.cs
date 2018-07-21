@@ -33,61 +33,61 @@ namespace ArkEcosystem.Client.Tests.API.Two
         [TestMethod]
         public void Status()
         {
-            Helpers.MockHttpRequest("node/status");
+            TestHelper.MockHttpRequestTwo("node/status");
 
-            var response = Helpers.MockConnection<Two>().Api.Node.Status();
+            var response = TestHelper.MockConnection<Two>().Api.Node.Status();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task StatusAsync()
         {
-            Helpers.MockHttpRequest("node/status");
+            TestHelper.MockHttpRequestTwo("node/status");
 
-            var response = await Helpers.MockConnection<Two>().Api.Node.StatusAsync();
+            var response = await TestHelper.MockConnection<Two>().Api.Node.StatusAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Syncing()
         {
-            Helpers.MockHttpRequest("node/syncing");
+            TestHelper.MockHttpRequestTwo("node/syncing");
 
-            var response = Helpers.MockConnection<Two>().Api.Node.Syncing();
+            var response = TestHelper.MockConnection<Two>().Api.Node.Syncing();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task SyncingAsync()
         {
-            Helpers.MockHttpRequest("node/syncing");
+            TestHelper.MockHttpRequestTwo("node/syncing");
 
-            var response = await Helpers.MockConnection<Two>().Api.Node.SyncingAsync();
+            var response = await TestHelper.MockConnection<Two>().Api.Node.SyncingAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Configuration()
         {
-            Helpers.MockHttpRequest("node/configuration");
+            TestHelper.MockHttpRequestTwo("node/configuration");
 
-            var response = Helpers.MockConnection<Two>().Api.Node.Configuration();
+            var response = TestHelper.MockConnection<Two>().Api.Node.Configuration();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task ConfigurationAsync()
         {
-            Helpers.MockHttpRequest("node/configuration");
+            TestHelper.MockHttpRequestTwo("node/configuration");
 
-            var response = await Helpers.MockConnection<Two>().Api.Node.ConfigurationAsync();
+            var response = await TestHelper.MockConnection<Two>().Api.Node.ConfigurationAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
     }
 }

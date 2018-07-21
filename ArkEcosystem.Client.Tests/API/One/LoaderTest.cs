@@ -33,61 +33,61 @@ namespace ArkEcosystem.Client.Tests.API.One
         [TestMethod]
         public void Status()
         {
-            Helpers.MockHttpRequest("loader/status");
+            TestHelper.MockHttpRequestOne("loader/status");
 
-            var response = Helpers.MockConnection<One>().Api.Loader.Status();
+            var response = TestHelper.MockConnection<One>().Api.Loader.Status();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task StatusAsync()
         {
-            Helpers.MockHttpRequest("loader/status");
+            TestHelper.MockHttpRequestOne("loader/status");
 
-            var response = await Helpers.MockConnection<One>().Api.Loader.StatusAsync();
+            var response = await TestHelper.MockConnection<One>().Api.Loader.StatusAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Sync()
         {
-            Helpers.MockHttpRequest("loader/status/sync");
+            TestHelper.MockHttpRequestOne("loader/status/sync");
 
-            var response = Helpers.MockConnection<One>().Api.Loader.Sync();
+            var response = TestHelper.MockConnection<One>().Api.Loader.Sync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task SyncAsync()
         {
-            Helpers.MockHttpRequest("loader/status/sync");
+            TestHelper.MockHttpRequestOne("loader/status/sync");
 
-            var response = await Helpers.MockConnection<One>().Api.Loader.SyncAsync();
+            var response = await TestHelper.MockConnection<One>().Api.Loader.SyncAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void AutoConfigure()
         {
-            Helpers.MockHttpRequest("loader/autoconfigure");
+            TestHelper.MockHttpRequestOne("loader/autoconfigure");
 
-            var response = Helpers.MockConnection<One>().Api.Loader.AutoConfigure();
+            var response = TestHelper.MockConnection<One>().Api.Loader.AutoConfigure();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task AutoConfigureAsync()
         {
-            Helpers.MockHttpRequest("loader/autoconfigure");
+            TestHelper.MockHttpRequestOne("loader/autoconfigure");
 
-            var response = await Helpers.MockConnection<One>().Api.Loader.AutoConfigureAsync();
+            var response = await TestHelper.MockConnection<One>().Api.Loader.AutoConfigureAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
     }
 }
