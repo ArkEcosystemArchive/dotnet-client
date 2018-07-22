@@ -20,8 +20,12 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ArkEcosystem.Client.API.Two;
+using ArkEcosystem.Client.API.Two.Models;
 
 namespace ArkEcosystem.Client.Tests.API.Two
 {
@@ -33,41 +37,47 @@ namespace ArkEcosystem.Client.Tests.API.Two
         [TestMethod]
         public void All()
         {
-            Helpers.MockHttpRequest("peers");
-
-            var response = Helpers.MockConnection<Two>().Api.Peers.All();
-
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.MockHttpRequestTwo("peers");
+            var response = TestHelper.MockConnection<Two>().Api.Peers.All();
+            AssertResponseListOfPeers(response);
         }
 
         [TestMethod]
         public async Task AllAsync()
         {
-            Helpers.MockHttpRequest("peers");
-
-            var response = await Helpers.MockConnection<Two>().Api.Peers.AllAsync();
-
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.MockHttpRequestTwo("peers");
+            var response = await TestHelper.MockConnection<Two>().Api.Peers.AllAsync();
+            AssertResponseListOfPeers(response);
         }
 
         [TestMethod]
         public void Show()
         {
-            Helpers.MockHttpRequest("peers/dummy");
-
-            var response = Helpers.MockConnection<Two>().Api.Peers.Show("dummy");
-
-            Helpers.AssertSuccessResponse(response);
+            // TODO: missing fixture
+            //TestHelper.MockHttpRequestTwo("peers/dummy");
+            //var response = TestHelper.MockConnection<Two>().Api.Peers.Show("dummy");
         }
 
         [TestMethod]
         public async Task ShowAsync()
         {
-            Helpers.MockHttpRequest("peers/dummy");
+            // TODO: missing fixture
+            //TestHelper.MockHttpRequestTwo("peers/dummy");
+            //var response = await TestHelper.MockConnection<Two>().Api.Peers.ShowAsync("dummy");
+        }
 
-            var response = await Helpers.MockConnection<Two>().Api.Peers.ShowAsync("dummy");
+        private static void AssertResponseListOfPeers(Response<List<Peer>> response)
+        {
+            Assert.AreEqual(0, response.Meta.Count);
+            Assert.AreEqual(0, response.Meta.PageCount);
+            Assert.AreEqual(0, response.Meta.TotalCount);
+            Assert.AreEqual(null, response.Meta.Next);
+            Assert.AreEqual(null, response.Meta.Previous);
+            Assert.AreEqual("/api/v2/peers?page=1&limit=100", response.Meta.Self);
+            Assert.AreEqual("/api/v2/peers?page=1&limit=100", response.Meta.First);
+            Assert.AreEqual(null, response.Meta.Last);
 
-            Helpers.AssertSuccessResponse(response);
+            Assert.IsTrue(response.Data.Count() == 0);
         }
     }
 }

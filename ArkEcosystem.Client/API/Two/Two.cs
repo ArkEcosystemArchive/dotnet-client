@@ -1,8 +1,8 @@
 using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace ArkEcosystem.Client.API.Two
 {
-
     public sealed class Two : Api
     {
         public Blocks Blocks { get; }
@@ -27,6 +27,11 @@ namespace ArkEcosystem.Client.API.Two
         public override string Version()
         {
             return "2";
+        }
+
+        public static Response<T> ConvertResponse<T>(string json)
+        {
+            return JsonConvert.DeserializeObject<Response<T>>(json);//, new JsonConverter<Response<T>>());
         }
     }
 

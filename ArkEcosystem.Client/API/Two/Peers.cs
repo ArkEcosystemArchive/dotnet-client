@@ -23,8 +23,9 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
-using ArkEcosystem.Client.Helpers;
 using Newtonsoft.Json.Linq;
+using ArkEcosystem.Client.API.Two.Models;
+using ArkEcosystem.Client.Helpers;
 
 namespace ArkEcosystem.Client.API.Two
 {
@@ -37,30 +38,26 @@ namespace ArkEcosystem.Client.API.Two
             httpClient = client;
         }
 
-        public JObject All()
+        public Response<List<Peer>> All()
         {
             return AllAsync().Result;
         }
 
-        public async Task<JObject> AllAsync(Dictionary<string, string> parameters = null)
+        public async Task<Response<List<Peer>>> AllAsync(Dictionary<string, string> parameters = null)
         {
             var uri = QueryBuilder.Build("peers", parameters);
-
             var response = await httpClient.GetStringAsync(uri);
-
-            return JObject.Parse(response);
+            return Two.ConvertResponse<List<Peer>>(response);
         }
-
-        public JObject Show(string ip)
+        public Response<Peer> Show(string ip)
         {
             return ShowAsync(ip).Result;
         }
 
-        public async Task<JObject> ShowAsync(string ip)
+        public async Task<Response<Peer>> ShowAsync(string ip)
         {
             var response = await httpClient.GetStringAsync(string.Format("peers/{0}", ip));
-
-            return JObject.Parse(response);
+            return Two.ConvertResponse<Peer>(response);
         }
     }
 }

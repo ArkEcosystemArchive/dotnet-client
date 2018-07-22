@@ -33,221 +33,221 @@ namespace ArkEcosystem.Client.Tests.API.One
         [TestMethod]
         public void All()
         {
-            Helpers.MockHttpRequest("blocks");
+            TestHelper.MockHttpRequestOne("blocks");
 
-            var response = Helpers.MockConnection<One>().Api.Blocks.All();
+            var response = TestHelper.MockConnection<One>().Api.Blocks.All();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task AllAsync()
         {
-            Helpers.MockHttpRequest("blocks");
+            TestHelper.MockHttpRequestOne("blocks");
 
-            var response = await Helpers.MockConnection<One>().Api.Blocks.AllAsync();
+            var response = await TestHelper.MockConnection<One>().Api.Blocks.AllAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Show()
         {
-            Helpers.MockHttpRequest("blocks/get");
+            TestHelper.MockHttpRequestOne("blocks/get");
 
-            var response = Helpers.MockConnection<One>().Api.Blocks.Show("dummy");
+            var response = TestHelper.MockConnection<One>().Api.Blocks.Show("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task ShowAsync()
         {
-            Helpers.MockHttpRequest("blocks/get");
+            TestHelper.MockHttpRequestOne("blocks/get");
 
-            var response = await Helpers.MockConnection<One>().Api.Blocks.ShowAsync("dummy");
+            var response = await TestHelper.MockConnection<One>().Api.Blocks.ShowAsync("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Epoch()
         {
-            Helpers.MockHttpRequest("blocks/getEpoch");
+            TestHelper.MockHttpRequestOne("blocks/getEpoch");
 
-            var response = Helpers.MockConnection<One>().Api.Blocks.Epoch();
+            var response = TestHelper.MockConnection<One>().Api.Blocks.Epoch();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task EpochAsync()
         {
-            Helpers.MockHttpRequest("blocks/getEpoch");
+            TestHelper.MockHttpRequestOne("blocks/getEpoch");
 
-            var response = await Helpers.MockConnection<One>().Api.Blocks.EpochAsync();
+            var response = await TestHelper.MockConnection<One>().Api.Blocks.EpochAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Fee()
         {
-            Helpers.MockHttpRequest("blocks/getFee");
+            TestHelper.MockHttpRequestOne("blocks/getFee");
 
-            var response = Helpers.MockConnection<One>().Api.Blocks.Fee();
+            var response = TestHelper.MockConnection<One>().Api.Blocks.Fee();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task FeeAsync()
         {
-            Helpers.MockHttpRequest("blocks/getFee");
+            TestHelper.MockHttpRequestOne("blocks/getFee");
 
-            var response = await Helpers.MockConnection<One>().Api.Blocks.FeeAsync();
+            var response = await TestHelper.MockConnection<One>().Api.Blocks.FeeAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Fees()
         {
-            Helpers.MockHttpRequest("blocks/getFees");
+            TestHelper.MockHttpRequestOne("blocks/getFees");
 
-            var response = Helpers.MockConnection<One>().Api.Blocks.Fees();
+            var response = TestHelper.MockConnection<One>().Api.Blocks.Fees();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task FeesAsync()
         {
-            Helpers.MockHttpRequest("blocks/getFees");
+            TestHelper.MockHttpRequestOne("blocks/getFees");
 
-            var response = await Helpers.MockConnection<One>().Api.Blocks.FeesAsync();
+            var response = await TestHelper.MockConnection<One>().Api.Blocks.FeesAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Height()
         {
-            Helpers.MockHttpRequest("blocks/getHeight");
+            TestHelper.MockHttpRequestOne("blocks/getHeight");
 
-            var response = Helpers.MockConnection<One>().Api.Blocks.Height();
+            var response = TestHelper.MockConnection<One>().Api.Blocks.Height();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task HeightAsync()
         {
-            Helpers.MockHttpRequest("blocks/getHeight");
+            TestHelper.MockHttpRequestOne("blocks/getHeight");
 
-            var response = await Helpers.MockConnection<One>().Api.Blocks.HeightAsync();
+            var response = await TestHelper.MockConnection<One>().Api.Blocks.HeightAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Milestone()
         {
-            Helpers.MockHttpRequest("blocks/getMilestone");
+            TestHelper.MockHttpRequestOne("blocks/getMilestone");
 
-            var response = Helpers.MockConnection<One>().Api.Blocks.Milestone();
+            var response = TestHelper.MockConnection<One>().Api.Blocks.Milestone();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task MilestoneAsync()
         {
-            Helpers.MockHttpRequest("blocks/getMilestone");
+            TestHelper.MockHttpRequestOne("blocks/getMilestone");
 
-            var response = await Helpers.MockConnection<One>().Api.Blocks.MilestoneAsync();
+            var response = await TestHelper.MockConnection<One>().Api.Blocks.MilestoneAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Nethash()
         {
-            Helpers.MockHttpRequest("blocks/getNethash");
+            TestHelper.MockHttpRequestOne("blocks/getNethash");
 
-            var response = Helpers.MockConnection<One>().Api.Blocks.Nethash();
+            var response = TestHelper.MockConnection<One>().Api.Blocks.Nethash();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task NethashAsync()
         {
-            Helpers.MockHttpRequest("blocks/getNethash");
+            TestHelper.MockHttpRequestOne("blocks/getNethash");
 
-            var response = await Helpers.MockConnection<One>().Api.Blocks.NethashAsync();
+            var response = await TestHelper.MockConnection<One>().Api.Blocks.NethashAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Reward()
         {
-            Helpers.MockHttpRequest("blocks/getReward");
+            TestHelper.MockHttpRequestOne("blocks/getReward");
 
-            var response = Helpers.MockConnection<One>().Api.Blocks.Reward();
+            var response = TestHelper.MockConnection<One>().Api.Blocks.Reward();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task RewardAsync()
         {
-            Helpers.MockHttpRequest("blocks/getReward");
+            TestHelper.MockHttpRequestOne("blocks/getReward");
 
-            var response = await Helpers.MockConnection<One>().Api.Blocks.RewardAsync();
+            var response = await TestHelper.MockConnection<One>().Api.Blocks.RewardAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Status()
         {
-            Helpers.MockHttpRequest("blocks/getStatus");
+            TestHelper.MockHttpRequestOne("blocks/getStatus");
 
-            var response = Helpers.MockConnection<One>().Api.Blocks.Status();
+            var response = TestHelper.MockConnection<One>().Api.Blocks.Status();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task StatusAsync()
         {
-            Helpers.MockHttpRequest("blocks/getStatus");
+            TestHelper.MockHttpRequestOne("blocks/getStatus");
 
-            var response = await Helpers.MockConnection<One>().Api.Blocks.StatusAsync();
+            var response = await TestHelper.MockConnection<One>().Api.Blocks.StatusAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Supply()
         {
-            Helpers.MockHttpRequest("blocks/getSupply");
+            TestHelper.MockHttpRequestOne("blocks/getSupply");
 
-            var response = Helpers.MockConnection<One>().Api.Blocks.Supply();
+            var response = TestHelper.MockConnection<One>().Api.Blocks.Supply();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task SupplyAsync()
         {
-            Helpers.MockHttpRequest("blocks/getSupply");
+            TestHelper.MockHttpRequestOne("blocks/getSupply");
 
-            var response = await Helpers.MockConnection<One>().Api.Blocks.SupplyAsync();
+            var response = await TestHelper.MockConnection<One>().Api.Blocks.SupplyAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
     }
 }

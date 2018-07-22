@@ -33,61 +33,61 @@ namespace ArkEcosystem.Client.Tests.API.One
         [TestMethod]
         public void All()
         {
-            Helpers.MockHttpRequest("peers");
+            TestHelper.MockHttpRequestOne("peers");
 
-            var response = Helpers.MockConnection<One>().Api.Peers.All();
+            var response = TestHelper.MockConnection<One>().Api.Peers.All();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task AllAsync()
         {
-            Helpers.MockHttpRequest("peers");
+            TestHelper.MockHttpRequestOne("peers");
 
-            var response = await Helpers.MockConnection<One>().Api.Peers.AllAsync();
+            var response = await TestHelper.MockConnection<One>().Api.Peers.AllAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Show()
         {
-            Helpers.MockHttpRequest("peers/get");
+            TestHelper.MockHttpRequestOne("peers/get");
 
-            var response = Helpers.MockConnection<One>().Api.Peers.Show("dummy", 1234);
+            var response = TestHelper.MockConnection<One>().Api.Peers.Show("dummy", 1234);
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task ShowAsync()
         {
-            Helpers.MockHttpRequest("peers/get");
+            TestHelper.MockHttpRequestOne("peers/get");
 
-            var response = await Helpers.MockConnection<One>().Api.Peers.ShowAsync("dummy", 1234);
+            var response = await TestHelper.MockConnection<One>().Api.Peers.ShowAsync("dummy", 1234);
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Version()
         {
-            Helpers.MockHttpRequest("peers/version");
+            TestHelper.MockHttpRequestOne("peers/version");
 
-            var response = Helpers.MockConnection<One>().Api.Peers.Version();
+            var response = TestHelper.MockConnection<One>().Api.Peers.Version();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task VersionAsync()
         {
-            Helpers.MockHttpRequest("peers/version");
+            TestHelper.MockHttpRequestOne("peers/version");
 
-            var response = await Helpers.MockConnection<One>().Api.Peers.VersionAsync();
+            var response = await TestHelper.MockConnection<One>().Api.Peers.VersionAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
     }
 }

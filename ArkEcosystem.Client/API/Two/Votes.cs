@@ -22,8 +22,9 @@
 // THE SOFTWARE.
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading.Tasks;
+using ArkEcosystem.Client.API.Two.Models;
 
 namespace ArkEcosystem.Client.API.Two
 {
@@ -36,28 +37,26 @@ namespace ArkEcosystem.Client.API.Two
             httpClient = client;
         }
 
-        public JObject All(Dictionary<string, string> parameters = null)
+        public Response<List<Transaction>> All(Dictionary<string, string> parameters = null)
         {
             return AllAsync(parameters).Result;
         }
 
-        public async Task<JObject> AllAsync(Dictionary<string, string> parameters = null)
+        public async Task<Response<List<Transaction>>> AllAsync(Dictionary<string, string> parameters = null)
         {
             var response = await httpClient.GetStringAsync("votes");
-
-            return JObject.Parse(response);
+            return Two.ConvertResponse<List<Transaction>>(response);
         }
 
-        public JObject Show(string id)
+        public Response<Transaction> Show(string id)
         {
             return ShowAsync(id).Result;
         }
 
-        public async Task<JObject> ShowAsync(string id)
+        public async Task<Response<Transaction>> ShowAsync(string id)
         {
             var response = await httpClient.GetStringAsync(string.Format("votes/{0}", id));
-
-            return JObject.Parse(response);
+            return Two.ConvertResponse<Transaction>(response);
         }
     }
 }

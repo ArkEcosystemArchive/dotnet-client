@@ -33,161 +33,161 @@ namespace ArkEcosystem.Client.Tests.API.One
         [TestMethod]
         public void All()
         {
-            Helpers.MockHttpRequest("delegates");
+            TestHelper.MockHttpRequestOne("delegates");
 
-            var response = Helpers.MockConnection<One>().Api.Delegates.All();
+            var response = TestHelper.MockConnection<One>().Api.Delegates.All();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task AllAsync()
         {
-            Helpers.MockHttpRequest("delegates");
+            TestHelper.MockHttpRequestOne("delegates");
 
-            var response = await Helpers.MockConnection<One>().Api.Delegates.AllAsync();
+            var response = await TestHelper.MockConnection<One>().Api.Delegates.AllAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Show()
         {
-            Helpers.MockHttpRequest("delegates/get");
+            TestHelper.MockHttpRequestOne("delegates/get");
 
-            var response = Helpers.MockConnection<One>().Api.Delegates.Show();
+            var response = TestHelper.MockConnection<One>().Api.Delegates.Show();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task ShowAsync()
         {
-            Helpers.MockHttpRequest("delegates/get");
+            TestHelper.MockHttpRequestOne("delegates/get");
 
-            var response = await Helpers.MockConnection<One>().Api.Delegates.ShowAsync();
+            var response = await TestHelper.MockConnection<One>().Api.Delegates.ShowAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Count()
         {
-            Helpers.MockHttpRequest("delegates/count");
+            TestHelper.MockHttpRequestOne("delegates/count");
 
-            var response = Helpers.MockConnection<One>().Api.Delegates.Count();
+            var response = TestHelper.MockConnection<One>().Api.Delegates.Count();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task CountAsync()
         {
-            Helpers.MockHttpRequest("delegates/count");
+            TestHelper.MockHttpRequestOne("delegates/count");
 
-            var response = await Helpers.MockConnection<One>().Api.Delegates.CountAsync();
+            var response = await TestHelper.MockConnection<One>().Api.Delegates.CountAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Fee()
         {
-            Helpers.MockHttpRequest("delegates/fee");
+            TestHelper.MockHttpRequestOne("delegates/fee");
 
-            var response = Helpers.MockConnection<One>().Api.Delegates.Fee();
+            var response = TestHelper.MockConnection<One>().Api.Delegates.Fee();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task FeeAsync()
         {
-            Helpers.MockHttpRequest("delegates/fee");
+            TestHelper.MockHttpRequestOne("delegates/fee");
 
-            var response = await Helpers.MockConnection<One>().Api.Delegates.FeeAsync();
+            var response = await TestHelper.MockConnection<One>().Api.Delegates.FeeAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void ForgedByAccount()
         {
-            Helpers.MockHttpRequest("delegates/forging/getForgedByAccount");
+            TestHelper.MockHttpRequestOne("delegates/forging/getForgedByAccount");
 
-            var response = Helpers.MockConnection<One>().Api.Delegates.ForgedByAccount("dummy");
+            var response = TestHelper.MockConnection<One>().Api.Delegates.ForgedByAccount("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task ForgedByAccountAsync()
         {
-            Helpers.MockHttpRequest("delegates/forging/getForgedByAccount");
+            TestHelper.MockHttpRequestOne("delegates/forging/getForgedByAccount");
 
-            var response = await Helpers.MockConnection<One>().Api.Delegates.ForgedByAccountAsync("dummy");
+            var response = await TestHelper.MockConnection<One>().Api.Delegates.ForgedByAccountAsync("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Search()
         {
-            Helpers.MockHttpRequest("delegates/search");
+            TestHelper.MockHttpRequestOne("delegates/search");
 
-            var response = Helpers.MockConnection<One>().Api.Delegates.Search("dummy");
+            var response = TestHelper.MockConnection<One>().Api.Delegates.Search("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task SearchAsync()
         {
-            Helpers.MockHttpRequest("delegates/search");
+            TestHelper.MockHttpRequestOne("delegates/search");
 
-            var response = await Helpers.MockConnection<One>().Api.Delegates.SearchAsync("dummy");
+            var response = await TestHelper.MockConnection<One>().Api.Delegates.SearchAsync("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void Voters()
         {
-            Helpers.MockHttpRequest("delegates/voters");
+            TestHelper.MockHttpRequestOne("delegates/voters");
 
-            var response = Helpers.MockConnection<One>().Api.Delegates.Voters("dummy");
+            var response = TestHelper.MockConnection<One>().Api.Delegates.Voters("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task VotersAsync()
         {
-            Helpers.MockHttpRequest("delegates/voters");
+            TestHelper.MockHttpRequestOne("delegates/voters");
 
-            var response = await Helpers.MockConnection<One>().Api.Delegates.VotersAsync("dummy");
+            var response = await TestHelper.MockConnection<One>().Api.Delegates.VotersAsync("dummy");
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public void NextForgers()
         {
-            Helpers.MockHttpRequest("delegates/getNextForgers");
+            TestHelper.MockHttpRequestOne("delegates/getNextForgers");
 
-            var response = Helpers.MockConnection<One>().Api.Delegates.NextForgers();
+            var response = TestHelper.MockConnection<One>().Api.Delegates.NextForgers();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task NextForgersAsync()
         {
-            Helpers.MockHttpRequest("delegates/getNextForgers");
+            TestHelper.MockHttpRequestOne("delegates/getNextForgers");
 
-            var response = await Helpers.MockConnection<One>().Api.Delegates.NextForgersAsync();
+            var response = await TestHelper.MockConnection<One>().Api.Delegates.NextForgersAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
     }
 }

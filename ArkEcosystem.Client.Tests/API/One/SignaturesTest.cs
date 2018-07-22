@@ -33,21 +33,21 @@ namespace ArkEcosystem.Client.Tests.API.One
         [TestMethod]
         public void Fee()
         {
-            Helpers.MockHttpRequest("signatures/fee");
+            TestHelper.MockHttpRequestOne("signatures/fee");
 
-            var response = Helpers.MockConnection<One>().Api.Signatures.Fee();
+            var response = TestHelper.MockConnection<One>().Api.Signatures.Fee();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
 
         [TestMethod]
         public async Task FeeAsync()
         {
-            Helpers.MockHttpRequest("signatures/fee");
+            TestHelper.MockHttpRequestOne("signatures/fee");
 
-            var response = await Helpers.MockConnection<One>().Api.Signatures.FeeAsync();
+            var response = await TestHelper.MockConnection<One>().Api.Signatures.FeeAsync();
 
-            Helpers.AssertSuccessResponse(response);
+            TestHelper.AssertSuccessResponse(response);
         }
     }
 }

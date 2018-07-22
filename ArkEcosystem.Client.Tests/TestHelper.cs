@@ -21,6 +21,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
+using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json.Linq;
 using RichardSzalay.MockHttp;
@@ -29,24 +30,39 @@ using ArkEcosystem.Client.API;
 
 namespace ArkEcosystem.Client.Tests
 {
-    public static class Helpers
+    public static class TestHelper
     {
-        static string mockHost = "https://127.0.0.1:4003/api/";
+        const string MOCK_HOST = "https://127.0.0.1:4003/api/";
+        const string FIXTURES_PATH = "../../../Fixtures/";
+
         static MockHttpMessageHandler mockHttp;
 
-        public static MockedRequest MockHttpRequest(string path)
+        public static MockedRequest MockHttpRequestOne(string path)
         {
             mockHttp = new MockHttpMessageHandler();
 
             return mockHttp
-                .When(string.Format("{0}{1}", mockHost, path))
+                .When(string.Format("{0}{1}", MOCK_HOST, path))
                 .Respond("application/json", "{'success' : true}");
+        }
+
+        public static MockedRequest MockHttpRequestTwo(string endpoint)
+        {
+            mockHttp = new MockHttpMessageHandler();
+
+            var fixtureName = endpoint.Replace("/", "-") + ".json";
+            var path = Path.Combine(FIXTURES_PATH, "Two", fixtureName);
+            var fixture = File.ReadAllText(path);
+
+            return mockHttp
+                .When(string.Format("{0}{1}", MOCK_HOST, endpoint))
+                .Respond("application/json", fixture);
         }
 
         public static Connection<T> MockConnection<T>() where T : Api
         {
             var client = mockHttp.ToHttpClient();
-            client.BaseAddress = new Uri(mockHost);
+            client.BaseAddress = new Uri(MOCK_HOST);
 
             return new Connection<T>(client);
         }
