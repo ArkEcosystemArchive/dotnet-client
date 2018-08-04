@@ -20,6 +20,7 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
+using System;
 using System.Collections.Generic;
 using ArkEcosystem.Client.API;
 
@@ -33,6 +34,10 @@ namespace ArkEcosystem.Client
 
         public IConnection<T> Connect<T>(IConnection<T> connection, string name = "main") where T : Api
         {
+            if (connections.ContainsKey(name)) {
+                throw new Exception(string.Format("Connection '{0}' already exists.", name));
+            }
+
             connections[name] = connection as IConnection<Api>;
             return connection;
         }
