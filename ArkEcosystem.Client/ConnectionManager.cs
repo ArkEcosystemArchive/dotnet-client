@@ -29,11 +29,11 @@ namespace ArkEcosystem.Client
     {
         string defaultConnection = "main";
 
-        readonly Dictionary<string, Connection<Api>> connections = new Dictionary<string, Connection<Api>>();
+        readonly Dictionary<string, IConnection<Api>> connections = new Dictionary<string, IConnection<Api>>();
 
-        public Connection<T> Connect<T>(Connection<T> connection, string name = "main") where T : Api
+        public IConnection<T> Connect<T>(IConnection<T> connection, string name = "main") where T : Api
         {
-            connections[name] = connection as Connection<Api>;
+            connections[name] = connection as IConnection<Api>;
             return connection;
         }
 
@@ -42,9 +42,9 @@ namespace ArkEcosystem.Client
             connections.Remove(name ?? GetDefaultConnection());
         }
 
-        public Connection<T> Connection<T>(string name = null) where T : Api
+        public IConnection<T> Connection<T>(string name = null) where T : Api
         {
-            return connections[name ?? GetDefaultConnection()] as Connection<T>;
+            return connections[name ?? GetDefaultConnection()] as IConnection<T>;
         }
 
         public string GetDefaultConnection()
@@ -57,7 +57,7 @@ namespace ArkEcosystem.Client
             defaultConnection = name;
         }
 
-        public Dictionary<string, Connection<Api>> GetConnections()
+        public Dictionary<string, IConnection<Api>> GetConnections()
         {
             return connections;
         }
