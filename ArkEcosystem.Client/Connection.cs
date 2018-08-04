@@ -4,7 +4,12 @@ using ArkEcosystem.Client.API;
 
 namespace ArkEcosystem.Client
 {
-    public sealed class Connection<T> where T : Api
+    public interface IConnection<out T> where T : Api {
+        T Api { get; }
+        HttpClient Client { get; }
+    }
+
+    public sealed class Connection<T> : IConnection<T> where T: Api
     {
         public HttpClient Client { get; }
 

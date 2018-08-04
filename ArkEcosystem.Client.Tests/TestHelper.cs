@@ -35,7 +35,7 @@ namespace ArkEcosystem.Client.Tests
         const string MOCK_HOST = "https://127.0.0.1:4003/api/";
         const string FIXTURES_PATH = "../../../Fixtures/";
 
-        static MockHttpMessageHandler mockHttp;
+        static MockHttpMessageHandler mockHttp = new MockHttpMessageHandler();
 
         public static MockedRequest MockHttpRequestOne(string path)
         {
@@ -59,7 +59,7 @@ namespace ArkEcosystem.Client.Tests
                 .Respond("application/json", fixture);
         }
 
-        public static Connection<T> MockConnection<T>() where T : Api
+        public static IConnection<T> MockConnection<T>() where T : Api
         {
             var client = mockHttp.ToHttpClient();
             client.BaseAddress = new Uri(MOCK_HOST);
