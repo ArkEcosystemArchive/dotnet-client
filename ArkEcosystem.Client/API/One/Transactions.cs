@@ -72,7 +72,7 @@ namespace ArkEcosystem.Client.API.One
         {
             var uri =  QueryBuilder.Build("transactions/unconfirmed", parameters);
 
-            var response = await httpClient.GetStringAsync("transactions/unconfirmed");
+            var response = await httpClient.GetStringAsync(uri);
 
             return JObject.Parse(response);
         }
@@ -89,7 +89,7 @@ namespace ArkEcosystem.Client.API.One
 
             var uri =  QueryBuilder.Build("transactions/unconfirmed/get", parameters);
 
-            var response = await httpClient.GetStringAsync("transactions/unconfirmed/get");
+            var response = await httpClient.GetStringAsync(uri);
 
             return JObject.Parse(response);
         }
