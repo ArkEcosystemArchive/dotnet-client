@@ -63,7 +63,7 @@ namespace ArkEcosystem.Client.API.One
 
             var uri = QueryBuilder.Build("accounts", parameters);
 
-            var response = await httpClient.GetStringAsync("accounts");
+            var response = await httpClient.GetStringAsync(uri);
 
             return JObject.Parse(response);
         }
@@ -92,7 +92,7 @@ namespace ArkEcosystem.Client.API.One
 
             var uri = QueryBuilder.Build("accounts/delegates", parameters);
 
-            var response = await httpClient.GetStringAsync("accounts/delegates");
+            var response = await httpClient.GetStringAsync(uri);
 
             return JObject.Parse(response);
         }
@@ -121,7 +121,7 @@ namespace ArkEcosystem.Client.API.One
 
             var uri = QueryBuilder.Build("accounts/getBalance", parameters);
 
-            var response = await httpClient.GetStringAsync("accounts/getBalance");
+            var response = await httpClient.GetStringAsync(uri);
 
             return JObject.Parse(response);
         }
@@ -138,7 +138,7 @@ namespace ArkEcosystem.Client.API.One
 
             var uri = QueryBuilder.Build("accounts/getPublicKey", parameters);
 
-            var response = await httpClient.GetStringAsync("accounts/getPublicKey");
+            var response = await httpClient.GetStringAsync(uri);
 
             return JObject.Parse(response);
         }
@@ -152,7 +152,7 @@ namespace ArkEcosystem.Client.API.One
         {
             var uri = QueryBuilder.Build("accounts/top", parameters);
 
-            var response = await httpClient.GetStringAsync("accounts/top");
+            var response = await httpClient.GetStringAsync(uri);
 
             return JObject.Parse(response);
         }
