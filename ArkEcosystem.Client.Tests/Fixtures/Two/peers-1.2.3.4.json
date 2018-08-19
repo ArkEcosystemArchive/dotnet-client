@@ -1,0 +1,11 @@
+{
+    "data": {
+        "ip": "1.2.3.4",
+        "port": 4002,
+        "version": "1.1.1",
+        "height": 987654,
+        "status": "OK",
+        "os": "linux",
+        "latency": 355
+    }
+}
