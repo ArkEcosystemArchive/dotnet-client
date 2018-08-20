@@ -29,6 +29,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ArkEcosystem.Client.Tests.API.Two
 {
+    using System;
     using Two = ArkEcosystem.Client.API.Two.Two;
 
     [TestClass]
@@ -53,17 +54,17 @@ namespace ArkEcosystem.Client.Tests.API.Two
         [TestMethod]
         public void Show()
         {
-            // TODO: missing fixture
-            // TestHelper.MockHttpRequestTwo("votes/dummy");
-            // var response = TestHelper.MockConnection<Two>().Api.Votes.Show("dummy");
+            TestHelper.MockHttpRequestTwo("votes/dummy");
+            var response = TestHelper.MockConnection<Two>().Api.Votes.Show("dummy");
+            AssertResponseVoteStatus(response);
         }
 
         [TestMethod]
         public async Task ShowAsync()
         {
-            // TODO: missing fixture
-            // TestHelper.MockHttpRequestTwo("votes/dummy");
-            // svar response = await TestHelper.MockConnection<Two>().Api.Votes.ShowAsync("dummy");
+            TestHelper.MockHttpRequestTwo("votes/dummy");
+            var response = await TestHelper.MockConnection<Two>().Api.Votes.ShowAsync("dummy");
+            AssertResponseVoteStatus(response);
         }
 
         private static void AssertResponseListOfVotes(Response<List<Transaction>> response)
@@ -81,6 +82,23 @@ namespace ArkEcosystem.Client.Tests.API.Two
             CollectionAssert.AllItemsAreNotNull(response.Data);
             CollectionAssert.AllItemsAreUnique(response.Data);
             Assert.AreEqual(51, response.Data.Count());
+        }
+
+        private static void AssertResponseVoteStatus(Response<Transaction> response)
+        {
+            Assert.AreEqual("beb8dd43c640f562704090159154b2742afba7eacada9e8edee447e34e7675c6", response.Data.Id);
+            Assert.AreEqual("13661015019049808045", response.Data.BlockId);
+            Assert.AreEqual(3, response.Data.Type);
+            Assert.AreEqual(0, response.Data.Amount);
+            Assert.AreEqual(100000000, response.Data.Fee);
+            Assert.AreEqual("DAp7JjULVgqzd4jLofkUyLRovHRPUTQwiZ", response.Data.Sender);
+            Assert.AreEqual("DAp7JjULVgqzd4jLofkUyLRovHRPUTQwiZ", response.Data.Recipient);
+            Assert.AreEqual("3045022100e9a743c5aa0df427f49af61d35fe617182479f7e8d368ce23b7ec43ab6d269c80220193aafd4ccb3eedbd76ded7ea99f31629013dc3af60540029fe98b274d42d284", response.Data.Signature);
+            Assert.IsNotNull(response.Data.Asset); // TODO: update once assert information is strongly typed
+            Assert.AreEqual(48189, response.Data.Confirmations);
+            Assert.AreEqual(32338609, response.Data.Timestamp.Epoch);
+            Assert.AreEqual(1522439809, response.Data.Timestamp.Unix);
+            Assert.AreEqual("2018-03-30T19:56:49Z", response.Data.Timestamp.Human);
         }
     }
 }
