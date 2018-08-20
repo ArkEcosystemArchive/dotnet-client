@@ -29,6 +29,7 @@ using ArkEcosystem.Client.API.Two.Models;
 
 namespace ArkEcosystem.Client.Tests.API.Two
 {
+    using System;
     using Two = ArkEcosystem.Client.API.Two.Two;
 
     [TestClass]
@@ -53,17 +54,17 @@ namespace ArkEcosystem.Client.Tests.API.Two
         [TestMethod]
         public void Show()
         {
-            // TODO: missing fixture
-            //TestHelper.MockHttpRequestTwo("peers/dummy");
-            //var response = TestHelper.MockConnection<Two>().Api.Peers.Show("dummy");
+            TestHelper.MockHttpRequestTwo("peers/1.2.3.4");
+            var response = TestHelper.MockConnection<Two>().Api.Peers.Show("1.2.3.4");
+            AssertResponsePeerStatus(response);
         }
 
         [TestMethod]
         public async Task ShowAsync()
         {
-            // TODO: missing fixture
-            //TestHelper.MockHttpRequestTwo("peers/dummy");
-            //var response = await TestHelper.MockConnection<Two>().Api.Peers.ShowAsync("dummy");
+            TestHelper.MockHttpRequestTwo("peers/1.2.3.4");
+            var response = await TestHelper.MockConnection<Two>().Api.Peers.ShowAsync("1.2.3.4");
+            AssertResponsePeerStatus(response);
         }
 
         private static void AssertResponseListOfPeers(Response<List<Peer>> response)
@@ -78,6 +79,17 @@ namespace ArkEcosystem.Client.Tests.API.Two
             Assert.AreEqual(null, response.Meta.Last);
 
             Assert.IsTrue(response.Data.Count() == 0);
+        }
+
+        private static void AssertResponsePeerStatus(Response<Peer> response)
+        {
+            Assert.AreEqual("1.2.3.4", response.Data.Ip);
+            Assert.AreEqual(4002, response.Data.Port);
+            Assert.AreEqual("1.1.1", response.Data.Version);
+            Assert.AreEqual(987654, response.Data.Height);
+            Assert.AreEqual("OK", response.Data.Status);
+            Assert.AreEqual("linux", response.Data.OS);
+            Assert.AreEqual(355, response.Data.Latency);
         }
     }
 }
