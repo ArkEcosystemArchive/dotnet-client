@@ -14,3 +14,7 @@ jobs:
       - run:
           name: Unit Tests
           command: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover ./ArkEcosystem.Client.Tests
+      - run:
+          name: Codecov
+          when: on_success
+          command: bash <(curl -s https://codecov.io/bash)
