@@ -1,0 +1,20 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: microsoft/dotnet:2.1-sdk
+      
+    working_directory: ~/dotnet-client
+
+    steps:
+      - checkout
+      - run:
+          name: Build
+          command: dotnet build ./ArkEcosystem.Client
+      - run:
+          name: Unit Tests
+          command: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover ./ArkEcosystem.Client.Tests
+      - run:
+          name: Codecov
+          when: on_success
+          command: bash <(curl -s https://codecov.io/bash)
