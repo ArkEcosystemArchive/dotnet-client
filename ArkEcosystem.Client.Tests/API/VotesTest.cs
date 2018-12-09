@@ -23,14 +23,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ArkEcosystem.Client.API.Two;
-using ArkEcosystem.Client.API.Two.Models;
+using ArkEcosystem.Client.API;
+using ArkEcosystem.Client.API.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace ArkEcosystem.Client.Tests.API.Two
+namespace ArkEcosystem.Client.Tests.API
 {
     using System;
-    using Two = ArkEcosystem.Client.API.Two.Two;
+    using Two = ArkEcosystem.Client.API.Two;
 
     [TestClass]
     public class VotesTest

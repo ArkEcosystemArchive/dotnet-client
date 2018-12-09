@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace ArkEcosystem.Client.API.Two.Models
+namespace ArkEcosystem.Client.API.Models
 {
     [JsonObject]
     public class Wallet

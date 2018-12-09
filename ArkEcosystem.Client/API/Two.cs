@@ -1,7 +1,7 @@
 using System.Net.Http;
 using Newtonsoft.Json;
 
-namespace ArkEcosystem.Client.API.Two
+namespace ArkEcosystem.Client.API
 {
     public sealed class Two : Api
     {

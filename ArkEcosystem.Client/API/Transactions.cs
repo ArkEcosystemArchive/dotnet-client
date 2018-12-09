@@ -25,10 +25,10 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
-using ArkEcosystem.Client.API.Two.Models;
+using ArkEcosystem.Client.API.Models;
 using ArkEcosystem.Client.Helpers;
 
-namespace ArkEcosystem.Client.API.Two
+namespace ArkEcosystem.Client.API
 {
     public class Transactions
     {

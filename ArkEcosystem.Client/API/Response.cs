@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using ArkEcosystem.Client.API.Two.Models;
+using ArkEcosystem.Client.API.Models;
 using Newtonsoft.Json;
 
-namespace ArkEcosystem.Client.API.Two
+namespace ArkEcosystem.Client.API
 {
     [JsonObject]
     public class Response<T>

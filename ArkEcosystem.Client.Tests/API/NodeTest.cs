@@ -25,12 +25,12 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ArkEcosystem.Client.API.Two;
-using ArkEcosystem.Client.API.Two.Models;
+using ArkEcosystem.Client.API;
+using ArkEcosystem.Client.API.Models;
 
-namespace ArkEcosystem.Client.Tests.API.Two
+namespace ArkEcosystem.Client.Tests.API
 {
-    using Two = ArkEcosystem.Client.API.Two.Two;
+    using Two = ArkEcosystem.Client.API.Two;
 
     [TestClass]
     public class NodeTest

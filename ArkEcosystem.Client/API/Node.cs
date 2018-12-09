@@ -20,43 +20,53 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-using System.Collections.Generic;
 using System.Net.Http;
-using Newtonsoft.Json.Linq;
 using System.Threading.Tasks;
-using ArkEcosystem.Client.API.Two.Models;
+using Newtonsoft.Json.Linq;
+using ArkEcosystem.Client.API.Models;
 
-namespace ArkEcosystem.Client.API.Two
+namespace ArkEcosystem.Client.API
 {
-    public class Votes
+    public class Node
     {
         readonly HttpClient httpClient;
 
-        public Votes(HttpClient client)
+        public Node(HttpClient client)
         {
             httpClient = client;
         }
 
-        public Response<List<Transaction>> All(Dictionary<string, string> parameters = null)
+        public Response<NodeStatus> Status()
         {
-            return AllAsync(parameters).Result;
+            return StatusAsync().Result;
         }
 
-        public async Task<Response<List<Transaction>>> AllAsync(Dictionary<string, string> parameters = null)
+        public async Task<Response<NodeStatus>> StatusAsync()
         {
-            var response = await httpClient.GetStringAsync("votes");
-            return Two.ConvertResponse<List<Transaction>>(response);
+            var response = await httpClient.GetStringAsync("node/status");
+            return Two.ConvertResponse<NodeStatus>(response);
         }
 
-        public Response<Transaction> Show(string id)
+        public Response<NodeSyncing> Syncing()
         {
-            return ShowAsync(id).Result;
+            return SyncingAsync().Result;
         }
 
-        public async Task<Response<Transaction>> ShowAsync(string id)
+        public async Task<Response<NodeSyncing>> SyncingAsync()
         {
-            var response = await httpClient.GetStringAsync(string.Format("votes/{0}", id));
-            return Two.ConvertResponse<Transaction>(response);
+            var response = await httpClient.GetStringAsync("node/syncing");
+            return Two.ConvertResponse<NodeSyncing>(response);
+        }
+
+        public Response<NodeConfiguration> Configuration()
+        {
+            return ConfigurationAsync().Result;
+        }
+
+        public async Task<Response<NodeConfiguration>> ConfigurationAsync()
+        {
+            var response = await httpClient.GetStringAsync("node/configuration");
+            return Two.ConvertResponse<NodeConfiguration>(response);
         }
     }
 }
