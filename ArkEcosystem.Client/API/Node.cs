@@ -44,7 +44,7 @@ namespace ArkEcosystem.Client.API
         public async Task<Response<NodeStatus>> StatusAsync()
         {
             var response = await httpClient.GetStringAsync("node/status");
-            return Two.ConvertResponse<NodeStatus>(response);
+            return Api.ConvertResponse<NodeStatus>(response);
         }
 
         public Response<NodeSyncing> Syncing()
@@ -55,7 +55,7 @@ namespace ArkEcosystem.Client.API
         public async Task<Response<NodeSyncing>> SyncingAsync()
         {
             var response = await httpClient.GetStringAsync("node/syncing");
-            return Two.ConvertResponse<NodeSyncing>(response);
+            return Api.ConvertResponse<NodeSyncing>(response);
         }
 
         public Response<NodeConfiguration> Configuration()
@@ -66,7 +66,7 @@ namespace ArkEcosystem.Client.API
         public async Task<Response<NodeConfiguration>> ConfigurationAsync()
         {
             var response = await httpClient.GetStringAsync("node/configuration");
-            return Two.ConvertResponse<NodeConfiguration>(response);
+            return Api.ConvertResponse<NodeConfiguration>(response);
         }
     }
 }

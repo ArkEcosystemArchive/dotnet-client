@@ -33,7 +33,7 @@ namespace ArkEcosystem.Client.Tests
         {
             var testHostName = "https://10.0.0.0/";
 
-            var conn1 = new Connection<ArkEcosystem.Client.API.Two>(testHostName);
+            var conn1 = new Connection<ArkEcosystem.Client.API.Api>(testHostName);
             Assert.AreEqual(testHostName, conn1.Client.BaseAddress.ToString());
         }
     }

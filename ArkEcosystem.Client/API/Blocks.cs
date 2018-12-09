@@ -47,7 +47,7 @@ namespace ArkEcosystem.Client.API
         {
             var uri = QueryBuilder.Build("blocks", parameters);
             var response = await httpClient.GetStringAsync(uri);
-            return Two.ConvertResponse<List<Block>>(response);
+            return Api.ConvertResponse<List<Block>>(response);
         }
 
         public Response<Block> Show(string id)
@@ -58,7 +58,7 @@ namespace ArkEcosystem.Client.API
         public async Task<Response<Block>> ShowAsync(string id)
         {
             var response = await httpClient.GetStringAsync(string.Format("blocks/{0}", id));
-            return Two.ConvertResponse<Block>(response);
+            return Api.ConvertResponse<Block>(response);
         }
 
         public Response<List<Transaction>> Transactions(string id, Dictionary<string, string> parameters = null)
@@ -70,7 +70,7 @@ namespace ArkEcosystem.Client.API
         {
             var uri = QueryBuilder.Build(string.Format("blocks/{0}/transactions", id), parameters);
             var response = await httpClient.GetStringAsync(uri);
-            return Two.ConvertResponse<List<Transaction>>(response);
+            return Api.ConvertResponse<List<Transaction>>(response);
         }
 
         public Response<List<Block>> Search(Dictionary<string, string> parameters = null)
@@ -82,7 +82,7 @@ namespace ArkEcosystem.Client.API
         {
             var formParams = new FormUrlEncodedContent(parameters);
             var response = await httpClient.PostAsync("blocks/search", formParams);
-            return Two.ConvertResponse<List<Block>>(await response.Content.ReadAsStringAsync());
+            return Api.ConvertResponse<List<Block>>(await response.Content.ReadAsStringAsync());
         }
     }
 }

@@ -45,7 +45,7 @@ namespace ArkEcosystem.Client.API
         public async Task<Response<List<Transaction>>> AllAsync(Dictionary<string, string> parameters = null)
         {
             var response = await httpClient.GetStringAsync("votes");
-            return Two.ConvertResponse<List<Transaction>>(response);
+            return Api.ConvertResponse<List<Transaction>>(response);
         }
 
         public Response<Transaction> Show(string id)
@@ -56,7 +56,7 @@ namespace ArkEcosystem.Client.API
         public async Task<Response<Transaction>> ShowAsync(string id)
         {
             var response = await httpClient.GetStringAsync(string.Format("votes/{0}", id));
-            return Two.ConvertResponse<Transaction>(response);
+            return Api.ConvertResponse<Transaction>(response);
         }
     }
 }

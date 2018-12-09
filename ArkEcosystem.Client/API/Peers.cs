@@ -47,7 +47,7 @@ namespace ArkEcosystem.Client.API
         {
             var uri = QueryBuilder.Build("peers", parameters);
             var response = await httpClient.GetStringAsync(uri);
-            return Two.ConvertResponse<List<Peer>>(response);
+            return Api.ConvertResponse<List<Peer>>(response);
         }
         public Response<Peer> Show(string ip)
         {
@@ -57,7 +57,7 @@ namespace ArkEcosystem.Client.API
         public async Task<Response<Peer>> ShowAsync(string ip)
         {
             var response = await httpClient.GetStringAsync(string.Format("peers/{0}", ip));
-            return Two.ConvertResponse<Peer>(response);
+            return Api.ConvertResponse<Peer>(response);
         }
     }
 }

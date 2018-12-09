@@ -30,15 +30,15 @@ namespace ArkEcosystem.Client
     {
         string defaultConnection = "main";
 
-        readonly Dictionary<string, IConnection<Api>> connections = new Dictionary<string, IConnection<Api>>();
+        readonly Dictionary<string, IConnection<ApiAbstract>> connections = new Dictionary<string, IConnection<ApiAbstract>>();
 
-        public IConnection<T> Connect<T>(IConnection<T> connection, string name = "main") where T : Api
+        public IConnection<T> Connect<T>(IConnection<T> connection, string name = "main") where T : ApiAbstract
         {
             if (connections.ContainsKey(name)) {
                 throw new Exception(string.Format("Connection '{0}' already exists.", name));
             }
 
-            connections[name] = connection as IConnection<Api>;
+            connections[name] = connection as IConnection<ApiAbstract>;
             return connection;
         }
 
@@ -47,7 +47,7 @@ namespace ArkEcosystem.Client
             connections.Remove(name ?? GetDefaultConnection());
         }
 
-        public IConnection<T> Connection<T>(string name = null) where T : Api
+        public IConnection<T> Connection<T>(string name = null) where T : ApiAbstract
         {
             return connections[name ?? GetDefaultConnection()] as IConnection<T>;
         }
@@ -62,7 +62,7 @@ namespace ArkEcosystem.Client
             defaultConnection = name;
         }
 
-        public Dictionary<string, IConnection<Api>> GetConnections()
+        public Dictionary<string, IConnection<ApiAbstract>> GetConnections()
         {
             return connections;
         }

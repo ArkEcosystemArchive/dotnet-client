@@ -29,7 +29,7 @@ using ArkEcosystem.Client.API.Models;
 
 namespace ArkEcosystem.Client.Tests.API
 {
-    using Two = ArkEcosystem.Client.API.Two;
+    using Api = ArkEcosystem.Client.API.Api;
 
     [TestClass]
     public class BlocksTest
@@ -38,7 +38,7 @@ namespace ArkEcosystem.Client.Tests.API
         public void All()
         {
             TestHelper.MockHttpRequestTwo("blocks");
-            var response = TestHelper.MockConnection<Two>().Api.Blocks.All();
+            var response = TestHelper.MockConnection<Api>().Api.Blocks.All();
             AssertResponseListOfBlocks(response);
         }
 
@@ -46,7 +46,7 @@ namespace ArkEcosystem.Client.Tests.API
         public async Task AllAsync()
         {
             TestHelper.MockHttpRequestTwo("blocks");
-            var response = await TestHelper.MockConnection<Two>().Api.Blocks.AllAsync();
+            var response = await TestHelper.MockConnection<Api>().Api.Blocks.AllAsync();
             AssertResponseListOfBlocks(response);
         }
 
@@ -54,7 +54,7 @@ namespace ArkEcosystem.Client.Tests.API
         public void Show()
         {
             TestHelper.MockHttpRequestTwo("blocks/dummy");
-            var response = TestHelper.MockConnection<Two>().Api.Blocks.Show("dummy");
+            var response = TestHelper.MockConnection<Api>().Api.Blocks.Show("dummy");
             AssertResponseBlockById(response);
         }
 
@@ -62,7 +62,7 @@ namespace ArkEcosystem.Client.Tests.API
         public async Task ShowAsync()
         {
             TestHelper.MockHttpRequestTwo("blocks/dummy");
-            var response = await TestHelper.MockConnection<Two>().Api.Blocks.ShowAsync("dummy");
+            var response = await TestHelper.MockConnection<Api>().Api.Blocks.ShowAsync("dummy");
             AssertResponseBlockById(response);
         }
 
@@ -70,7 +70,7 @@ namespace ArkEcosystem.Client.Tests.API
         public void Transactions()
         {
             TestHelper.MockHttpRequestTwo("blocks/dummy/transactions");
-            var response = TestHelper.MockConnection<Two>().Api.Blocks.Transactions("dummy");
+            var response = TestHelper.MockConnection<Api>().Api.Blocks.Transactions("dummy");
             AssertResponseBlockTransactions(response);
         }
 
@@ -78,7 +78,7 @@ namespace ArkEcosystem.Client.Tests.API
         public async Task TransactionsAsync()
         {
             TestHelper.MockHttpRequestTwo("blocks/dummy/transactions");
-            var response = await TestHelper.MockConnection<Two>().Api.Blocks.TransactionsAsync("dummy");
+            var response = await TestHelper.MockConnection<Api>().Api.Blocks.TransactionsAsync("dummy");
             AssertResponseBlockTransactions(response);
         }
 

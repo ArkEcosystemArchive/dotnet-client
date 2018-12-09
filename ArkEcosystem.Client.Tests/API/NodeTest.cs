@@ -30,7 +30,7 @@ using ArkEcosystem.Client.API.Models;
 
 namespace ArkEcosystem.Client.Tests.API
 {
-    using Two = ArkEcosystem.Client.API.Two;
+    using Api = ArkEcosystem.Client.API.Api;
 
     [TestClass]
     public class NodeTest
@@ -39,7 +39,7 @@ namespace ArkEcosystem.Client.Tests.API
         public void Status()
         {
             TestHelper.MockHttpRequestTwo("node/status");
-            var response = TestHelper.MockConnection<Two>().Api.Node.Status();
+            var response = TestHelper.MockConnection<Api>().Api.Node.Status();
             AssertResponseNodeStatus(response);
         }
 
@@ -48,7 +48,7 @@ namespace ArkEcosystem.Client.Tests.API
         public async Task StatusAsync()
         {
             TestHelper.MockHttpRequestTwo("node/status");
-            var response = await TestHelper.MockConnection<Two>().Api.Node.StatusAsync();
+            var response = await TestHelper.MockConnection<Api>().Api.Node.StatusAsync();
             AssertResponseNodeStatus(response);
         }
 
@@ -56,7 +56,7 @@ namespace ArkEcosystem.Client.Tests.API
         public void Syncing()
         {
             TestHelper.MockHttpRequestTwo("node/syncing");
-            var response = TestHelper.MockConnection<Two>().Api.Node.Syncing();
+            var response = TestHelper.MockConnection<Api>().Api.Node.Syncing();
             AssertResponseNodeSyncing(response);
         }
 
@@ -64,7 +64,7 @@ namespace ArkEcosystem.Client.Tests.API
         public async Task SyncingAsync()
         {
             TestHelper.MockHttpRequestTwo("node/syncing");
-            var response = await TestHelper.MockConnection<Two>().Api.Node.SyncingAsync();
+            var response = await TestHelper.MockConnection<Api>().Api.Node.SyncingAsync();
             AssertResponseNodeSyncing(response);
         }
 
@@ -72,7 +72,7 @@ namespace ArkEcosystem.Client.Tests.API
         public void Configuration()
         {
             TestHelper.MockHttpRequestTwo("node/configuration");
-            var response = TestHelper.MockConnection<Two>().Api.Node.Configuration();
+            var response = TestHelper.MockConnection<Api>().Api.Node.Configuration();
             AssertResponseNodeConfiguration(response);
         }
 
@@ -80,7 +80,7 @@ namespace ArkEcosystem.Client.Tests.API
         public async Task ConfigurationAsync()
         {
             TestHelper.MockHttpRequestTwo("node/configuration");
-            var response = await TestHelper.MockConnection<Two>().Api.Node.ConfigurationAsync();
+            var response = await TestHelper.MockConnection<Api>().Api.Node.ConfigurationAsync();
             AssertResponseNodeConfiguration(response);
         }
         private static void AssertResponseNodeStatus(Response<NodeStatus> response)

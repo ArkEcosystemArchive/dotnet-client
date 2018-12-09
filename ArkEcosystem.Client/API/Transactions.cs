@@ -48,7 +48,7 @@ namespace ArkEcosystem.Client.API
         {
             var uri = QueryBuilder.Build("transactions", parameters);
             var response = await httpClient.GetStringAsync(uri);
-            return Two.ConvertResponse<List<Transaction>>(response);
+            return Api.ConvertResponse<List<Transaction>>(response);
         }
 
         public Response<Transaction> Create(Dictionary<string, dynamic> parameters)
@@ -60,7 +60,7 @@ namespace ArkEcosystem.Client.API
         {
             var content = new StringContent(parameters.ToString(), Encoding.UTF8, "application/json");
             var response = await httpClient.PostAsync("transactions", content);
-            return Two.ConvertResponse<Transaction>(await response.Content.ReadAsStringAsync());
+            return Api.ConvertResponse<Transaction>(await response.Content.ReadAsStringAsync());
         }
 
         public Response<Transaction> Show(string id)
@@ -71,7 +71,7 @@ namespace ArkEcosystem.Client.API
         public async Task<Response<Transaction>> ShowAsync(string id)
         {
             var response = await httpClient.GetStringAsync(string.Format("transactions/{0}", id));
-            return Two.ConvertResponse<Transaction>(response);
+            return Api.ConvertResponse<Transaction>(response);
         }
 
         public Response<List<Transaction>> AllUnconfirmed(Dictionary<string, string> parameters = null)
@@ -83,7 +83,7 @@ namespace ArkEcosystem.Client.API
         {
             var uri = QueryBuilder.Build("transactions/unconfirmed", parameters);
             var response = await httpClient.GetStringAsync(uri);
-            return Two.ConvertResponse<List<Transaction>>(response);
+            return Api.ConvertResponse<List<Transaction>>(response);
         }
 
         public Response<List<Transaction>> ShowUnconfirmed(string id)
@@ -94,7 +94,7 @@ namespace ArkEcosystem.Client.API
         public async Task<Response<List<Transaction>>> ShowUnconfirmedAsync(string id)
         {
             var response = await httpClient.GetStringAsync(string.Format("transactions/unconfirmed/{0}", id));
-            return Two.ConvertResponse<List<Transaction>>(response);
+            return Api.ConvertResponse<List<Transaction>>(response);
         }
 
         public Response<List<Transaction>> Search(Dictionary<string, string> parameters)
@@ -106,7 +106,7 @@ namespace ArkEcosystem.Client.API
         {
             var formParams = new FormUrlEncodedContent(parameters);
             var response = await httpClient.PostAsync("transactions/search", formParams);
-            return Two.ConvertResponse<List<Transaction>>(await response.Content.ReadAsStringAsync());
+            return Api.ConvertResponse<List<Transaction>>(await response.Content.ReadAsStringAsync());
         }
 
         public Response<TransactionTypes> Types()
@@ -117,7 +117,7 @@ namespace ArkEcosystem.Client.API
         public async Task<Response<TransactionTypes>> TypesAsync()
         {
             var response = await httpClient.GetStringAsync("transactions/types");
-            return Two.ConvertResponse<TransactionTypes>(response);
+            return Api.ConvertResponse<TransactionTypes>(response);
         }
     }
 }

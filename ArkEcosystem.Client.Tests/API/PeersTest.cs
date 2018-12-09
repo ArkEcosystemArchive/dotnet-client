@@ -30,7 +30,7 @@ using ArkEcosystem.Client.API.Models;
 namespace ArkEcosystem.Client.Tests.API
 {
     using System;
-    using Two = ArkEcosystem.Client.API.Two;
+    using Api = ArkEcosystem.Client.API.Api;
 
     [TestClass]
     public class PeersTest
@@ -39,7 +39,7 @@ namespace ArkEcosystem.Client.Tests.API
         public void All()
         {
             TestHelper.MockHttpRequestTwo("peers");
-            var response = TestHelper.MockConnection<Two>().Api.Peers.All();
+            var response = TestHelper.MockConnection<Api>().Api.Peers.All();
             AssertResponseListOfPeers(response);
         }
 
@@ -47,7 +47,7 @@ namespace ArkEcosystem.Client.Tests.API
         public async Task AllAsync()
         {
             TestHelper.MockHttpRequestTwo("peers");
-            var response = await TestHelper.MockConnection<Two>().Api.Peers.AllAsync();
+            var response = await TestHelper.MockConnection<Api>().Api.Peers.AllAsync();
             AssertResponseListOfPeers(response);
         }
 
@@ -55,7 +55,7 @@ namespace ArkEcosystem.Client.Tests.API
         public void Show()
         {
             TestHelper.MockHttpRequestTwo("peers/1.2.3.4");
-            var response = TestHelper.MockConnection<Two>().Api.Peers.Show("1.2.3.4");
+            var response = TestHelper.MockConnection<Api>().Api.Peers.Show("1.2.3.4");
             AssertResponsePeerStatus(response);
         }
 
@@ -63,7 +63,7 @@ namespace ArkEcosystem.Client.Tests.API
         public async Task ShowAsync()
         {
             TestHelper.MockHttpRequestTwo("peers/1.2.3.4");
-            var response = await TestHelper.MockConnection<Two>().Api.Peers.ShowAsync("1.2.3.4");
+            var response = await TestHelper.MockConnection<Api>().Api.Peers.ShowAsync("1.2.3.4");
             AssertResponsePeerStatus(response);
         }
 
