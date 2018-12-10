@@ -20,21 +20,43 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
+using System.Collections.Generic;
+using System.Net.Http;
+using Newtonsoft.Json.Linq;
 using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ArkEcosystem.Client.API.Models;
 
-namespace ArkEcosystem.Client.Tests
+namespace ArkEcosystem.Client.API
 {
-    [TestClass]
-    public class ConnectionTest
+    public class Votes
     {
-        [TestMethod]
-        public void ConstructFromHostName()
-        {
-            var testHostName = "https://10.0.0.0/";
+        readonly HttpClient httpClient;
 
-            var conn1 = new Connection<ArkEcosystem.Client.API.Api>(testHostName);
-            Assert.AreEqual(testHostName, conn1.Client.BaseAddress.ToString());
+        public Votes(HttpClient client)
+        {
+            httpClient = client;
+        }
+
+        public Response<List<Transaction>> All(Dictionary<string, string> parameters = null)
+        {
+            return AllAsync(parameters).Result;
+        }
+
+        public async Task<Response<List<Transaction>>> AllAsync(Dictionary<string, string> parameters = null)
+        {
+            var response = await httpClient.GetStringAsync("votes");
+            return Api.ConvertResponse<List<Transaction>>(response);
+        }
+
+        public Response<Transaction> Show(string id)
+        {
+            return ShowAsync(id).Result;
+        }
+
+        public async Task<Response<Transaction>> ShowAsync(string id)
+        {
+            var response = await httpClient.GetStringAsync(string.Format("votes/{0}", id));
+            return Api.ConvertResponse<Transaction>(response);
         }
     }
 }

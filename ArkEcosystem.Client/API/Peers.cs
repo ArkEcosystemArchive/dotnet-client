@@ -20,21 +20,44 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
+using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json.Linq;
+using ArkEcosystem.Client.API.Models;
+using ArkEcosystem.Client.Helpers;
 
-namespace ArkEcosystem.Client.Tests
+namespace ArkEcosystem.Client.API
 {
-    [TestClass]
-    public class ConnectionTest
+    public class Peers
     {
-        [TestMethod]
-        public void ConstructFromHostName()
-        {
-            var testHostName = "https://10.0.0.0/";
+        readonly HttpClient httpClient;
 
-            var conn1 = new Connection<ArkEcosystem.Client.API.Api>(testHostName);
-            Assert.AreEqual(testHostName, conn1.Client.BaseAddress.ToString());
+        public Peers(HttpClient client)
+        {
+            httpClient = client;
+        }
+
+        public Response<List<Peer>> All()
+        {
+            return AllAsync().Result;
+        }
+
+        public async Task<Response<List<Peer>>> AllAsync(Dictionary<string, string> parameters = null)
+        {
+            var uri = QueryBuilder.Build("peers", parameters);
+            var response = await httpClient.GetStringAsync(uri);
+            return Api.ConvertResponse<List<Peer>>(response);
+        }
+        public Response<Peer> Show(string ip)
+        {
+            return ShowAsync(ip).Result;
+        }
+
+        public async Task<Response<Peer>> ShowAsync(string ip)
+        {
+            var response = await httpClient.GetStringAsync(string.Format("peers/{0}", ip));
+            return Api.ConvertResponse<Peer>(response);
         }
     }
 }

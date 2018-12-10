@@ -20,51 +20,53 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-using System;
-using System.Collections.Generic;
-using ArkEcosystem.Client.API;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
+using ArkEcosystem.Client.API.Models;
 
-namespace ArkEcosystem.Client
+namespace ArkEcosystem.Client.API
 {
-    public class ConnectionManager
+    public class Node
     {
-        string defaultConnection = "main";
+        readonly HttpClient httpClient;
 
-        readonly Dictionary<string, IConnection<ApiAbstract>> connections = new Dictionary<string, IConnection<ApiAbstract>>();
-
-        public IConnection<T> Connect<T>(IConnection<T> connection, string name = "main") where T : ApiAbstract
+        public Node(HttpClient client)
         {
-            if (connections.ContainsKey(name)) {
-                throw new Exception(string.Format("Connection '{0}' already exists.", name));
-            }
-
-            connections[name] = connection as IConnection<ApiAbstract>;
-            return connection;
+            httpClient = client;
         }
 
-        public void Disconnect(string name = null)
+        public Response<NodeStatus> Status()
         {
-            connections.Remove(name ?? GetDefaultConnection());
+            return StatusAsync().Result;
         }
 
-        public IConnection<T> Connection<T>(string name = null) where T : ApiAbstract
+        public async Task<Response<NodeStatus>> StatusAsync()
         {
-            return connections[name ?? GetDefaultConnection()] as IConnection<T>;
+            var response = await httpClient.GetStringAsync("node/status");
+            return Api.ConvertResponse<NodeStatus>(response);
         }
 
-        public string GetDefaultConnection()
+        public Response<NodeSyncing> Syncing()
         {
-            return defaultConnection;
+            return SyncingAsync().Result;
         }
 
-        public void SetDefaultConnection(string name)
+        public async Task<Response<NodeSyncing>> SyncingAsync()
         {
-            defaultConnection = name;
+            var response = await httpClient.GetStringAsync("node/syncing");
+            return Api.ConvertResponse<NodeSyncing>(response);
         }
 
-        public Dictionary<string, IConnection<ApiAbstract>> GetConnections()
+        public Response<NodeConfiguration> Configuration()
         {
-            return connections;
+            return ConfigurationAsync().Result;
+        }
+
+        public async Task<Response<NodeConfiguration>> ConfigurationAsync()
+        {
+            var response = await httpClient.GetStringAsync("node/configuration");
+            return Api.ConvertResponse<NodeConfiguration>(response);
         }
     }
 }
