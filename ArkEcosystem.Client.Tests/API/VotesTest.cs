@@ -29,7 +29,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ArkEcosystem.Client.Tests.API
 {
-    using Api = ArkEcosystem.Client.API.Api;
+    using Api = Api;
 
     [TestClass]
     public class VotesTest

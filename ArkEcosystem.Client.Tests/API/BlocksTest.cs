@@ -29,7 +29,7 @@ using ArkEcosystem.Client.API.Models;
 
 namespace ArkEcosystem.Client.Tests.API
 {
-    using Api = ArkEcosystem.Client.API.Api;
+    using Api = Api;
 
     [TestClass]
     public class BlocksTest

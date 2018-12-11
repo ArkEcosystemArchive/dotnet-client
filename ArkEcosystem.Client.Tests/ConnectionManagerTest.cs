@@ -33,7 +33,7 @@ namespace ArkEcosystem.Client.Tests
         public void Should_Create_A_Connection()
         {
             var manager = new ConnectionManager();
-            var conn = TestHelper.MockConnection<ArkEcosystem.Client.API.Api>();
+            var conn = TestHelper.MockConnection<Client.API.Api>();
             manager.Connect(conn, "test");
             CollectionAssert.Contains(manager.GetConnections().Keys, "test");
         }
@@ -42,7 +42,7 @@ namespace ArkEcosystem.Client.Tests
         public void Should_Throw_If_A_Connection_Already_Exists()
         {
             var manager = new ConnectionManager();
-            var conn = TestHelper.MockConnection<ArkEcosystem.Client.API.Api>();
+            var conn = TestHelper.MockConnection<Client.API.Api>();
             manager.Connect(conn, "test");
             Assert.ThrowsException<Exception>(() => manager.Connect(conn, "test"));
         }
@@ -51,7 +51,7 @@ namespace ArkEcosystem.Client.Tests
         public void Should_Remove_A_Connection()
         {
             var manager = new ConnectionManager();
-            var conn = TestHelper.MockConnection<ArkEcosystem.Client.API.Api>();
+            var conn = TestHelper.MockConnection<Client.API.Api>();
             manager.Connect(conn, "test");
             CollectionAssert.Contains(manager.GetConnections().Keys, "test");
             manager.Disconnect("test");
@@ -63,16 +63,16 @@ namespace ArkEcosystem.Client.Tests
         public void Should_Return_A_Connection()
         {
             var manager = new ConnectionManager();
-            var conn = TestHelper.MockConnection<ArkEcosystem.Client.API.Api>();
+            var conn = TestHelper.MockConnection<Client.API.Api>();
             manager.Connect(conn, "test");
-            Assert.IsInstanceOfType(manager.Connection<ArkEcosystem.Client.API.Api>("test"), typeof(Connection<ArkEcosystem.Client.API.Api>));
+            Assert.IsInstanceOfType(manager.Connection<Client.API.Api>("test"), typeof(Connection<Client.API.Api>));
         }
 
         [TestMethod]
         public void Should_Throw_If_A_Connection_Does_Not_Exist()
         {
             var manager = new ConnectionManager();
-            Assert.ThrowsException<KeyNotFoundException>(() => manager.Connection<ArkEcosystem.Client.API.Api>("main"));
+            Assert.ThrowsException<KeyNotFoundException>(() => manager.Connection<Client.API.Api>("main"));
         }
 
         [TestMethod]
@@ -94,14 +94,14 @@ namespace ArkEcosystem.Client.Tests
         public void Should_Return_All_Connections()
         {
             var manager = new ConnectionManager();
-            var conn1 = TestHelper.MockConnection<ArkEcosystem.Client.API.Api>();
-            var conn2 = TestHelper.MockConnection<ArkEcosystem.Client.API.Api>();
+            var conn1 = TestHelper.MockConnection<Client.API.Api>();
+            var conn2 = TestHelper.MockConnection<Client.API.Api>();
 
             manager.Connect(conn1, "test1");
             manager.Connect(conn2, "test2");
 
             Assert.AreEqual(manager.GetConnections().Count, 2);
-            CollectionAssert.AreEqual(manager.GetConnections().Values, new List<IConnection<ArkEcosystem.Client.API.Api>>() {
+            CollectionAssert.AreEqual(manager.GetConnections().Values, new List<IConnection<Client.API.Api>>() {
                 conn1, conn2
             });
         }
