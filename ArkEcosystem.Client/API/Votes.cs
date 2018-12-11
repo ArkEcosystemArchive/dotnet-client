@@ -22,7 +22,6 @@
 // THE SOFTWARE.
 using System.Collections.Generic;
 using System.Net.Http;
-using Newtonsoft.Json.Linq;
 using System.Threading.Tasks;
 using ArkEcosystem.Client.API.Models;
 

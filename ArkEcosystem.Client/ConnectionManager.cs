@@ -22,7 +22,6 @@
 // THE SOFTWARE.
 using System;
 using System.Collections.Generic;
-using ArkEcosystem.Client.API;
 
 namespace ArkEcosystem.Client
 {

@@ -1,6 +1,5 @@
 using System;
 using System.Net.Http;
-using ArkEcosystem.Client.API;
 
 namespace ArkEcosystem.Client
 {

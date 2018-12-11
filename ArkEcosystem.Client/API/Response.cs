@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using ArkEcosystem.Client.API.Models;
 using Newtonsoft.Json;
 

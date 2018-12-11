@@ -26,8 +26,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json.Linq;
 using RichardSzalay.MockHttp;
 
-using ArkEcosystem.Client.API;
-
 namespace ArkEcosystem.Client.Tests
 {
     public static class TestHelper

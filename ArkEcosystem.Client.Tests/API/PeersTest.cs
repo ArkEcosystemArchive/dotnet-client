@@ -29,7 +29,6 @@ using ArkEcosystem.Client.API.Models;
 
 namespace ArkEcosystem.Client.Tests.API
 {
-    using System;
     using Api = ArkEcosystem.Client.API.Api;
 
     [TestClass]

@@ -22,7 +22,6 @@
 // THE SOFTWARE.
 using System.Net.Http;
 using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
 using ArkEcosystem.Client.API.Models;
 
 namespace ArkEcosystem.Client.API
