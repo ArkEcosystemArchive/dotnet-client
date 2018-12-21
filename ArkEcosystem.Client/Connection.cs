@@ -4,17 +4,17 @@ using ArkEcosystem.Client.API;
 
 namespace ArkEcosystem.Client
 {
-    public interface IConnection<out T> where T : ApiAbstract
+    public interface IConnection
     {
-        T Api { get; }
+        ApiAbstract Api { get; }
         HttpClient Client { get; }
     }
 
-    public sealed class Connection : IConnection where T : ApiAbstract
+    public sealed class Connection : IConnection
     {
         public HttpClient Client { get; }
 
-        public T Api { get; }
+        public ApiAbstract Api { get; }
 
         public Connection(string host) : this(CreateClient(host)) { }
 
@@ -37,10 +37,9 @@ namespace ArkEcosystem.Client
             return client;
         }
 
-        static T CreateApi(HttpClient client)
+        static ApiAbstract CreateApi(HttpClient client)
         {
-            return (T)Activator.CreateInstance(typeof(T), new object[] { client });
+            return (ApiAbstract)Activator.CreateInstance(typeof(ApiAbstract), new object[] { client });
         }
-
     }
 }
