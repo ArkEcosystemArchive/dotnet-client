@@ -37,7 +37,7 @@ namespace ArkEcosystem.Client.Tests
 
         static MockHttpMessageHandler mockHttp = new MockHttpMessageHandler();
 
-        public static MockedRequest MockHttpRequestTwo(string endpoint)
+        public static MockedRequest MockHttpRequest(string endpoint)
         {
             mockHttp = new MockHttpMessageHandler();
 

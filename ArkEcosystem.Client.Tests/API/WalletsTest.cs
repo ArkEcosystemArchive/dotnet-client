@@ -37,7 +37,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public void All()
         {
-            TestHelper.MockHttpRequestTwo("wallets");
+            TestHelper.MockHttpRequest("wallets");
             var response = TestHelper.MockConnection().Api.Wallets.All();
             AssertResponseListOfWallets(response);
         }
@@ -45,7 +45,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public async Task AllAsync()
         {
-            TestHelper.MockHttpRequestTwo("wallets");
+            TestHelper.MockHttpRequest("wallets");
             var response = await TestHelper.MockConnection().Api.Wallets.AllAsync();
             AssertResponseListOfWallets(response);
         }
@@ -53,7 +53,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public void Show()
         {
-            TestHelper.MockHttpRequestTwo("wallets/dummy");
+            TestHelper.MockHttpRequest("wallets/dummy");
             var response = TestHelper.MockConnection().Api.Wallets.Show("dummy");
             AssertResponseWalletById(response);
         }
@@ -61,7 +61,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public async Task ShowAsync()
         {
-            TestHelper.MockHttpRequestTwo("wallets/dummy");
+            TestHelper.MockHttpRequest("wallets/dummy");
             var response = await TestHelper.MockConnection().Api.Wallets.ShowAsync("dummy");
             AssertResponseWalletById(response);
         }
@@ -69,7 +69,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public void Transactions()
         {
-            TestHelper.MockHttpRequestTwo("wallets/dummy/transactions");
+            TestHelper.MockHttpRequest("wallets/dummy/transactions");
             var response = TestHelper.MockConnection().Api.Wallets.Transactions("dummy");
             AssertResponseListOfTransactions(response);
         }
@@ -77,7 +77,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public async Task TransactionsAsync()
         {
-            TestHelper.MockHttpRequestTwo("wallets/dummy/transactions");
+            TestHelper.MockHttpRequest("wallets/dummy/transactions");
             var response = await TestHelper.MockConnection().Api.Wallets.TransactionsAsync("dummy");
             AssertResponseListOfTransactions(response);
         }
@@ -85,7 +85,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public void SentTransactions()
         {
-            TestHelper.MockHttpRequestTwo("wallets/dummy/transactions/sent");
+            TestHelper.MockHttpRequest("wallets/dummy/transactions/sent");
             var response = TestHelper.MockConnection().Api.Wallets.SentTransactions("dummy");
             AssertResponseListOfSentTransactions(response);
         }
@@ -93,7 +93,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public async Task SentTransactionsAsync()
         {
-            TestHelper.MockHttpRequestTwo("wallets/dummy/transactions/sent");
+            TestHelper.MockHttpRequest("wallets/dummy/transactions/sent");
             var response = await TestHelper.MockConnection().Api.Wallets.SentTransactionsAsync("dummy");
             AssertResponseListOfSentTransactions(response);
         }
@@ -101,7 +101,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public void ReceivedTransactions()
         {
-            TestHelper.MockHttpRequestTwo("wallets/dummy/transactions/received");
+            TestHelper.MockHttpRequest("wallets/dummy/transactions/received");
             var response = TestHelper.MockConnection().Api.Wallets.ReceivedTransactions("dummy");
             AssertResponseListOfReceivedTransactions(response);
         }
@@ -109,7 +109,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public async Task ReceivedTransactionsAsync()
         {
-            TestHelper.MockHttpRequestTwo("wallets/dummy/transactions/received");
+            TestHelper.MockHttpRequest("wallets/dummy/transactions/received");
             var response = await TestHelper.MockConnection().Api.Wallets.ReceivedTransactionsAsync("dummy");
             AssertResponseListOfReceivedTransactions(response);
         }
@@ -117,7 +117,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public void Votes()
         {
-            TestHelper.MockHttpRequestTwo("wallets/dummy/votes");
+            TestHelper.MockHttpRequest("wallets/dummy/votes");
             var response = TestHelper.MockConnection().Api.Wallets.Votes("dummy");
             AssertResponseListOfVotes(response);
         }
@@ -125,7 +125,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public async Task VotesAsync()
         {
-            TestHelper.MockHttpRequestTwo("wallets/dummy/votes");
+            TestHelper.MockHttpRequest("wallets/dummy/votes");
             var response = await TestHelper.MockConnection().Api.Wallets.VotesAsync("dummy");
             AssertResponseListOfVotes(response);
         }
@@ -134,34 +134,34 @@ namespace ArkEcosystem.Client.Tests.API
         public void Search()
         {
             // TODO: missing fixture
-            // TestHelper.MockHttpRequestTwo("wallets/search");
+            // TestHelper.MockHttpRequest("wallets/search");
 
             // var parameters = new Dictionary<string, string>
             // {
             //     { "username", "dummy" }
             // };
 
-            // var response = TestHelper.MockConnection<Two>().Api.Wallets.Search(parameters);
+            // var response = TestHelper.MockConnection().Api.Wallets.Search(parameters);
         }
 
         [TestMethod]
         public async Task SearchAsync()
         {
             // TODO: missing fixture
-            // TestHelper.MockHttpRequestTwo("wallets/search");
+            // TestHelper.MockHttpRequest("wallets/search");
 
             // var parameters = new Dictionary<string, string>
             // {
             //     { "username", "dummy" }
             // };
 
-            // var response = await TestHelper.MockConnection<Two>().Api.Wallets.SearchAsync(parameters);
+            // var response = await TestHelper.MockConnection().Api.Wallets.SearchAsync(parameters);
         }
 
         [TestMethod]
         public void Top()
         {
-            TestHelper.MockHttpRequestTwo("wallets/top");
+            TestHelper.MockHttpRequest("wallets/top");
             var response = TestHelper.MockConnection().Api.Wallets.Top();
             AssertResponseListOfTopWallets(response);
         }
@@ -169,7 +169,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public async Task TopAsync()
         {
-            TestHelper.MockHttpRequestTwo("wallets/top");
+            TestHelper.MockHttpRequest("wallets/top");
             var response = await TestHelper.MockConnection().Api.Wallets.TopAsync();
             AssertResponseListOfTopWallets(response);
         }

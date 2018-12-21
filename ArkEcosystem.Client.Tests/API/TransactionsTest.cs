@@ -37,7 +37,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public void All()
         {
-            TestHelper.MockHttpRequestTwo("transactions");
+            TestHelper.MockHttpRequest("transactions");
             var response = TestHelper.MockConnection().Api.Transactions.All();
             AssertResponseListOfTransactions(response);
         }
@@ -45,7 +45,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public async Task AllAsync()
         {
-            TestHelper.MockHttpRequestTwo("transactions");
+            TestHelper.MockHttpRequest("transactions");
             var response = await TestHelper.MockConnection().Api.Transactions.AllAsync();
             AssertResponseListOfTransactions(response);
         }
@@ -54,34 +54,34 @@ namespace ArkEcosystem.Client.Tests.API
         public void Create()
         {
             // TODO: missing fixture
-            //     TestHelper.MockHttpRequestTwo("transactions");
+            //     TestHelper.MockHttpRequest("transactions");
 
             //     var parameters = new Dictionary<string, dynamic>
             //     {
             //         { "amount", 1 }
             //     };
 
-            //     var response = TestHelper.MockConnection<Two>().Api.Transactions.Create(parameters);
+            //     var response = TestHelper.MockConnection().Api.Transactions.Create(parameters);
         }
 
         [TestMethod]
         public async Task CreateAsync()
         {
             // TODO: missing fixture
-            // TestHelper.MockHttpRequestTwo("transactions");
+            // TestHelper.MockHttpRequest("transactions");
 
             // var parameters = new Dictionary<string, dynamic>
             // {
             //     { "amount", 1 }
             // };
 
-            // var response = await TestHelper.MockConnection<Two>().Api.Transactions.CreateAsync(parameters);
+            // var response = await TestHelper.MockConnection().Api.Transactions.CreateAsync(parameters);
         }
 
         [TestMethod]
         public void Show()
         {
-            TestHelper.MockHttpRequestTwo("transactions/dummy");
+            TestHelper.MockHttpRequest("transactions/dummy");
             var response = TestHelper.MockConnection().Api.Transactions.Show("dummy");
             AssertResponseTransactionById(response);
         }
@@ -89,7 +89,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public async Task ShowAsync()
         {
-            TestHelper.MockHttpRequestTwo("transactions/dummy");
+            TestHelper.MockHttpRequest("transactions/dummy");
             var response = await TestHelper.MockConnection().Api.Transactions.ShowAsync("dummy");
             AssertResponseTransactionById(response);
         }
@@ -98,70 +98,70 @@ namespace ArkEcosystem.Client.Tests.API
         public void AllUnconfirmed()
         {
             // TODO: missing fixture
-            // TestHelper.MockHttpRequestTwo("transactions/unconfirmed");
+            // TestHelper.MockHttpRequest("transactions/unconfirmed");
 
-            // var response = TestHelper.MockConnection<Two>().Api.Transactions.AllUnconfirmed();
+            // var response = TestHelper.MockConnection().Api.Transactions.AllUnconfirmed();
         }
 
         [TestMethod]
         public async Task AllUnconfirmedAsync()
         {
             // TODO: missing fixture
-            // TestHelper.MockHttpRequestTwo("transactions/unconfirmed");
+            // TestHelper.MockHttpRequest("transactions/unconfirmed");
 
-            // var response = await TestHelper.MockConnection<Two>().Api.Transactions.AllUnconfirmedAsync();
+            // var response = await TestHelper.MockConnection().Api.Transactions.AllUnconfirmedAsync();
         }
 
         [TestMethod]
         public void ShowUnconfirmed()
         {
             // TODO: missing fixture
-            // TestHelper.MockHttpRequestTwo("transactions/unconfirmed/dummy");
+            // TestHelper.MockHttpRequest("transactions/unconfirmed/dummy");
 
-            // var response = TestHelper.MockConnection<Two>().Api.Transactions.ShowUnconfirmed("dummy");
+            // var response = TestHelper.MockConnection().Api.Transactions.ShowUnconfirmed("dummy");
         }
 
         [TestMethod]
         public async Task ShowUnconfirmedAsync()
         {
             // TODO: missing fixture
-            // TestHelper.MockHttpRequestTwo("transactions/unconfirmed/dummy");
+            // TestHelper.MockHttpRequest("transactions/unconfirmed/dummy");
 
-            // var response = await TestHelper.MockConnection<Two>().Api.Transactions.ShowUnconfirmedAsync("dummy");
+            // var response = await TestHelper.MockConnection().Api.Transactions.ShowUnconfirmedAsync("dummy");
         }
 
         [TestMethod]
         public void Search()
         {
             // TODO: missing fixture
-            // TestHelper.MockHttpRequestTwo("transactions/search");
+            // TestHelper.MockHttpRequest("transactions/search");
 
             // var parameters = new Dictionary<string, string>
             // {
             //     { "amount", "1" }
             // };
 
-            // var response = TestHelper.MockConnection<Two>().Api.Transactions.Search(parameters);
+            // var response = TestHelper.MockConnection().Api.Transactions.Search(parameters);
         }
 
         [TestMethod]
         public async Task SearchAsync()
         {
             // TODO: missing fixture
-            // TestHelper.MockHttpRequestTwo("transactions/search");
+            // TestHelper.MockHttpRequest("transactions/search");
 
             // var parameters = new Dictionary<string, string>
             // {
             //     { "amount", "1" }
             // };
 
-            // var response = await TestHelper.MockConnection<Two>().Api.Transactions.SearchAsync(parameters);
+            // var response = await TestHelper.MockConnection().Api.Transactions.SearchAsync(parameters);
         }
 
         [TestMethod]
         public void Types()
         {
-            TestHelper.MockHttpRequestTwo("transactions/types");
+            TestHelper.MockHttpRequest("transactions/types");
             var response = TestHelper.MockConnection().Api.Transactions.Types();
             AssertResponseTransactionTypes(response);
         }
@@ -169,7 +169,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public async Task TypesAsync()
         {
-            TestHelper.MockHttpRequestTwo("transactions/types");
+            TestHelper.MockHttpRequest("transactions/types");
             var response = await TestHelper.MockConnection().Api.Transactions.TypesAsync();
             AssertResponseTransactionTypes(response);
         }

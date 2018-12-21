@@ -38,7 +38,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public void All()
         {
-            TestHelper.MockHttpRequestTwo("peers");
+            TestHelper.MockHttpRequest("peers");
             var response = TestHelper.MockConnection().Api.Peers.All();
             AssertResponseListOfPeers(response);
         }
@@ -46,7 +46,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public async Task AllAsync()
         {
-            TestHelper.MockHttpRequestTwo("peers");
+            TestHelper.MockHttpRequest("peers");
             var response = await TestHelper.MockConnection().Api.Peers.AllAsync();
             AssertResponseListOfPeers(response);
         }
@@ -54,7 +54,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public void Show()
         {
-            TestHelper.MockHttpRequestTwo("peers/1.2.3.4");
+            TestHelper.MockHttpRequest("peers/1.2.3.4");
             var response = TestHelper.MockConnection().Api.Peers.Show("1.2.3.4");
             AssertResponsePeerStatus(response);
         }
@@ -62,7 +62,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public async Task ShowAsync()
         {
-            TestHelper.MockHttpRequestTwo("peers/1.2.3.4");
+            TestHelper.MockHttpRequest("peers/1.2.3.4");
             var response = await TestHelper.MockConnection().Api.Peers.ShowAsync("1.2.3.4");
             AssertResponsePeerStatus(response);
         }

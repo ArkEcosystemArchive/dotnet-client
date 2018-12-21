@@ -37,7 +37,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public void All()
         {
-            TestHelper.MockHttpRequestTwo("delegates");
+            TestHelper.MockHttpRequest("delegates");
             var response = TestHelper.MockConnection().Api.Delegates.All();
             AssertResponseListOfTransactions(response);
         }
@@ -45,7 +45,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public async Task AllAsync()
         {
-            TestHelper.MockHttpRequestTwo("delegates");
+            TestHelper.MockHttpRequest("delegates");
             var response = await TestHelper.MockConnection().Api.Delegates.AllAsync();
             AssertResponseListOfTransactions(response);
         }
@@ -53,7 +53,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public void Show()
         {
-            TestHelper.MockHttpRequestTwo("delegates/dummy");
+            TestHelper.MockHttpRequest("delegates/dummy");
             var response = TestHelper.MockConnection().Api.Delegates.Show("dummy");
             AssertResponseDelegateById(response);
         }
@@ -61,7 +61,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public async Task ShowAsync()
         {
-            TestHelper.MockHttpRequestTwo("delegates/dummy");
+            TestHelper.MockHttpRequest("delegates/dummy");
             var response = await TestHelper.MockConnection().Api.Delegates.ShowAsync("dummy");
             AssertResponseDelegateById(response);
         }
@@ -69,7 +69,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public void Blocks()
         {
-            TestHelper.MockHttpRequestTwo("delegates/dummy/blocks");
+            TestHelper.MockHttpRequest("delegates/dummy/blocks");
             var response = TestHelper.MockConnection().Api.Delegates.Blocks("dummy");
             AssertResponseListOfBlock(response);
         }
@@ -77,7 +77,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public async Task BlocksAsync()
         {
-            TestHelper.MockHttpRequestTwo("delegates/dummy/blocks");
+            TestHelper.MockHttpRequest("delegates/dummy/blocks");
             var response = await TestHelper.MockConnection().Api.Delegates.BlocksAsync("dummy");
             AssertResponseListOfBlock(response);
         }
@@ -85,7 +85,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public void Voters()
         {
-            TestHelper.MockHttpRequestTwo("delegates/dummy/voters");
+            TestHelper.MockHttpRequest("delegates/dummy/voters");
             var response = TestHelper.MockConnection().Api.Delegates.Voters("dummy");
             AssertResponseListOfVoters(response);
         }
@@ -93,7 +93,7 @@ namespace ArkEcosystem.Client.Tests.API
         [TestMethod]
         public async Task VotersAsync()
         {
-            TestHelper.MockHttpRequestTwo("delegates/dummy/voters");
+            TestHelper.MockHttpRequest("delegates/dummy/voters");
             var response = await TestHelper.MockConnection().Api.Delegates.VotersAsync("dummy");
             AssertResponseListOfVoters(response);
         }
