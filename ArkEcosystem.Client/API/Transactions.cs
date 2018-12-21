@@ -27,6 +27,8 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using ArkEcosystem.Client.API.Models;
 using ArkEcosystem.Client.Helpers;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace ArkEcosystem.Client.API
 {
@@ -51,14 +53,19 @@ namespace ArkEcosystem.Client.API
             return Api.ConvertResponse<List<Transaction>>(response);
         }
 
-        public Response<Transaction> Create(Dictionary<string, dynamic> parameters)
+        public Response<Transaction> Create(List<string> transactions)
         {
-            return CreateAsync(parameters).Result;
+            return CreateAsync(transactions).Result;
         }
 
-        public async Task<Response<Transaction>> CreateAsync(Dictionary<string, dynamic> parameters)
+        public async Task<Response<Transaction>> CreateAsync(List<string> transactions)
         {
-            var content = new StringContent(parameters.ToString(), Encoding.UTF8, "application/json");
+            var parameters = new Dictionary<string, List<string>> { { "transactions", transactions } };
+            var settings = new JsonSerializerSettings()
+            {
+                ContractResolver = new CamelCasePropertyNamesContractResolver()
+            };
+            var content = new StringContent(JsonConvert.SerializeObject(parameters, settings), Encoding.UTF8, "application/json");
             var response = await httpClient.PostAsync("transactions", content);
             return Api.ConvertResponse<Transaction>(await response.Content.ReadAsStringAsync());
         }
