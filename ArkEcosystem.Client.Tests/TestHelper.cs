@@ -42,7 +42,7 @@ namespace ArkEcosystem.Client.Tests
             mockHttp = new MockHttpMessageHandler();
 
             var fixtureName = endpoint.Replace("/", "-") + ".json";
-            var path = Path.Combine(FIXTURES_PATH, "Two", fixtureName);
+            var path = Path.Combine(FIXTURES_PATH, fixtureName);
             var fixture = File.ReadAllText(path);
 
             return mockHttp
