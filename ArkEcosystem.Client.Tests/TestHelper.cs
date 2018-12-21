@@ -59,12 +59,12 @@ namespace ArkEcosystem.Client.Tests
                 .Respond("application/json", fixture);
         }
 
-        public static IConnection<T> MockConnection<T>() where T : ApiAbstract
+        public static IConnection MockConnection() where T : ApiAbstract
         {
             var client = mockHttp.ToHttpClient();
             client.BaseAddress = new Uri(MOCK_HOST);
 
-            return new Connection<T>(client);
+            return new Connection(client);
         }
 
         public static void VerifyNoOutstandingExpectation()

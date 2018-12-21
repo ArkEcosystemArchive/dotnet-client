@@ -10,7 +10,7 @@ namespace ArkEcosystem.Client
         HttpClient Client { get; }
     }
 
-    public sealed class Connection<T> : IConnection<T> where T : ApiAbstract
+    public sealed class Connection : IConnection where T : ApiAbstract
     {
         public HttpClient Client { get; }
 

@@ -39,7 +39,7 @@ namespace ArkEcosystem.Client.Tests.API
         public void All()
         {
             TestHelper.MockHttpRequestTwo("votes");
-            var response = TestHelper.MockConnection<Api>().Api.Votes.All();
+            var response = TestHelper.MockConnection().Api.Votes.All();
             AssertResponseListOfVotes(response);
         }
 
@@ -47,7 +47,7 @@ namespace ArkEcosystem.Client.Tests.API
         public async Task AllAsync()
         {
             TestHelper.MockHttpRequestTwo("votes");
-            var response = await TestHelper.MockConnection<Api>().Api.Votes.AllAsync();
+            var response = await TestHelper.MockConnection().Api.Votes.AllAsync();
             AssertResponseListOfVotes(response);
         }
 
@@ -55,7 +55,7 @@ namespace ArkEcosystem.Client.Tests.API
         public void Show()
         {
             TestHelper.MockHttpRequestTwo("votes/dummy");
-            var response = TestHelper.MockConnection<Api>().Api.Votes.Show("dummy");
+            var response = TestHelper.MockConnection().Api.Votes.Show("dummy");
             AssertResponseVoteStatus(response);
         }
 
@@ -63,7 +63,7 @@ namespace ArkEcosystem.Client.Tests.API
         public async Task ShowAsync()
         {
             TestHelper.MockHttpRequestTwo("votes/dummy");
-            var response = await TestHelper.MockConnection<Api>().Api.Votes.ShowAsync("dummy");
+            var response = await TestHelper.MockConnection().Api.Votes.ShowAsync("dummy");
             AssertResponseVoteStatus(response);
         }
 

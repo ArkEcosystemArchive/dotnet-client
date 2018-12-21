@@ -38,7 +38,7 @@ namespace ArkEcosystem.Client.Tests.API
         public void All()
         {
             TestHelper.MockHttpRequestTwo("transactions");
-            var response = TestHelper.MockConnection<Api>().Api.Transactions.All();
+            var response = TestHelper.MockConnection().Api.Transactions.All();
             AssertResponseListOfTransactions(response);
         }
 
@@ -46,7 +46,7 @@ namespace ArkEcosystem.Client.Tests.API
         public async Task AllAsync()
         {
             TestHelper.MockHttpRequestTwo("transactions");
-            var response = await TestHelper.MockConnection<Api>().Api.Transactions.AllAsync();
+            var response = await TestHelper.MockConnection().Api.Transactions.AllAsync();
             AssertResponseListOfTransactions(response);
         }
 
@@ -82,7 +82,7 @@ namespace ArkEcosystem.Client.Tests.API
         public void Show()
         {
             TestHelper.MockHttpRequestTwo("transactions/dummy");
-            var response = TestHelper.MockConnection<Api>().Api.Transactions.Show("dummy");
+            var response = TestHelper.MockConnection().Api.Transactions.Show("dummy");
             AssertResponseTransactionById(response);
         }
 
@@ -90,7 +90,7 @@ namespace ArkEcosystem.Client.Tests.API
         public async Task ShowAsync()
         {
             TestHelper.MockHttpRequestTwo("transactions/dummy");
-            var response = await TestHelper.MockConnection<Api>().Api.Transactions.ShowAsync("dummy");
+            var response = await TestHelper.MockConnection().Api.Transactions.ShowAsync("dummy");
             AssertResponseTransactionById(response);
         }
 
@@ -162,7 +162,7 @@ namespace ArkEcosystem.Client.Tests.API
         public void Types()
         {
             TestHelper.MockHttpRequestTwo("transactions/types");
-            var response = TestHelper.MockConnection<Api>().Api.Transactions.Types();
+            var response = TestHelper.MockConnection().Api.Transactions.Types();
             AssertResponseTransactionTypes(response);
         }
 
@@ -170,7 +170,7 @@ namespace ArkEcosystem.Client.Tests.API
         public async Task TypesAsync()
         {
             TestHelper.MockHttpRequestTwo("transactions/types");
-            var response = await TestHelper.MockConnection<Api>().Api.Transactions.TypesAsync();
+            var response = await TestHelper.MockConnection().Api.Transactions.TypesAsync();
             AssertResponseTransactionTypes(response);
         }
 
