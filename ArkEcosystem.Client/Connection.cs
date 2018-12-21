@@ -20,7 +20,7 @@ namespace ArkEcosystem.Client
 
         public Connection(HttpClient client)
         {
-            Api = CreateApi(client);
+            Api = new Api(client);
 
             Client = client;
             Client.DefaultRequestHeaders.TryAddWithoutValidation("API-Version", "2");
@@ -35,11 +35,6 @@ namespace ArkEcosystem.Client
             };
 
             return client;
-        }
-
-        static Api CreateApi(HttpClient client)
-        {
-            return (Api)Activator.CreateInstance(typeof(Api), new object[] { client });
         }
     }
 }
