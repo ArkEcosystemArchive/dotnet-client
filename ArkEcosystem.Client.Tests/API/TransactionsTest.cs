@@ -215,7 +215,7 @@ namespace ArkEcosystem.Client.Tests.API
             Assert.AreEqual(2, response.Data.DelegateRegistration);
             Assert.AreEqual(3, response.Data.Vote);
             Assert.AreEqual(4, response.Data.MultiSignature);
-            Assert.AreEqual(5, response.Data.IPFS);
+            Assert.AreEqual(5, response.Data.Ipfs);
             Assert.AreEqual(6, response.Data.TimelockTransfer);
             Assert.AreEqual(7, response.Data.MultiPayment);
             Assert.AreEqual(8, response.Data.DelegateResignation);
