@@ -3,8 +3,10 @@ using Newtonsoft.Json;
 
 namespace ArkEcosystem.Client.API
 {
-    public sealed class Api : ApiAbstract
+    public sealed class Api
     {
+        public HttpClient Client { get; }
+
         public Blocks Blocks { get; }
         public Delegates Delegates { get; }
         public Node Node { get; }
@@ -13,7 +15,7 @@ namespace ArkEcosystem.Client.API
         public Votes Votes { get; }
         public Wallets Wallets { get; }
 
-        public Api(HttpClient client) : base(client)
+        public Api(HttpClient client)
         {
             Blocks = new Blocks(client);
             Delegates = new Delegates(client);
@@ -24,14 +26,9 @@ namespace ArkEcosystem.Client.API
             Wallets = new Wallets(client);
         }
 
-        public override string Version()
-        {
-            return "2";
-        }
-
         public static Response<T> ConvertResponse<T>(string json)
         {
-            return JsonConvert.DeserializeObject<Response<T>>(json);//, new JsonConverter<Response<T>>());
+            return JsonConvert.DeserializeObject<Response<T>>(json);
         }
     }
 

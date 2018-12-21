@@ -37,15 +37,6 @@ namespace ArkEcosystem.Client.Tests
 
         static MockHttpMessageHandler mockHttp = new MockHttpMessageHandler();
 
-        public static MockedRequest MockHttpRequestOne(string path)
-        {
-            mockHttp = new MockHttpMessageHandler();
-
-            return mockHttp
-                .When(string.Format("{0}{1}", MOCK_HOST, path))
-                .Respond("application/json", "{'success' : true}");
-        }
-
         public static MockedRequest MockHttpRequestTwo(string endpoint)
         {
             mockHttp = new MockHttpMessageHandler();

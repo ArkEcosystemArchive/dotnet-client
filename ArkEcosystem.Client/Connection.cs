@@ -6,7 +6,7 @@ namespace ArkEcosystem.Client
 {
     public interface IConnection
     {
-        ApiAbstract Api { get; }
+        Api Api { get; }
         HttpClient Client { get; }
     }
 
@@ -14,7 +14,7 @@ namespace ArkEcosystem.Client
     {
         public HttpClient Client { get; }
 
-        public ApiAbstract Api { get; }
+        public Api Api { get; }
 
         public Connection(string host) : this(CreateClient(host)) { }
 
@@ -23,7 +23,7 @@ namespace ArkEcosystem.Client
             Api = CreateApi(client);
 
             Client = client;
-            Client.DefaultRequestHeaders.TryAddWithoutValidation("API-Version", Api.Version());
+            Client.DefaultRequestHeaders.TryAddWithoutValidation("API-Version", "2");
             Client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
         }
 
@@ -37,9 +37,9 @@ namespace ArkEcosystem.Client
             return client;
         }
 
-        static ApiAbstract CreateApi(HttpClient client)
+        static Api CreateApi(HttpClient client)
         {
-            return (ApiAbstract)Activator.CreateInstance(typeof(ApiAbstract), new object[] { client });
+            return (Api)Activator.CreateInstance(typeof(Api), new object[] { client });
         }
     }
 }
