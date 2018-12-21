@@ -4,25 +4,26 @@ using ArkEcosystem.Client.API;
 
 namespace ArkEcosystem.Client
 {
-    public interface IConnection<out T> where T : Api {
-        T Api { get; }
+    public interface IConnection
+    {
+        Api Api { get; }
         HttpClient Client { get; }
     }
 
-    public sealed class Connection<T> : IConnection<T> where T: Api
+    public sealed class Connection : IConnection
     {
         public HttpClient Client { get; }
 
-        public T Api { get; }
+        public Api Api { get; }
 
         public Connection(string host) : this(CreateClient(host)) { }
 
         public Connection(HttpClient client)
         {
-            Api = CreateApi(client);
+            Api = new Api(client);
 
             Client = client;
-            Client.DefaultRequestHeaders.TryAddWithoutValidation("API-Version", Api.Version());
+            Client.DefaultRequestHeaders.TryAddWithoutValidation("API-Version", "2");
             Client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
         }
 
@@ -35,13 +36,5 @@ namespace ArkEcosystem.Client
 
             return client;
         }
-
-        static T CreateApi(HttpClient client)
-        {
-            return (T)Activator.CreateInstance(typeof(T), new object[] { client });
-        }
-
     }
 }
-
-

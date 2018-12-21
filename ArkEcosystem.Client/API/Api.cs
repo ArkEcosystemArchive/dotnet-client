@@ -1,16 +1,35 @@
 using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace ArkEcosystem.Client.API
 {
-    public abstract class Api
+    public sealed class Api
     {
-        HttpClient Client { get; }
+        public HttpClient Client { get; }
+
+        public Blocks Blocks { get; }
+        public Delegates Delegates { get; }
+        public Node Node { get; }
+        public Peers Peers { get; }
+        public Transactions Transactions { get; }
+        public Votes Votes { get; }
+        public Wallets Wallets { get; }
 
         public Api(HttpClient client)
         {
-            Client = client;
+            Blocks = new Blocks(client);
+            Delegates = new Delegates(client);
+            Node = new Node(client);
+            Peers = new Peers(client);
+            Transactions = new Transactions(client);
+            Votes = new Votes(client);
+            Wallets = new Wallets(client);
         }
 
-        public abstract string Version();
+        public static Response<T> ConvertResponse<T>(string json)
+        {
+            return JsonConvert.DeserializeObject<Response<T>>(json);
+        }
     }
+
 }

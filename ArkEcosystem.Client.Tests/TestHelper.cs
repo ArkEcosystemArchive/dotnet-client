@@ -37,21 +37,12 @@ namespace ArkEcosystem.Client.Tests
 
         static MockHttpMessageHandler mockHttp = new MockHttpMessageHandler();
 
-        public static MockedRequest MockHttpRequestOne(string path)
-        {
-            mockHttp = new MockHttpMessageHandler();
-
-            return mockHttp
-                .When(string.Format("{0}{1}", MOCK_HOST, path))
-                .Respond("application/json", "{'success' : true}");
-        }
-
-        public static MockedRequest MockHttpRequestTwo(string endpoint)
+        public static MockedRequest MockHttpRequest(string endpoint)
         {
             mockHttp = new MockHttpMessageHandler();
 
             var fixtureName = endpoint.Replace("/", "-") + ".json";
-            var path = Path.Combine(FIXTURES_PATH, "Two", fixtureName);
+            var path = Path.Combine(FIXTURES_PATH, fixtureName);
             var fixture = File.ReadAllText(path);
 
             return mockHttp
@@ -59,12 +50,12 @@ namespace ArkEcosystem.Client.Tests
                 .Respond("application/json", fixture);
         }
 
-        public static IConnection<T> MockConnection<T>() where T : Api
+        public static IConnection MockConnection()
         {
             var client = mockHttp.ToHttpClient();
             client.BaseAddress = new Uri(MOCK_HOST);
 
-            return new Connection<T>(client);
+            return new Connection(client);
         }
 
         public static void VerifyNoOutstandingExpectation()
