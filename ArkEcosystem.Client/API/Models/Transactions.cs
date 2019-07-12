@@ -10,11 +10,15 @@ namespace ArkEcosystem.Client.API.Models
         public string Id { get; set; }
         public string BlockId { get; set; }
         public byte Type { get; set; }
-        public long Amount { get; set; }
-        public long Fee { get; set; }
+        public string Amount { get; set; }
+        public string Fee { get; set; }
         public string Sender { get; set; }
         public string Recipient { get; set; }
+        public string SenderPublicKey { get; set; }
+        public string SecondPublicKey { get; set; }
         public string Signature { get; set; }
+        public string SecondSignature { get; set; }
+        public string SignSignature { get; set; }
         public string VendorField { get; set; }
         public dynamic Asset { get; set; } // TODO
         public long Confirmations { get; set; }

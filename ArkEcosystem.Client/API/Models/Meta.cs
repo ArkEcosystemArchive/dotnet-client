@@ -7,6 +7,7 @@ namespace ArkEcosystem.Client.API.Models
     [JsonObject]
     public class Meta
     {
+        public bool TotalCountIsEstimate { get; set; }
         public int Count { get; set; }
         public int PageCount { get; set; }
         public int TotalCount { get; set; }

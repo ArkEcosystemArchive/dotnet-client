@@ -9,7 +9,9 @@ namespace ArkEcosystem.Client.API.Models
     {
         public string Address { get; set; }
         public string PublicKey { get; set; }
-        public long Balance { get; set; }
+        public string Username { get; set; }
+        public string SecondPublicKey { get; set; }
+        public string Balance { get; set; }
         public bool IsDelegate { get; set; }
     }
 }

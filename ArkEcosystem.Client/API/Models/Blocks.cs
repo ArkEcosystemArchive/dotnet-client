@@ -22,9 +22,9 @@ namespace ArkEcosystem.Client.API.Models
     [JsonObject]
     public class Forged
     {
-        public long Reward { get; set; }
-        public long Fee { get; set; }
-        public long Total { get; set; }
+        public string Reward { get; set; }
+        public string Fee { get; set; }
+        public string Total { get; set; }
     }
 
     [JsonObject]

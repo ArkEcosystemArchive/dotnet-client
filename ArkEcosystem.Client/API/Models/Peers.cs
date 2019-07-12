@@ -9,10 +9,9 @@ namespace ArkEcosystem.Client.API.Models
     {
         public string Ip { get; set; }
         public Int16 Port { get; set; }
+        public Dictionary<string, Int16> Ports { get; set; }
         public string Version { get; set; }
         public long Height { get; set; }
-        public string Status { get; set; }
-        public string OS { get; set; }
         public int Latency { get; set; }
     }
 }
