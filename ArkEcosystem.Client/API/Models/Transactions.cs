@@ -34,4 +34,18 @@ namespace ArkEcosystem.Client.API.Models
         public byte MultiPayment { get; set; }
         public byte DelegateResignation { get; set; }
     }
+
+    [JsonObject]
+    public class TransactionFees
+    {
+        public long Transfer { get; set; }
+        public long SecondSignature { get; set; }
+        public long DelegateRegistration { get; set; }
+        public long Vote { get; set; }
+        public long MultiSignature { get; set; }
+        public long Ipfs { get; set; }
+        public long TimelockTransfer { get; set; }
+        public long MultiPayment { get; set; }
+        public long DelegateResignation { get; set; }
+    }
 }
