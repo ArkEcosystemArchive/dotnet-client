@@ -11,6 +11,7 @@ namespace ArkEcosystem.Client.API
         public Delegates Delegates { get; }
         public Node Node { get; }
         public Peers Peers { get; }
+        public Rounds Rounds { get; }
         public Transactions Transactions { get; }
         public Votes Votes { get; }
         public Wallets Wallets { get; }
@@ -21,6 +22,7 @@ namespace ArkEcosystem.Client.API
             Delegates = new Delegates(client);
             Node = new Node(client);
             Peers = new Peers(client);
+            Rounds = new Rounds(client);
             Transactions = new Transactions(client);
             Votes = new Votes(client);
             Wallets = new Wallets(client);
