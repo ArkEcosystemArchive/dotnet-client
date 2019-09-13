@@ -174,6 +174,22 @@ namespace ArkEcosystem.Client.Tests.API
             AssertResponseTransactionTypes(response);
         }
 
+        [TestMethod]
+        public void Fees()
+        {
+            TestHelper.MockHttpRequest("transactions/fees");
+            var response = TestHelper.MockConnection().Api.Transactions.Fees();
+            AssertResponseTransactionFees(response);
+        }
+
+        [TestMethod]
+        public async Task FeesAsync()
+        {
+            TestHelper.MockHttpRequest("transactions/fees");
+            var response = await TestHelper.MockConnection().Api.Transactions.FeesAsync();
+            AssertResponseTransactionFees(response);
+        }
+
         private static void AssertResponseListOfTransactions(Response<List<Transaction>> response)
         {
             Assert.AreEqual(100, response.Meta.Count);
@@ -219,6 +235,19 @@ namespace ArkEcosystem.Client.Tests.API
             Assert.AreEqual(6, response.Data.TimelockTransfer);
             Assert.AreEqual(7, response.Data.MultiPayment);
             Assert.AreEqual(8, response.Data.DelegateResignation);
+        }
+
+        private static void AssertResponseTransactionFees(Response<TransactionFees> response)
+        {
+            Assert.AreEqual(10000000, response.Data.Transfer);
+            Assert.AreEqual(500000000, response.Data.SecondSignature);
+            Assert.AreEqual(2500000000, response.Data.DelegateRegistration);
+            Assert.AreEqual(100000000, response.Data.Vote);
+            Assert.AreEqual(500000000, response.Data.MultiSignature);
+            Assert.AreEqual(0, response.Data.Ipfs);
+            Assert.AreEqual(0, response.Data.TimelockTransfer);
+            Assert.AreEqual(0, response.Data.MultiPayment);
+            Assert.AreEqual(0, response.Data.DelegateResignation);
         }
     }
 }

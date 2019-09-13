@@ -126,5 +126,16 @@ namespace ArkEcosystem.Client.API
             var response = await httpClient.GetStringAsync("transactions/types");
             return Api.ConvertResponse<TransactionTypes>(response);
         }
+
+        public Response<TransactionFees> Fees()
+        {
+            return FeesAsync().Result;
+        }
+
+        public async Task<Response<TransactionFees>> FeesAsync()
+        {
+            var response = await httpClient.GetStringAsync("transactions/fees");
+            return Api.ConvertResponse<TransactionFees>(response);
+        }
     }
 }
