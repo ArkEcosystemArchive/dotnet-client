@@ -245,26 +245,23 @@ namespace ArkEcosystem.Client.Tests.API
             };
             CollectionAssert.AreEqual(block, response.Data.Milestones.First().Block);
 
-            var staticFees = new Dictionary<string, long>() {
-                { "delegateRegistration", 2500000000 },
-                { "delegateResignation", 2500000000 },
-                { "ipfs", 0 },
-                { "multiPayment", 0 },
-                { "multiSignature", 500000000 },
-                { "secondSignature", 500000000 },
-                { "timelockTransfer", 0 },
-                { "transfer", 10000000 },
-                { "vote", 100000000 },
-            };
-            CollectionAssert.AreEqual(staticFees, response.Data.Milestones.First().Fees.StaticFees);
+            Assert.AreEqual(10000000, response.Data.Milestones.First().Fees.StaticFees.Transfer);
+            Assert.AreEqual(500000000, response.Data.Milestones.First().Fees.StaticFees.SecondSignature);
+            Assert.AreEqual(2500000000, response.Data.Milestones.First().Fees.StaticFees.DelegateRegistration);
+            Assert.AreEqual(100000000, response.Data.Milestones.First().Fees.StaticFees.Vote);
+            Assert.AreEqual(500000000, response.Data.Milestones.First().Fees.StaticFees.MultiSignature);
+            Assert.AreEqual(0, response.Data.Milestones.First().Fees.StaticFees.Ipfs);
+            Assert.AreEqual(0, response.Data.Milestones.First().Fees.StaticFees.TimelockTransfer);
+            Assert.AreEqual(0, response.Data.Milestones.First().Fees.StaticFees.MultiPayment);
+            Assert.AreEqual(2500000000, response.Data.Milestones.First().Fees.StaticFees.DelegateResignation);
 
-            Assert.AreEqual(7, response.Data.GenesisBlock.Network.Aip20);
-            Assert.AreEqual("TARK message:\n", response.Data.GenesisBlock.Network.MessagePrefix);
-            Assert.AreEqual("testnet", response.Data.GenesisBlock.Network.Name);
-            Assert.AreEqual("d9acd04bde4234a81addb8482333b4ac906bed7be5a9970ce8ada428bd083192", response.Data.GenesisBlock.Network.NetHash);
-            Assert.AreEqual(23, response.Data.GenesisBlock.Network.PubKeyHash);
-            Assert.AreEqual(111, response.Data.GenesisBlock.Network.Slip44);
-            Assert.AreEqual(170, response.Data.GenesisBlock.Network.Wif);
+            Assert.AreEqual(7, response.Data.Network.Aip20);
+            Assert.AreEqual("TARK message:\n", response.Data.Network.MessagePrefix);
+            Assert.AreEqual("testnet", response.Data.Network.Name);
+            Assert.AreEqual("d9acd04bde4234a81addb8482333b4ac906bed7be5a9970ce8ada428bd083192", response.Data.Network.NetHash);
+            Assert.AreEqual(23, response.Data.Network.PubKeyHash);
+            Assert.AreEqual(111, response.Data.Network.Slip44);
+            Assert.AreEqual(170, response.Data.Network.Wif);
 
             var bip = new Dictionary<string, long>() {
                 { "private", 46089520 },
@@ -272,12 +269,9 @@ namespace ArkEcosystem.Client.Tests.API
             };
             CollectionAssert.AreEqual(bip, response.Data.Network.Bip32);
 
-            var client = new Dictionary<string, string>() {
-                { "explorer", "https://texplorer.ark.io" },
-                { "symbol", "TѦ" },
-                { "token", "TARK" },
-            };
-            CollectionAssert.AreEqual(client, response.Data.Network.Client);
+            Assert.AreEqual("https://texplorer.ark.io", response.Data.Network.Client.Explorer);
+            Assert.AreEqual("TѦ", response.Data.Network.Client.Symbol);
+            Assert.AreEqual("TARK", response.Data.Network.Client.Token);
         }
 
         private static void AssertResponseNodeStatus(Response<NodeStatus> response)
