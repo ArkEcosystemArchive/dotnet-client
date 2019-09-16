@@ -49,16 +49,27 @@ namespace ArkEcosystem.Client.API
             return Api.ConvertResponse<NodeConfiguration>(response);
         }
 
-        public Response<List<NodeFees>> Fees()
+        public Response<NodeCrypto> Crypto()
+        {
+            return CryptoAsync().Result;
+        }
+
+        public async Task<Response<NodeCrypto>> CryptoAsync()
+        {
+            var response = await httpClient.GetStringAsync("node/configuration/crypto");
+            return Api.ConvertResponse<NodeCrypto>(response);
+        }
+
+        public Response<List<FeeStatistics>> Fees()
         {
             return FeesAsync().Result;
         }
 
-        public async Task<Response<List<NodeFees>>> FeesAsync(Dictionary<string, string> parameters = null)
+        public async Task<Response<List<FeeStatistics>>> FeesAsync(Dictionary<string, string> parameters = null)
         {
             var uri = QueryBuilder.Build("node/fees", parameters);
             var response = await httpClient.GetStringAsync(uri);
-            return Api.ConvertResponse<List<NodeFees>>(response);
+            return Api.ConvertResponse<List<FeeStatistics>>(response);
         }
 
         public Response<NodeStatus> Status()

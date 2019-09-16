@@ -22,6 +22,20 @@ namespace ArkEcosystem.Client.API.Models
     }
 
     [JsonObject]
+    public class GenesisTransaction
+    {
+        public string Id { get; set; }
+        public byte Type { get; set; }
+        public long Amount { get; set; }
+        public long Fee { get; set; }
+        public string SenderPublicKey { get; set; }
+        public string RecipientId { get; set; }
+        public string Signature { get; set; }
+        public dynamic Asset { get; set; } // TODO
+        public long Timestamp { get; set; }
+    }
+
+    [JsonObject]
     public class TransactionTypes
     {
         public byte Transfer { get; set; }

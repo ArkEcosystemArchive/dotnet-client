@@ -52,6 +52,22 @@ namespace ArkEcosystem.Client.Tests.API
         }
 
         [TestMethod]
+        public void Crypto()
+        {
+            TestHelper.MockHttpRequest("node/configuration/crypto");
+            var response = TestHelper.MockConnection().Api.Node.Crypto();
+            AssertResponseNodeCrypto(response);
+        }
+
+        [TestMethod]
+        public async Task CryptoAsync()
+        {
+            TestHelper.MockHttpRequest("node/configuration/crypto");
+            var response = await TestHelper.MockConnection().Api.Node.CryptoAsync();
+            AssertResponseNodeCrypto(response);
+        }
+
+        [TestMethod]
         public void Fees()
         {
             TestHelper.MockHttpRequest("node/fees");
@@ -100,7 +116,7 @@ namespace ArkEcosystem.Client.Tests.API
             AssertResponseNodeSyncing(response);
         }
 
-        private static void AssertResponseNodeFees(Response<List<NodeFees>> response) {
+        private static void AssertResponseNodeFees(Response<List<FeeStatistics>> response) {
             Assert.AreEqual(7, response.Meta.Days);
 
             Assert.AreEqual(0, response.Data.First().Type);
@@ -114,15 +130,16 @@ namespace ArkEcosystem.Client.Tests.API
         private static void AssertResponseNodeConfiguration(Response<NodeConfiguration> response)
         {
             Assert.AreEqual("d9acd04bde4234a81addb8482333b4ac906bed7be5a9970ce8ada428bd083192", response.Data.Nethash);
+            Assert.AreEqual(1, response.Data.Slip44);
+            Assert.AreEqual(170, response.Data.Wif);
             Assert.AreEqual("TARK", response.Data.Token);
             Assert.AreEqual("TѦ", response.Data.Symbol);
-            Assert.AreEqual("http://texplorer.ark.io", response.Data.Explorer);
+            Assert.AreEqual("https://texplorer.ark.io", response.Data.Explorer);
             Assert.AreEqual(23, response.Data.Version);
 
             var ports = new Dictionary<string, Int16>() {
-                { "@arkecosystem/core-p2p", 4000},
-                { "@arkecosystem/core-api", 4003},
-                { "@arkecosystem/core-graphql", 4005}
+                { "@arkecosystem/core-p2p", 4000 },
+                { "@arkecosystem/core-api", 4003 },
             };
             CollectionAssert.AreEqual(ports, response.Data.Ports);
             Assert.AreEqual(10, response.Data.Constants.Height);
@@ -130,35 +147,44 @@ namespace ArkEcosystem.Client.Tests.API
             Assert.AreEqual(51, response.Data.Constants.ActiveDelegates);
             Assert.AreEqual(8, response.Data.Constants.BlockTime);
             Assert.AreEqual(0, response.Data.Constants.Block.Version);
-            Assert.AreEqual(50, response.Data.Constants.Block.MaxTransactions);
-            Assert.AreEqual(2097152, response.Data.Constants.Block.MaxPayload);
+            Assert.AreEqual(500, response.Data.Constants.Block.MaxTransactions);
+            Assert.AreEqual(21000000, response.Data.Constants.Block.MaxPayload);
+            Assert.AreEqual(false, response.Data.Constants.Block.AcceptExpiredTransactionTimestamps);
+            Assert.AreEqual(true, response.Data.Constants.Block.IdFullSha256);
             Assert.AreEqual("2017-03-21T13:00:00.000Z", response.Data.Constants.Epoch);
 
-            Assert.AreEqual(true, response.Data.Constants.Fees.Dynamic);
-            Assert.AreEqual(10000000, response.Data.Constants.Fees.Transfer);
-            Assert.AreEqual(500000000, response.Data.Constants.Fees.SecondSignature);
-            Assert.AreEqual(2500000000, response.Data.Constants.Fees.DelegateRegistration);
-            Assert.AreEqual(100000000, response.Data.Constants.Fees.Vote);
-            Assert.AreEqual(500000000, response.Data.Constants.Fees.MultiSignature);
-            Assert.AreEqual(0, response.Data.Constants.Fees.IPFS);
-            Assert.AreEqual(0, response.Data.Constants.Fees.TimelockTransfer);
-            Assert.AreEqual(0, response.Data.Constants.Fees.MultiPayment);
-            Assert.AreEqual(0, response.Data.Constants.Fees.DelegateResignation);
+            Assert.AreEqual(10000000, response.Data.Constants.Fees.StaticFees.Transfer);
+            Assert.AreEqual(500000000, response.Data.Constants.Fees.StaticFees.SecondSignature);
+            Assert.AreEqual(2500000000, response.Data.Constants.Fees.StaticFees.DelegateRegistration);
+            Assert.AreEqual(100000000, response.Data.Constants.Fees.StaticFees.Vote);
+            Assert.AreEqual(500000000, response.Data.Constants.Fees.StaticFees.MultiSignature);
+            Assert.AreEqual(0, response.Data.Constants.Fees.StaticFees.Ipfs);
+            Assert.AreEqual(0, response.Data.Constants.Fees.StaticFees.TimelockTransfer);
+            Assert.AreEqual(0, response.Data.Constants.Fees.StaticFees.MultiPayment);
+            Assert.AreEqual(2500000000, response.Data.Constants.Fees.StaticFees.DelegateResignation);
 
-            Assert.AreEqual(100, response.Data.Constants.DynamicOffsets.Transfer);
-            Assert.AreEqual(250, response.Data.Constants.DynamicOffsets.SecondSignature);
-            Assert.AreEqual(500, response.Data.Constants.DynamicOffsets.DelegateRegistration);
-            Assert.AreEqual(100, response.Data.Constants.DynamicOffsets.Vote);
-            Assert.AreEqual(500, response.Data.Constants.DynamicOffsets.MultiSignature);
-            Assert.AreEqual(250, response.Data.Constants.DynamicOffsets.IPFS);
-            Assert.AreEqual(500, response.Data.Constants.DynamicOffsets.TimelockTransfer);
-            Assert.AreEqual(500, response.Data.Constants.DynamicOffsets.MultiPayment);
-            Assert.AreEqual(500, response.Data.Constants.DynamicOffsets.DelegateResignation);
+            Assert.AreEqual(false, response.Data.Constants.IgnoreInvalidSecondSignatureField);
+            Assert.AreEqual(false, response.Data.Constants.IgnoreExpiredTransactions);
+            Assert.AreEqual(255, response.Data.Constants.VendorFieldLength);
 
-            Assert.AreEqual(0, response.Data.FeeStatistics.First().Type);
-            Assert.AreEqual(10000000, response.Data.FeeStatistics.First().Fees.MinFee);
-            Assert.AreEqual(10000000, response.Data.FeeStatistics.First().Fees.MaxFee);
-            Assert.AreEqual(10000000, response.Data.FeeStatistics.First().Fees.AvgFee);
+            Assert.AreEqual(true, response.Data.TransactionPool.DynamicFees.Enabled);
+            Assert.AreEqual(1000, response.Data.TransactionPool.DynamicFees.MinFeePool);
+            Assert.AreEqual(1000, response.Data.TransactionPool.DynamicFees.MinFeeBroadcast);
+
+            Assert.AreEqual(100, response.Data.TransactionPool.DynamicFees.AddonBytes.Transfer);
+            Assert.AreEqual(250, response.Data.TransactionPool.DynamicFees.AddonBytes.SecondSignature);
+            Assert.AreEqual(400000, response.Data.TransactionPool.DynamicFees.AddonBytes.DelegateRegistration);
+            Assert.AreEqual(100, response.Data.TransactionPool.DynamicFees.AddonBytes.Vote);
+            Assert.AreEqual(500, response.Data.TransactionPool.DynamicFees.AddonBytes.MultiSignature);
+            Assert.AreEqual(250, response.Data.TransactionPool.DynamicFees.AddonBytes.Ipfs);
+            Assert.AreEqual(500, response.Data.TransactionPool.DynamicFees.AddonBytes.TimelockTransfer);
+            Assert.AreEqual(500, response.Data.TransactionPool.DynamicFees.AddonBytes.MultiPayment);
+            Assert.AreEqual(100, response.Data.TransactionPool.DynamicFees.AddonBytes.DelegateResignation);
+        }
+
+        private static void AssertResponseNodeCrypto(Response<NodeCrypto> response)
+        {
+            // TODO
         }
 
         private static void AssertResponseNodeStatus(Response<NodeStatus> response)

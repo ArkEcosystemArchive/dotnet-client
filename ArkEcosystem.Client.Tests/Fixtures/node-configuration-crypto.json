@@ -1,0 +1,98 @@
+{
+  "data": {
+    "exceptions": {
+      "blocks": [
+        "10370119864814436559"
+      ],
+      "outlookTable": {
+        "8324387831264270399": "1000087831264270399"
+      },
+      "transactionIdFixTable": {
+        "ca764c01dd78f93393b02f7f6c4f0c12ed8e7ca26d3098e91d6e461a238a6b33": "80d75c7b90288246199e4a97ba726bad6639595ef92ad7c2bd14fd31563241ab"
+      },
+      "transactions": [
+        "608c7aeba0895da4517496590896eb325a0b5d367e1b186b1c07d7651a568b9e"
+      ],
+      "wrongTransactionOrder": {
+        "11773170219525190460": [
+          "7a1a43098cd253db395514220f69e3b99afaabb2bfcf5ecfa3b99727b367344b"
+        ]
+      }
+    },
+    "genesisBlock": {
+      "blockSignature": "3045022100c442ef265f2a7fa102d61e9a180e335fd17e8e3224307dadf8ac856e569c5c5102201a34cb1302cf4e0887b45784bfbdaf5cfbc44f6d6dad638d56bafa82ec96fd45",
+      "generatorPublicKey": "03a4d147a417376742f9ab78c7c3891574d19376aa62e7bbddceaf12e096e79fe0",
+      "height": 1,
+      "id": "4366553906931540162",
+      "numberOfTransactions": 1,
+      "payloadHash": "6e84d08bd299ed97c212c886c98a57e36545c8f5d645ca7eeae63a8bd62d8988",
+      "payloadLength": 313052,
+      "previousBlock": null,
+      "reward": "0",
+      "timestamp": 0,
+      "totalAmount": "12500000000000004",
+      "totalFee": "0",
+      "transactions": [
+        {
+          "amount": "0",
+          "asset": {},
+          "fee": "0",
+          "id": "44d9d0a3093232b9368a24af90577741df8340b93732db23b90d44f6590d3e42",
+          "recipientId": "AU9BgcsCBDCkzPyY9EZXqiwukYq4Kor4oX",
+          "senderPublicKey": "0235d486fea0193cbe77e955ab175b8f6eb9eaf784de689beffbd649989f5d6be3",
+          "signature": "3045022100ed57f27cabdb01f5398b30e63e3372735ee428e17e95de675c37586b6d1a5c12022062a0040ed189a4adac6c3d105e05180f7c74e8c68ca9912b3c60286c2226f3fa",
+          "timestamp": 0,
+          "type": 0
+        }
+      ],
+      "version": 0
+    },
+    "milestones": [
+      {
+        "activeDelegates": 51,
+        "block": {
+          "acceptExpiredTransactionTimestamps": true,
+          "maxPayload": 2097152,
+          "maxTransactions": 50,
+          "version": 0
+        },
+        "blocktime": 8,
+        "epoch": "2017-03-21T13:00:00.000Z",
+        "fees": {
+          "staticFees": {
+            "delegateRegistration": 2500000000,
+            "delegateResignation": 2500000000,
+            "ipfs": 0,
+            "multiPayment": 0,
+            "multiSignature": 500000000,
+            "secondSignature": 500000000,
+            "timelockTransfer": 0,
+            "transfer": 10000000,
+            "vote": 100000000
+          }
+        },
+        "height": 1,
+        "reward": 0,
+        "vendorFieldLength": 64
+      }
+    ],
+    "network": {
+      "aip20": 0,
+      "bip32": {
+        "private": 46089520,
+        "public": 46090600
+      },
+      "client": {
+        "explorer": "https://texplorer.ark.io",
+        "symbol": "TѦ",
+        "token": "TARK"
+      },
+      "messagePrefix": "TARK message:\n",
+      "name": "testnet",
+      "nethash": "d9acd04bde4234a81addb8482333b4ac906bed7be5a9970ce8ada428bd083192",
+      "pubKeyHash": 23,
+      "slip44": 111,
+      "wif": 170
+    }
+  }
+}
