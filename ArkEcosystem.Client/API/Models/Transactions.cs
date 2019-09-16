@@ -26,8 +26,8 @@ namespace ArkEcosystem.Client.API.Models
     {
         public string Id { get; set; }
         public byte Type { get; set; }
-        public long Amount { get; set; }
-        public long Fee { get; set; }
+        public string Amount { get; set; }
+        public string Fee { get; set; }
         public string SenderPublicKey { get; set; }
         public string RecipientId { get; set; }
         public string Signature { get; set; }
