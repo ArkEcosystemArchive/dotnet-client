@@ -15,5 +15,7 @@ namespace ArkEcosystem.Client.API.Models
         public string Self { get; set; }
         public string First { get; set; }
         public string Last { get; set; }
+
+        public int Days { get; set; }
     }
 }
