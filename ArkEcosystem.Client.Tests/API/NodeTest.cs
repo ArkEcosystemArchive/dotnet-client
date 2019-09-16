@@ -237,13 +237,10 @@ namespace ArkEcosystem.Client.Tests.API
             Assert.AreEqual(0, response.Data.Milestones.First().Reward);
             Assert.AreEqual(64, response.Data.Milestones.First().VendorFieldLength);
 
-            var block = new Dictionary<string, dynamic>() {
-                { "acceptExpiredTransactionTimestamps", true },
-                { "maxPayload", 2097152 },
-                { "maxTransactions", 50 },
-                { "version", 0 },
-            };
-            CollectionAssert.AreEqual(block, response.Data.Milestones.First().Block);
+            Assert.AreEqual(true, response.Data.Milestones.First().Block.AcceptExpiredTransactionTimestamps);
+            Assert.AreEqual(2097152, response.Data.Milestones.First().Block.MaxPayload);
+            Assert.AreEqual(50, response.Data.Milestones.First().Block.MaxTransaction);
+            Assert.AreEqual(0, response.Data.Milestones.First().Block.Version);
 
             Assert.AreEqual(10000000, response.Data.Milestones.First().Fees.StaticFees.Transfer);
             Assert.AreEqual(500000000, response.Data.Milestones.First().Fees.StaticFees.SecondSignature);
@@ -269,9 +266,12 @@ namespace ArkEcosystem.Client.Tests.API
             };
             CollectionAssert.AreEqual(bip, response.Data.Network.Bip32);
 
-            Assert.AreEqual("https://texplorer.ark.io", response.Data.Network.Client.Explorer);
-            Assert.AreEqual("TѦ", response.Data.Network.Client.Symbol);
-            Assert.AreEqual("TARK", response.Data.Network.Client.Token);
+            var client = new Dictionary<string, string>() {
+                { "explorer", "https://texplorer.ark.io" },
+                { "symbol", "TѦ" },
+                { "token", "TARK" },
+            };
+            CollectionAssert.AreEqual(client, response.Data.Network.Client);
         }
 
         private static void AssertResponseNodeStatus(Response<NodeStatus> response)

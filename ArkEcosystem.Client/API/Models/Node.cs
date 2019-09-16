@@ -66,7 +66,7 @@ namespace ArkEcosystem.Client.API.Models
         public int BlockTime { get; set; }
         public NodeBlock Block { get; set; }
         public string Epoch { get; set; }
-        public Fees Fees { get; set; }
+        public NodeFees Fees { get; set; }
         public bool IgnoreInvalidSecondSignatureField { get; set; }
         public bool IgnoreExpiredTransactions { get; set; }
         public long VendorFieldLength { get; set; }
