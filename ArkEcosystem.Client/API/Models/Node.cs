@@ -77,7 +77,7 @@ namespace ArkEcosystem.Client.API.Models
     {
         public string Name { get; set; }
         public string MessagePrefix { get; set; }
-        public Dictionary<string, string> Bip32 { get; set; }
+        public Dictionary<string, long> Bip32 { get; set; }
         public int PubKeyHash { get; set; }
         public string NetHash { get; set; }
         public int Wif { get; set; }
