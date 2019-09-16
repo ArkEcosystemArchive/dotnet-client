@@ -239,7 +239,7 @@ namespace ArkEcosystem.Client.Tests.API
 
             Assert.AreEqual(true, response.Data.Milestones.First().Block.AcceptExpiredTransactionTimestamps);
             Assert.AreEqual(2097152, response.Data.Milestones.First().Block.MaxPayload);
-            Assert.AreEqual(50, response.Data.Milestones.First().Block.MaxTransaction);
+            Assert.AreEqual(50, response.Data.Milestones.First().Block.MaxTransactions);
             Assert.AreEqual(0, response.Data.Milestones.First().Block.Version);
 
             Assert.AreEqual(10000000, response.Data.Milestones.First().Fees.StaticFees.Transfer);
