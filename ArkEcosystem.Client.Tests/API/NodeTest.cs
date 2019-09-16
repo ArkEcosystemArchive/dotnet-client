@@ -184,7 +184,100 @@ namespace ArkEcosystem.Client.Tests.API
 
         private static void AssertResponseNodeCrypto(Response<NodeCrypto> response)
         {
-            // TODO
+            Assert.AreEqual("10370119864814436559", response.Data.Exceptions.Blocks.First());
+            Assert.AreEqual("608c7aeba0895da4517496590896eb325a0b5d367e1b186b1c07d7651a568b9e", response.Data.Exceptions.Transactions.First());
+
+            var outlookTable = new Dictionary<string, string>() {
+                { "8324387831264270399", "1000087831264270399" },
+            };
+            CollectionAssert.AreEqual(outlookTable, response.Data.Exceptions.OutlookTable);
+
+            var transactionIdFixTable = new Dictionary<string, string>() {
+                { "ca764c01dd78f93393b02f7f6c4f0c12ed8e7ca26d3098e91d6e461a238a6b33", "80d75c7b90288246199e4a97ba726bad6639595ef92ad7c2bd14fd31563241ab" },
+            };
+            CollectionAssert.AreEqual(transactionIdFixTable, response.Data.Exceptions.TransactionIdFixTable);
+
+            var wrongTransactionOrder = new Dictionary<string, List<string>>() {
+                {
+                    "11773170219525190460", new List<string>() {
+                        "7a1a43098cd253db395514220f69e3b99afaabb2bfcf5ecfa3b99727b367344b",
+                    }
+                },
+            };
+            CollectionAssert.AreEqual(wrongTransactionOrder, response.Data.Exceptions.WrongTransactionOrder);
+
+            Assert.AreEqual("3045022100c442ef265f2a7fa102d61e9a180e335fd17e8e3224307dadf8ac856e569c5c5102201a34cb1302cf4e0887b45784bfbdaf5cfbc44f6d6dad638d56bafa82ec96fd45", response.Data.GenesisBlock.BlockSignature);
+            Assert.AreEqual("03a4d147a417376742f9ab78c7c3891574d19376aa62e7bbddceaf12e096e79fe0", response.Data.GenesisBlock.GeneratorPublicKey);
+            Assert.AreEqual(1, response.Data.GenesisBlock.Height);
+            Assert.AreEqual("4366553906931540162", response.Data.GenesisBlock.Id);
+            Assert.AreEqual(1, response.Data.GenesisBlock.NumberOfTransactions);
+            Assert.AreEqual("6e84d08bd299ed97c212c886c98a57e36545c8f5d645ca7eeae63a8bd62d8988", response.Data.GenesisBlock.PayloadHash);
+            Assert.AreEqual(313052, response.Data.GenesisBlock.PayloadLength);
+            Assert.AreEqual(null, response.Data.GenesisBlock.PreviousBlock);
+            Assert.AreEqual("0", response.Data.GenesisBlock.Reward);
+            Assert.AreEqual(0, response.Data.GenesisBlock.Timestamp);
+            Assert.AreEqual("12500000000000004", response.Data.GenesisBlock.TotalAmount);
+            Assert.AreEqual("0", response.Data.GenesisBlock.TotalFee);
+            Assert.AreEqual(0, response.Data.GenesisBlock.Version);
+
+            Assert.AreEqual("0", response.Data.GenesisBlock.Transactions.First().Amount);
+            Assert.IsNotNull(response.Data.GenesisBlock.Transactions.First().Asset);
+            Assert.AreEqual("0", response.Data.GenesisBlock.Transactions.First().Fee);
+            Assert.AreEqual("44d9d0a3093232b9368a24af90577741df8340b93732db23b90d44f6590d3e42", response.Data.GenesisBlock.Transactions.First().Id);
+            Assert.AreEqual("AU9BgcsCBDCkzPyY9EZXqiwukYq4Kor4oX", response.Data.GenesisBlock.Transactions.First().RecipientId);
+            Assert.AreEqual("0235d486fea0193cbe77e955ab175b8f6eb9eaf784de689beffbd649989f5d6be3", response.Data.GenesisBlock.Transactions.First().SenderPublicKey);
+            Assert.AreEqual("3045022100ed57f27cabdb01f5398b30e63e3372735ee428e17e95de675c37586b6d1a5c12022062a0040ed189a4adac6c3d105e05180f7c74e8c68ca9912b3c60286c2226f3fa", response.Data.GenesisBlock.Transactions.First().Signature);
+            Assert.AreEqual(0, response.Data.GenesisBlock.Transactions.First().Timestamp);
+            Assert.AreEqual(0, response.Data.GenesisBlock.Transactions.First().Type);
+
+            Assert.AreEqual(51, response.Data.Milestones.First().ActiveDelegates);
+            Assert.AreEqual(7, response.Data.Milestones.First().BlockTime);
+            Assert.AreEqual("2017-03-21T13:00:00.000Z", response.Data.Milestones.First().Epoch);
+            Assert.AreEqual(1, response.Data.Milestones.First().Height);
+            Assert.AreEqual(0, response.Data.Milestones.First().Reward);
+            Assert.AreEqual(64, response.Data.Milestones.First().VendorFieldLength);
+
+            var block = new Dictionary<string, dynamic>() {
+                { "acceptExpiredTransactionTimestamps", true },
+                { "maxPayload", 2097152 },
+                { "maxTransactions", 50 },
+                { "version", 0 },
+            };
+            CollectionAssert.AreEqual(block, response.Data.Milestones.First().Block);
+
+            var staticFees = new Dictionary<string, long>() {
+                { "delegateRegistration", 2500000000 },
+                { "delegateResignation", 2500000000 },
+                { "ipfs", 0 },
+                { "multiPayment", 0 },
+                { "multiSignature", 500000000 },
+                { "secondSignature", 500000000 },
+                { "timelockTransfer", 0 },
+                { "transfer", 10000000 },
+                { "vote", 100000000 },
+            };
+            CollectionAssert.AreEqual(staticFees, response.Data.Milestones.First().Fees.StaticFees);
+
+            Assert.AreEqual(7, response.Data.GenesisBlock.Network.Aip20);
+            Assert.AreEqual("TARK message:\n", response.Data.GenesisBlock.Network.MessagePrefix);
+            Assert.AreEqual("testnet", response.Data.GenesisBlock.Network.Name);
+            Assert.AreEqual("d9acd04bde4234a81addb8482333b4ac906bed7be5a9970ce8ada428bd083192", response.Data.GenesisBlock.Network.NetHash);
+            Assert.AreEqual(23, response.Data.GenesisBlock.Network.PubKeyHash);
+            Assert.AreEqual(111, response.Data.GenesisBlock.Network.Slip44);
+            Assert.AreEqual(170, response.Data.GenesisBlock.Network.Wif);
+
+            var bip = new Dictionary<string, long>() {
+                { "private", 46089520 },
+                { "public", 46090600 },
+            };
+            CollectionAssert.AreEqual(bip, response.Data.Network.Bip32);
+
+            var client = new Dictionary<string, string>() {
+                { "explorer", "https://texplorer.ark.io" },
+                { "symbol", "TѦ" },
+                { "token", "TARK" },
+            };
+            CollectionAssert.AreEqual(client, response.Data.Network.Client);
         }
 
         private static void AssertResponseNodeStatus(Response<NodeStatus> response)
