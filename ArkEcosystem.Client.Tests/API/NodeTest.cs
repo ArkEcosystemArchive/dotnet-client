@@ -232,7 +232,7 @@ namespace ArkEcosystem.Client.Tests.API
             Assert.AreEqual(0, response.Data.GenesisBlock.Transactions.First().Type);
 
             Assert.AreEqual(51, response.Data.Milestones.First().ActiveDelegates);
-            Assert.AreEqual(7, response.Data.Milestones.First().BlockTime);
+            Assert.AreEqual(8, response.Data.Milestones.First().BlockTime);
             Assert.AreEqual("2017-03-21T13:00:00.000Z", response.Data.Milestones.First().Epoch);
             Assert.AreEqual(1, response.Data.Milestones.First().Height);
             Assert.AreEqual(0, response.Data.Milestones.First().Reward);
@@ -253,7 +253,7 @@ namespace ArkEcosystem.Client.Tests.API
             Assert.AreEqual(0, response.Data.Milestones.First().Fees.StaticFees.MultiPayment);
             Assert.AreEqual(2500000000, response.Data.Milestones.First().Fees.StaticFees.DelegateResignation);
 
-            Assert.AreEqual(7, response.Data.Network.Aip20);
+            Assert.AreEqual(0, response.Data.Network.Aip20);
             Assert.AreEqual("TARK message:\n", response.Data.Network.MessagePrefix);
             Assert.AreEqual("testnet", response.Data.Network.Name);
             Assert.AreEqual("d9acd04bde4234a81addb8482333b4ac906bed7be5a9970ce8ada428bd083192", response.Data.Network.NetHash);
