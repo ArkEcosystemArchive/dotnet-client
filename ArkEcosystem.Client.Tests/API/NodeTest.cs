@@ -36,6 +36,38 @@ namespace ArkEcosystem.Client.Tests.API
     public class NodeTest
     {
         [TestMethod]
+        public void Configuration()
+        {
+            TestHelper.MockHttpRequest("node/configuration");
+            var response = TestHelper.MockConnection().Api.Node.Configuration();
+            AssertResponseNodeConfiguration(response);
+        }
+
+        [TestMethod]
+        public async Task ConfigurationAsync()
+        {
+            TestHelper.MockHttpRequest("node/configuration");
+            var response = await TestHelper.MockConnection().Api.Node.ConfigurationAsync();
+            AssertResponseNodeConfiguration(response);
+        }
+
+        [TestMethod]
+        public void Fees()
+        {
+            TestHelper.MockHttpRequest("node/fees");
+            var response = TestHelper.MockConnection().Api.Node.Fees();
+            AssertResponseNodeFees(response);
+        }
+
+        [TestMethod]
+        public async Task FeesAsync()
+        {
+            TestHelper.MockHttpRequest("node/fees");
+            var response = await TestHelper.MockConnection().Api.Node.FeesAsync();
+            AssertResponseNodeFees(response);
+        }
+
+        [TestMethod]
         public void Status()
         {
             TestHelper.MockHttpRequest("node/status");
@@ -68,34 +100,15 @@ namespace ArkEcosystem.Client.Tests.API
             AssertResponseNodeSyncing(response);
         }
 
-        [TestMethod]
-        public void Configuration()
-        {
-            TestHelper.MockHttpRequest("node/configuration");
-            var response = TestHelper.MockConnection().Api.Node.Configuration();
-            AssertResponseNodeConfiguration(response);
-        }
+        private static void AssertResponseNodeFees(Response<List<NodeFees>> response) {
+            Assert.AreEqual(7, response.Meta.Days);
 
-        [TestMethod]
-        public async Task ConfigurationAsync()
-        {
-            TestHelper.MockHttpRequest("node/configuration");
-            var response = await TestHelper.MockConnection().Api.Node.ConfigurationAsync();
-            AssertResponseNodeConfiguration(response);
-        }
-        private static void AssertResponseNodeStatus(Response<NodeStatus> response)
-        {
-            Assert.AreEqual(true, response.Data.Synced);
-            Assert.AreEqual(3940, response.Data.Now);
-            Assert.AreEqual(0, response.Data.BlocksCount);
-        }
-
-        private static void AssertResponseNodeSyncing(Response<NodeSyncing> response)
-        {
-            Assert.AreEqual(false, response.Data.Syncing);
-            Assert.AreEqual(0, response.Data.Blocks);
-            Assert.AreEqual(3940, response.Data.Height);
-            Assert.AreEqual("17142334154459441029", response.Data.Id);
+            Assert.AreEqual(0, response.Data.First().Type);
+            Assert.AreEqual(20000000, response.Data.First().Fees.Avg);
+            Assert.AreEqual(10000000, response.Data.First().Fees.Min);
+            Assert.AreEqual(30000000, response.Data.First().Fees.Max);
+            Assert.AreEqual(60000000, response.Data.First().Fees.Sum);
+            Assert.IsTrue(response.Data.Count() == 1);
         }
 
         private static void AssertResponseNodeConfiguration(Response<NodeConfiguration> response)
@@ -146,6 +159,21 @@ namespace ArkEcosystem.Client.Tests.API
             Assert.AreEqual(10000000, response.Data.FeeStatistics.First().Fees.MinFee);
             Assert.AreEqual(10000000, response.Data.FeeStatistics.First().Fees.MaxFee);
             Assert.AreEqual(10000000, response.Data.FeeStatistics.First().Fees.AvgFee);
+        }
+
+        private static void AssertResponseNodeStatus(Response<NodeStatus> response)
+        {
+            Assert.AreEqual(true, response.Data.Synced);
+            Assert.AreEqual(3940, response.Data.Now);
+            Assert.AreEqual(0, response.Data.BlocksCount);
+        }
+
+        private static void AssertResponseNodeSyncing(Response<NodeSyncing> response)
+        {
+            Assert.AreEqual(false, response.Data.Syncing);
+            Assert.AreEqual(0, response.Data.Blocks);
+            Assert.AreEqual(3940, response.Data.Height);
+            Assert.AreEqual("17142334154459441029", response.Data.Id);
         }
     }
 }

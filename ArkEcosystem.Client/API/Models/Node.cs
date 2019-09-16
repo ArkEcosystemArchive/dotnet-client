@@ -55,6 +55,15 @@ namespace ArkEcosystem.Client.API.Models
         public long MaxPayload { get; set; }
     }
 
+    [JsonObject]
+    public class NodeFees
+    {
+        public int Type { get; set; }
+        public string Avg { get; set; }
+        public string Min { get; set; }
+        public string Max { get; set; }
+        public string Sum { get; set; }
+    }
 
     [JsonObject]
     public class DynamicOffsets

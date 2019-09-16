@@ -36,6 +36,29 @@ namespace ArkEcosystem.Client.API
             httpClient = client;
         }
 
+        public Response<NodeConfiguration> Configuration()
+        {
+            return ConfigurationAsync().Result;
+        }
+
+        public async Task<Response<NodeConfiguration>> ConfigurationAsync()
+        {
+            var response = await httpClient.GetStringAsync("node/configuration");
+            return Api.ConvertResponse<NodeConfiguration>(response);
+        }
+
+        public Response<List<NodeFees>> Fees()
+        {
+            return FeesAsync().Result;
+        }
+
+        public async Task<Response<List<NodeFees>>> FeesAsync(Dictionary<string, string> parameters = null)
+        {
+            var uri = QueryBuilder.Build("node/fees", parameters);
+            var response = await httpClient.GetStringAsync(uri);
+            return Api.ConvertResponse<List<NodeFees>>(response);
+        }
+
         public Response<NodeStatus> Status()
         {
             return StatusAsync().Result;
@@ -56,17 +79,6 @@ namespace ArkEcosystem.Client.API
         {
             var response = await httpClient.GetStringAsync("node/syncing");
             return Api.ConvertResponse<NodeSyncing>(response);
-        }
-
-        public Response<NodeConfiguration> Configuration()
-        {
-            return ConfigurationAsync().Result;
-        }
-
-        public async Task<Response<NodeConfiguration>> ConfigurationAsync()
-        {
-            var response = await httpClient.GetStringAsync("node/configuration");
-            return Api.ConvertResponse<NodeConfiguration>(response);
         }
     }
 }

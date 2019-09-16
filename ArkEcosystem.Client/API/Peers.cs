@@ -49,6 +49,7 @@ namespace ArkEcosystem.Client.API
             var response = await httpClient.GetStringAsync(uri);
             return Api.ConvertResponse<List<Peer>>(response);
         }
+
         public Response<Peer> Show(string ip)
         {
             return ShowAsync(ip).Result;
