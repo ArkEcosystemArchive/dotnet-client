@@ -197,14 +197,15 @@ namespace ArkEcosystem.Client.Tests.API
             };
             CollectionAssert.AreEqual(transactionIdFixTable, response.Data.Exceptions.TransactionIdFixTable);
 
-            var wrongTransactionOrder = new Dictionary<string, List<string>>() {
-                {
-                    "11773170219525190460", new List<string>() {
-                        "7a1a43098cd253db395514220f69e3b99afaabb2bfcf5ecfa3b99727b367344b",
-                    }
-                },
-            };
-            CollectionAssert.AreEqual(wrongTransactionOrder, response.Data.Exceptions.WrongTransactionOrder);
+            // var wrongTransactionOrder = new Dictionary<string, List<string>>() {
+            //     {
+            //         "11773170219525190460", new List<string>() {
+            //             "7a1a43098cd253db395514220f69e3b99afaabb2bfcf5ecfa3b99727b367344b",
+            //         }
+            //     },
+            // };
+            // CollectionAssert.AreEqual(wrongTransactionOrder, response.Data.Exceptions.WrongTransactionOrder);
+            Assert.IsNotNull(response.Data.Exceptions.WrongTransactionOrder);
 
             Assert.AreEqual("3045022100c442ef265f2a7fa102d61e9a180e335fd17e8e3224307dadf8ac856e569c5c5102201a34cb1302cf4e0887b45784bfbdaf5cfbc44f6d6dad638d56bafa82ec96fd45", response.Data.GenesisBlock.BlockSignature);
             Assert.AreEqual("03a4d147a417376742f9ab78c7c3891574d19376aa62e7bbddceaf12e096e79fe0", response.Data.GenesisBlock.GeneratorPublicKey);
