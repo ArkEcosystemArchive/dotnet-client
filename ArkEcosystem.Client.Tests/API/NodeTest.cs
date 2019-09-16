@@ -104,10 +104,10 @@ namespace ArkEcosystem.Client.Tests.API
             Assert.AreEqual(7, response.Meta.Days);
 
             Assert.AreEqual(0, response.Data.First().Type);
-            Assert.AreEqual(20000000, response.Data.First().Avg);
-            Assert.AreEqual(10000000, response.Data.First().Min);
-            Assert.AreEqual(30000000, response.Data.First().Max);
-            Assert.AreEqual(60000000, response.Data.First().Sum);
+            Assert.AreEqual("20000000", response.Data.First().Avg);
+            Assert.AreEqual("10000000", response.Data.First().Min);
+            Assert.AreEqual("30000000", response.Data.First().Max);
+            Assert.AreEqual("40000000", response.Data.First().Sum);
             Assert.IsTrue(response.Data.Count() == 1);
         }
 
