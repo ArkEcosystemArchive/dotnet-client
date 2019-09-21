@@ -1,0 +1,14 @@
+name: Test
+
+on: [push, pull_request]
+
+jobs:
+    build:
+        runs-on: windows-latest
+
+        steps:
+            - uses: actions/checkout@v1
+            - name: Build
+              run: dotnet build ./ArkEcosystem.Client
+            - name: Unit Tests
+              run: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover ./ArkEcosystem.Client.Tests
