@@ -17,3 +17,5 @@ jobs:
               run: dotnet build ./ArkEcosystem.Client
             - name: Unit Tests
               run: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover ./ArkEcosystem.Client.Tests
+            - name: Codecov
+              run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }}
