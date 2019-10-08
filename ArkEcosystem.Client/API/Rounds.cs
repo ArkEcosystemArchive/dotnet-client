@@ -29,36 +29,24 @@ using ArkEcosystem.Client.Helpers;
 
 namespace ArkEcosystem.Client.API
 {
-    public class Peers
+    public class Rounds
     {
         readonly HttpClient httpClient;
 
-        public Peers(HttpClient client)
+        public Rounds(HttpClient client)
         {
             httpClient = client;
         }
 
-        public Response<List<Peer>> All()
+        public Response<List<RoundDelegate>> Delegates(int id)
         {
-            return AllAsync().Result;
+            return DelegatesAsync(id).Result;
         }
 
-        public async Task<Response<List<Peer>>> AllAsync(Dictionary<string, string> parameters = null)
+        public async Task<Response<List<RoundDelegate>>> DelegatesAsync(int id)
         {
-            var uri = QueryBuilder.Build("peers", parameters);
-            var response = await httpClient.GetStringAsync(uri);
-            return Api.ConvertResponse<List<Peer>>(response);
-        }
-
-        public Response<Peer> Show(string ip)
-        {
-            return ShowAsync(ip).Result;
-        }
-
-        public async Task<Response<Peer>> ShowAsync(string ip)
-        {
-            var response = await httpClient.GetStringAsync(string.Format("peers/{0}", ip));
-            return Api.ConvertResponse<Peer>(response);
+            var response = await httpClient.GetStringAsync(string.Format("rounds/{0}/delegates", id));
+            return Api.ConvertResponse<List<RoundDelegate>>(response);
         }
     }
 }

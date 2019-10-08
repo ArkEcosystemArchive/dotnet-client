@@ -21,44 +21,44 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System.Collections.Generic;
-using System.Net.Http;
+using System.Linq;
 using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ArkEcosystem.Client.API;
 using ArkEcosystem.Client.API.Models;
-using ArkEcosystem.Client.Helpers;
 
-namespace ArkEcosystem.Client.API
+namespace ArkEcosystem.Client.Tests.API
 {
-    public class Peers
+    using Api = ArkEcosystem.Client.API.Api;
+
+    [TestClass]
+    public class RoundsTest
     {
-        readonly HttpClient httpClient;
-
-        public Peers(HttpClient client)
+        [TestMethod]
+        public void Delegates()
         {
-            httpClient = client;
+            TestHelper.MockHttpRequest("rounds/12345/delegates");
+            var response = TestHelper.MockConnection().Api.Rounds.Delegates(12345);
+            AssertResponseDelegatesById(response);
         }
 
-        public Response<List<Peer>> All()
+        [TestMethod]
+        public async Task DelegatesAsync()
         {
-            return AllAsync().Result;
+            TestHelper.MockHttpRequest("rounds/12345/delegates");
+            var response = await TestHelper.MockConnection().Api.Rounds.DelegatesAsync(12345);
+            AssertResponseDelegatesById(response);
         }
 
-        public async Task<Response<List<Peer>>> AllAsync(Dictionary<string, string> parameters = null)
+        private static void AssertResponseDelegatesById(Response<List<RoundDelegate>> response)
         {
-            var uri = QueryBuilder.Build("peers", parameters);
-            var response = await httpClient.GetStringAsync(uri);
-            return Api.ConvertResponse<List<Peer>>(response);
-        }
+            CollectionAssert.AllItemsAreInstancesOfType(response.Data, typeof(RoundDelegate));
+            CollectionAssert.AllItemsAreNotNull(response.Data);
 
-        public Response<Peer> Show(string ip)
-        {
-            return ShowAsync(ip).Result;
-        }
+            Assert.AreEqual("03287bfebba4c7881a0509717e71b34b63f31e40021c321f89ae04f84be6d6ac37", response.Data[0].PublicKey);
+            Assert.AreEqual("245100000000000", response.Data[0].Votes);
 
-        public async Task<Response<Peer>> ShowAsync(string ip)
-        {
-            var response = await httpClient.GetStringAsync(string.Format("peers/{0}", ip));
-            return Api.ConvertResponse<Peer>(response);
+            Assert.IsTrue(response.Data.Count() == 1);
         }
     }
 }
