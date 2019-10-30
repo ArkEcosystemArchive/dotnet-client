@@ -89,7 +89,7 @@ namespace ArkEcosystem.Client.API
             };
             var serializedIds = new StringContent(JsonConvert.SerializeObject(ids, settings), Encoding.UTF8, "application/json");
 
-            parameters.Add("ids", serializedIds);
+            parameters.Add("ids", serializedIds.ReadAsStringAsync().Result);
 
             var formParams = new FormUrlEncodedContent(parameters);
             var response = await httpClient.PostAsync("locks/unlocked", formParams);
