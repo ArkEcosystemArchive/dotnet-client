@@ -67,6 +67,22 @@ namespace ArkEcosystem.Client.Tests.API
         }
 
         [TestMethod]
+        public void Locks()
+        {
+            TestHelper.MockHttpRequest("wallets/dummy/locks");
+            var response = TestHelper.MockConnection().Api.Wallets.Locks("dummy");
+            AssertResponseListOfLocks(response);
+        }
+
+        [TestMethod]
+        public async Task LocksAsync()
+        {
+            TestHelper.MockHttpRequest("wallets/dummy/locks");
+            var response = await TestHelper.MockConnection().Api.Wallets.LocksAsync("dummy");
+            AssertResponseListOfLocks(response);
+        }
+
+        [TestMethod]
         public void Transactions()
         {
             TestHelper.MockHttpRequest("wallets/dummy/transactions");

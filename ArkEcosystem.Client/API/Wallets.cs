@@ -60,6 +60,17 @@ namespace ArkEcosystem.Client.API
             return Api.ConvertResponse<Wallet>(response);
         }
 
+        public Response<List<Lock>> Locks(string id, Dictionary<string, string> parameters = null)
+        {
+            return LocksAsync(id, parameters).Result;
+        }
+
+        public async Task<Response<List<Lock>>> LocksAsync(string id, Dictionary<string, string> parameters = null)
+        {
+            var response = await httpClient.GetStringAsync(string.Format("wallets/{0}/locks", id));
+            return Api.ConvertResponse<List<Lock>>(response);
+        }
+
         public Response<List<Transaction>> Transactions(string id, Dictionary<string, string> parameters = null)
         {
             return TransactionsAsync(id, parameters).Result;

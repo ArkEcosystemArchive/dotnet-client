@@ -1,0 +1,17 @@
+{
+  "data": {
+    "lockId": "dummyLockId",
+    "amount": "1",
+    "secretHash": "dummySecretHash",
+    "senderPublicKey": "dummySenderPublicKey",
+    "recipientId": "dummyRecipientId",
+    "timestamp": {
+      "epoch": 81911280,
+      "unix": 1572012480,
+      "human": "2019-10-25T14:08:00.000Z"
+    },
+    "expirationType": 2,
+    "expirationValue": 6000000,
+    "vendorField": "dummyVendorField"
+  }
+}
