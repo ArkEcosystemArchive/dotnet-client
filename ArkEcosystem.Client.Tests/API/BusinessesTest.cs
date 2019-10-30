@@ -117,9 +117,9 @@ namespace ArkEcosystem.Client.Tests.API
             Assert.AreEqual(1, response.Meta.TotalCount);
             Assert.AreEqual(null, response.Meta.Next);
             Assert.AreEqual(null, response.Meta.Previous);
-            Assert.AreEqual("/api/v2/businesses?page=1&limit=1", response.Meta.Self);
-            Assert.AreEqual("/api/v2/businesses?page=1&limit=1", response.Meta.First);
-            Assert.AreEqual("/api/v2/businesses?page=1&limit=1", response.Meta.Last);
+            Assert.AreEqual("/api/businesses?page=1&limit=1", response.Meta.Self);
+            Assert.AreEqual("/api/businesses?page=1&limit=1", response.Meta.First);
+            Assert.AreEqual("/api/businesses?page=1&limit=1", response.Meta.Last);
 
             CollectionAssert.AllItemsAreInstancesOfType(response.Data, typeof(Business));
             CollectionAssert.AllItemsAreNotNull(response.Data);
@@ -143,9 +143,9 @@ namespace ArkEcosystem.Client.Tests.API
             Assert.AreEqual(1, response.Meta.TotalCount);
             Assert.AreEqual(null, response.Meta.Next);
             Assert.AreEqual(null, response.Meta.Previous);
-            Assert.AreEqual("/api/v2/businesses/1/bridgechains?page=1&limit=1", response.Meta.Self);
-            Assert.AreEqual("/api/v2/businesses/1/bridgechains?page=1&limit=1", response.Meta.First);
-            Assert.AreEqual("/api/v2/businesses/1/bridgechains?page=1&limit=1", response.Meta.Last);
+            Assert.AreEqual("/api/businesses/1/bridgechains?page=1&limit=1", response.Meta.Self);
+            Assert.AreEqual("/api/businesses/1/bridgechains?page=1&limit=1", response.Meta.First);
+            Assert.AreEqual("/api/businesses/1/bridgechains?page=1&limit=1", response.Meta.Last);
 
             Assert.IsTrue(response.Data.Count() == 0);
         }
