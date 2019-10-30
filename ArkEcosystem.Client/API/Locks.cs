@@ -22,6 +22,7 @@
 // THE SOFTWARE.
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using ArkEcosystem.Client.API.Models;
@@ -88,7 +89,7 @@ namespace ArkEcosystem.Client.API
             };
             var serializedIds = new StringContent(JsonConvert.SerializeObject(ids, settings), Encoding.UTF8, "application/json");
 
-            parameters.add("ids", serializedIds);
+            parameters.Add("ids", serializedIds);
 
             var formParams = new FormUrlEncodedContent(parameters);
             var response = await httpClient.PostAsync("locks/unlocked", formParams);
