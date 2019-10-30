@@ -116,7 +116,7 @@ namespace ArkEcosystem.Client.Tests.API
             Assert.AreEqual(1, response.Data.BridgechainId);
             Assert.AreEqual(1, response.Data.BusinessId);
             Assert.AreEqual("dummyName", response.Data.Name);
-            Assert.AreEqual(new List<string>() {"1.1.1.1"}, response.Data.SeedNodes);
+            CollectionAssert.AreEqual(new List<string>() { "1.1.1.1" }, response.Data.SeedNodes);
             Assert.AreEqual("dummyGenesisHash", response.Data.GenesisHash);
             Assert.AreEqual("dummyBridgechainRepository", response.Data.BridgechainRepository);
         }
