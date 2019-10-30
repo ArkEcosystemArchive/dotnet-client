@@ -103,17 +103,19 @@ namespace ArkEcosystem.Client.Tests.API
             // var ids = new List<string>() { "dummyId" };
 
             // var response = TestHelper.MockConnection().Api.Locks.Unlocked(ids);
+            // AssertResponseListOfTransactions(response);
         }
 
         [TestMethod]
         public async Task UnlockedAsync()
         {
             // TODO: missing fixture
-            //     TestHelper.MockHttpRequest("locks/unlocked");
+            // TestHelper.MockHttpRequest("locks/unlocked");
 
-            //     var ids = new List<string>() { "dummyId" };
+            // var ids = new List<string>() { "dummyId" };
 
-            //     var response = await TestHelper.MockConnection().Api.Locks.UnlockedAsync(ids);
+            // var response = await TestHelper.MockConnection().Api.Locks.UnlockedAsync(ids);
+            // AssertResponseListOfTransactions(response);
         }
 
         private static void AssertResponseListOfLocks(Response<List<Lock>> response)
@@ -128,6 +130,23 @@ namespace ArkEcosystem.Client.Tests.API
             Assert.AreEqual("/api/locks?page=1&limit=1", response.Meta.Last);
 
             CollectionAssert.AllItemsAreInstancesOfType(response.Data, typeof(Lock));
+            CollectionAssert.AllItemsAreNotNull(response.Data);
+            CollectionAssert.AllItemsAreUnique(response.Data);
+            Assert.AreEqual(1, response.Data.Count());
+        }
+
+        private static AssertResponseListOfTransactions(Response<List<Transaction>> response)
+        {
+            Assert.AreEqual(1, response.Meta.Count);
+            Assert.AreEqual(1, response.Meta.PageCount);
+            Assert.AreEqual(1, response.Meta.TotalCount);
+            Assert.AreEqual(null, response.Meta.Next);
+            Assert.AreEqual(null, response.Meta.Previous);
+            Assert.AreEqual("/api/locks/unlocked?page=1&limit=1", response.Meta.Self);
+            Assert.AreEqual("/api/locks/unlocked?page=1&limit=1", response.Meta.First);
+            Assert.AreEqual("/api/locks/unlocked?page=1&limit=1", response.Meta.Last);
+
+            CollectionAssert.AllItemsAreInstancesOfType(response.Data, typeof(Transaction));
             CollectionAssert.AllItemsAreNotNull(response.Data);
             CollectionAssert.AllItemsAreUnique(response.Data);
             Assert.AreEqual(1, response.Data.Count());

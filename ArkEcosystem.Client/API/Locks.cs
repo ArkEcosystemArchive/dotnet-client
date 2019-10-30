@@ -76,12 +76,12 @@ namespace ArkEcosystem.Client.API
             return Api.ConvertResponse<List<Lock>>(await response.Content.ReadAsStringAsync());
         }
 
-        public Response<List<Lock>> Unlocked(List<string> ids, Dictionary<string, string> parameters = null)
+        public Response<List<Transaction>> Unlocked(List<string> ids, Dictionary<string, string> parameters = null)
         {
             return UnlockedAsync(ids, parameters).Result;
         }
 
-        public async Task<Response<List<Lock>>> UnlockedAsync(List<string> ids, Dictionary<string, string> parameters = null)
+        public async Task<Response<List<Transaction>>> UnlockedAsync(List<string> ids, Dictionary<string, string> parameters = null)
         {
             var settings = new JsonSerializerSettings()
             {
@@ -89,11 +89,11 @@ namespace ArkEcosystem.Client.API
             };
             var serializedIds = new StringContent(JsonConvert.SerializeObject(ids, settings), Encoding.UTF8, "application/json");
 
-            parameters.Add("ids", serializedIds.ReadAsStringAsync().Result);
+            parameters.Add("ids", await serializedIds.ReadAsStringAsync());
 
             var formParams = new FormUrlEncodedContent(parameters);
             var response = await httpClient.PostAsync("locks/unlocked", formParams);
-            return Api.ConvertResponse<List<Lock>>(await response.Content.ReadAsStringAsync());
+            return Api.ConvertResponse<List<Transaction>>(await response.Content.ReadAsStringAsync());
         }
     }
 }
