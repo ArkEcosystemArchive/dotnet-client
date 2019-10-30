@@ -147,7 +147,10 @@ namespace ArkEcosystem.Client.Tests.API
             Assert.AreEqual("/api/businesses/1/bridgechains?page=1&limit=1", response.Meta.First);
             Assert.AreEqual("/api/businesses/1/bridgechains?page=1&limit=1", response.Meta.Last);
 
-            Assert.IsTrue(response.Data.Count() == 0);
+            CollectionAssert.AllItemsAreInstancesOfType(response.Data, typeof(Bridgechain));
+            CollectionAssert.AllItemsAreNotNull(response.Data);
+            CollectionAssert.AllItemsAreUnique(response.Data);
+            Assert.AreEqual(1, response.Data.Count());
         }
     }
 }
