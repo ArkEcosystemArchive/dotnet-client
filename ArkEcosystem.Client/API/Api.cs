@@ -8,7 +8,10 @@ namespace ArkEcosystem.Client.API
         public HttpClient Client { get; }
 
         public Blocks Blocks { get; }
+        public Bridgechains Bridgechains { get; }
+        public Businesses Businesses { get; }
         public Delegates Delegates { get; }
+        public Locks Locks { get; }
         public Node Node { get; }
         public Peers Peers { get; }
         public Rounds Rounds { get; }
@@ -19,7 +22,10 @@ namespace ArkEcosystem.Client.API
         public Api(HttpClient client)
         {
             Blocks = new Blocks(client);
+            Bridgechains = new Bridgechains(client);
+            Businesses = new Businesses(client);
             Delegates = new Delegates(client);
+            Locks = new Locks(client);
             Node = new Node(client);
             Peers = new Peers(client);
             Rounds = new Rounds(client);

@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "count": 1,
+    "pageCount": 1,
+    "totalCount": 1,
+    "next": null,
+    "previous": null,
+    "self": "/api/wallets/dummy/locks?page=1&limit=1",
+    "first": "/api/wallets/dummy/locks?page=1&limit=1",
+    "last": "/api/wallets/dummy/locks?page=1&limit=1"
+  },
+  "data": [
+    {
+      "lockId": "272f327cacad7ed4df34c879dbc731d99f6dda64e3ce5bd8dd7d07f87eb9bd94",
+      "amount": "1",
+      "secretHash": "09b9a28393efd02fcd76a21b0f0f55ba2aad8f3640ff8cae86de033a9cfbd78c",
+      "senderPublicKey": "03dcb84917cf6d7b742f58c04693c5e00c56a4ae83feec129b3e3cc27111796232",
+      "recipientId": "D6JpPhN7BehrhNy7AbSQ2u9mkSZb1k7Ens",
+      "timestamp": {
+        "epoch": 81911280,
+        "unix": 1572012480,
+        "human": "2019-10-25T14:08:00.000Z"
+      },
+      "expirationType": 2,
+      "expirationValue": 6000000,
+      "vendorField": "vendorField"
+    }
+  ]
+}

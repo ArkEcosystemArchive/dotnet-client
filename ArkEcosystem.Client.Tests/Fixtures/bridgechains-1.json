@@ -1,0 +1,12 @@
+{
+  "data": {
+    "bridgechainId": 1,
+    "businessId": 1,
+    "name": "dummyName",
+    "seedNodes": [
+      "1.1.1.1"
+    ],
+    "genesisHash": "dummyGenesisHash",
+    "bridgechainRepository": "dummyBridgechainRepository"
+  }
+}

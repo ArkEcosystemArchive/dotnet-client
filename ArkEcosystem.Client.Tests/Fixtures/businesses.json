@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "count": 1,
+    "pageCount": 1,
+    "totalCount": 1,
+    "next": null,
+    "previous": null,
+    "self": "/api/businesses?page=1&limit=1",
+    "first": "/api/businesses?page=1&limit=1",
+    "last": "/api/businesses?page=1&limit=1"
+  },
+  "data": [
+    {
+      "businessId": 1,
+      "name": "dummyName",
+      "website": "http://dummy.website",
+      "vat": "dummyVat",
+      "repository": "dummyRepository"
+    }
+  ]
+}

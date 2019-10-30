@@ -1,0 +1,9 @@
+{
+  "data": {
+    "businessId": 1,
+    "name": "dummyName",
+    "website": "http://dummy.website",
+    "vat": "dummyVat",
+    "repository": "dummyRepository"
+  }
+}

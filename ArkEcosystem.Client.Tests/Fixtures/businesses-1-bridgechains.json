@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "count": 1,
+    "pageCount": 1,
+    "totalCount": 1,
+    "next": null,
+    "previous": null,
+    "self": "/api/businesses/1/bridgechains?page=1&limit=1",
+    "first": "/api/businesses/1/bridgechains?page=1&limit=1",
+    "last": "/api/businesses/1/bridgechains?page=1&limit=1"
+  },
+  "data": [
+    {
+      "bridgechainId": 1,
+      "businessId": 1,
+      "name": "dummyName",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.1.1.2"
+      ],
+      "genesisHash": "dummyGenesisHash",
+      "bridgechainRepository": "dummyBridgechainRepository"
+    }
+  ]
+}
