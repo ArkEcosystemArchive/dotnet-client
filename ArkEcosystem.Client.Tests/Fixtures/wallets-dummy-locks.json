@@ -5,9 +5,9 @@
     "totalCount": 1,
     "next": null,
     "previous": null,
-    "self": "/api/wallets/dummy/locks?page=1&limit=100",
-    "first": "/api/wallets/dummy/locks?page=1&limit=100",
-    "last": "/api/wallets/dummy/locks?page=1&limit=100"
+    "self": "/api/wallets/dummy/locks?page=1&limit=1",
+    "first": "/api/wallets/dummy/locks?page=1&limit=1",
+    "last": "/api/wallets/dummy/locks?page=1&limit=1"
   },
   "data": [
     {
