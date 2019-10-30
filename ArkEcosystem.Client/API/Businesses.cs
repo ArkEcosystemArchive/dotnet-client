@@ -63,7 +63,7 @@ namespace ArkEcosystem.Client.API
 
         public Response<List<Bridgechain>> Bridgechains(string id, Dictionary<string, string> parameters = null)
         {
-            return TransactionsAsync(id, parameters).Result;
+            return BridgechainsAsync(id, parameters).Result;
         }
 
         public async Task<Response<List<Bridgechain>>> BridgechainsAsync(string id, Dictionary<string, string> parameters = null)
