@@ -327,9 +327,9 @@ namespace ArkEcosystem.Client.Tests.API
             Assert.AreEqual(1, response.Meta.TotalCount);
             Assert.AreEqual(null, response.Meta.Next);
             Assert.AreEqual(null, response.Meta.Previous);
-            Assert.AreEqual("/api/v2/wallets/dummy/locks?page=1&limit=1", response.Meta.Self);
-            Assert.AreEqual("/api/v2/wallets/dummy/locks?page=1&limit=1", response.Meta.First);
-            Assert.AreEqual("/api/v2/wallets/dummy/locks?page=1&limit=1", response.Meta.Last);
+            Assert.AreEqual("/api/wallets/dummy/locks?page=1&limit=1", response.Meta.Self);
+            Assert.AreEqual("/api/wallets/dummy/locks?page=1&limit=1", response.Meta.First);
+            Assert.AreEqual("/api/wallets/dummy/locks?page=1&limit=1", response.Meta.Last);
 
             CollectionAssert.AllItemsAreInstancesOfType(response.Data, typeof(Lock));
             CollectionAssert.AllItemsAreNotNull(response.Data);
