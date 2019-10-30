@@ -135,7 +135,7 @@ namespace ArkEcosystem.Client.Tests.API
             Assert.AreEqual(1, response.Data.Count());
         }
 
-        private static AssertResponseListOfTransactions(Response<List<Transaction>> response)
+        private static void AssertResponseListOfTransactions(Response<List<Transaction>> response)
         {
             Assert.AreEqual(1, response.Meta.Count);
             Assert.AreEqual(1, response.Meta.PageCount);
