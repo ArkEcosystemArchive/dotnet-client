@@ -73,17 +73,16 @@ namespace ArkEcosystem.Client.API
             return Api.ConvertResponse<List<Lock>>(await response.Content.ReadAsStringAsync());
         }
 
-        // TODO
-        // public Response<List<Lock>> Unlocked(Dictionary<string, string> parameters = null)
-        // {
-        //     return UnlockedAsync(parameters).Result;
-        // }
+        public Response<List<Lock>> Unlocked(Dictionary<string, dynamic> parameters = null)
+        {
+            return UnlockedAsync(parameters).Result;
+        }
 
-        // public async Task<Response<List<Lock>>> UnlockedAsync(Dictionary<string, string> parameters = null)
-        // {
-        //     var formParams = new FormUrlEncodedContent(parameters);
-        //     var response = await httpClient.PostAsync("locks/unlocked", formParams);
-        //     return Api.ConvertResponse<List<Lock>>(await response.Content.ReadAsStringAsync());
-        // }
+        public async Task<Response<List<Lock>>> UnlockedAsync(Dictionary<string, dynamic> parameters = null)
+        {
+            var formParams = new FormUrlEncodedContent(parameters);
+            var response = await httpClient.PostAsync("locks/unlocked", formParams);
+            return Api.ConvertResponse<List<Lock>>(await response.Content.ReadAsStringAsync());
+        }
     }
 }

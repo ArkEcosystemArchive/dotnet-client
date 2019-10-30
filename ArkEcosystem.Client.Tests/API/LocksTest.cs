@@ -94,6 +94,34 @@ namespace ArkEcosystem.Client.Tests.API
             //     var response = await TestHelper.MockConnection().Api.Locks.SearchAsync(parameters);
         }
 
+        [TestMethod]
+        public void Unlocked()
+        {
+            // TODO: missing fixture
+            // TestHelper.MockHttpRequest("locks/unlocked");
+
+            // var parameters = new Dictionary<string, dynamic>
+            // {
+            //     { "ids", new List<string>() { "dummyId" } }
+            // };
+
+            // var response = TestHelper.MockConnection().Api.Locks.Unlocked(parameters);
+        }
+
+        [TestMethod]
+        public async Task UnlockedAsync()
+        {
+            // TODO: missing fixture
+            //     TestHelper.MockHttpRequest("locks/unlocked");
+
+            //     var parameters = new Dictionary<string, dynamic>
+            //     {
+            //     { "ids", new List<string>() { "dummyId" } }
+            //     };
+
+            //     var response = await TestHelper.MockConnection().Api.Locks.UnlockedAsync(parameters);
+        }
+
         private static void AssertResponseListOfLocks(Response<List<Lock>> response)
         {
             Assert.AreEqual(1, response.Meta.Count);
