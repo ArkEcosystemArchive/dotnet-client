@@ -100,12 +100,9 @@ namespace ArkEcosystem.Client.Tests.API
             // TODO: missing fixture
             // TestHelper.MockHttpRequest("locks/unlocked");
 
-            // var parameters = new Dictionary<string, dynamic>
-            // {
-            //     { "ids", new List<string>() { "dummyId" } }
-            // };
+            // var ids = new List<string>() { "dummyId" };
 
-            // var response = TestHelper.MockConnection().Api.Locks.Unlocked(parameters);
+            // var response = TestHelper.MockConnection().Api.Locks.Unlocked(ids);
         }
 
         [TestMethod]
@@ -114,12 +111,9 @@ namespace ArkEcosystem.Client.Tests.API
             // TODO: missing fixture
             //     TestHelper.MockHttpRequest("locks/unlocked");
 
-            //     var parameters = new Dictionary<string, dynamic>
-            //     {
-            //     { "ids", new List<string>() { "dummyId" } }
-            //     };
+            //     var ids = new List<string>() { "dummyId" };
 
-            //     var response = await TestHelper.MockConnection().Api.Locks.UnlockedAsync(parameters);
+            //     var response = await TestHelper.MockConnection().Api.Locks.UnlockedAsync(ids);
         }
 
         private static void AssertResponseListOfLocks(Response<List<Lock>> response)

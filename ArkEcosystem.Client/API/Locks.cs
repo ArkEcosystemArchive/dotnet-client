@@ -26,6 +26,8 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using ArkEcosystem.Client.API.Models;
 using ArkEcosystem.Client.Helpers;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace ArkEcosystem.Client.API
 {
@@ -73,13 +75,21 @@ namespace ArkEcosystem.Client.API
             return Api.ConvertResponse<List<Lock>>(await response.Content.ReadAsStringAsync());
         }
 
-        public Response<List<Lock>> Unlocked(Dictionary<string, dynamic> parameters = null)
+        public Response<List<Lock>> Unlocked(List<string> ids, Dictionary<string, string> parameters = null)
         {
-            return UnlockedAsync(parameters).Result;
+            return UnlockedAsync(ids, parameters).Result;
         }
 
-        public async Task<Response<List<Lock>>> UnlockedAsync(Dictionary<string, dynamic> parameters = null)
+        public async Task<Response<List<Lock>>> UnlockedAsync(List<string> ids, Dictionary<string, string> parameters = null)
         {
+            var settings = new JsonSerializerSettings()
+            {
+                ContractResolver = new CamelCasePropertyNamesContractResolver()
+            };
+            var serializedIds = new StringContent(JsonConvert.SerializeObject(ids, settings), Encoding.UTF8, "application/json");
+
+            parameters.add("ids", serializedIds);
+
             var formParams = new FormUrlEncodedContent(parameters);
             var response = await httpClient.PostAsync("locks/unlocked", formParams);
             return Api.ConvertResponse<List<Lock>>(await response.Content.ReadAsStringAsync());
