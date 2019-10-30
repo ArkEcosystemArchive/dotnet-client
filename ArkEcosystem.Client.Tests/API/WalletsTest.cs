@@ -71,7 +71,7 @@ namespace ArkEcosystem.Client.Tests.API
         {
             TestHelper.MockHttpRequest("wallets/dummy/locks");
             var response = TestHelper.MockConnection().Api.Wallets.Locks("dummy");
-            AssertResponseListOfLocks(response);
+            AssertResponseWalletLocks(response);
         }
 
         [TestMethod]
@@ -79,7 +79,7 @@ namespace ArkEcosystem.Client.Tests.API
         {
             TestHelper.MockHttpRequest("wallets/dummy/locks");
             var response = await TestHelper.MockConnection().Api.Wallets.LocksAsync("dummy");
-            AssertResponseListOfLocks(response);
+            AssertResponseWalletLocks(response);
         }
 
         [TestMethod]
@@ -318,6 +318,23 @@ namespace ArkEcosystem.Client.Tests.API
             CollectionAssert.AllItemsAreNotNull(response.Data);
             CollectionAssert.AllItemsAreUnique(response.Data);
             Assert.AreEqual(98, response.Data.Count());
+        }
+
+        private static void AssertResponseWalletLocks(Response<List<Lock>> response)
+        {
+            Assert.AreEqual(1, response.Meta.Count);
+            Assert.AreEqual(1, response.Meta.PageCount);
+            Assert.AreEqual(1, response.Meta.TotalCount);
+            Assert.AreEqual(null, response.Meta.Next);
+            Assert.AreEqual(null, response.Meta.Previous);
+            Assert.AreEqual("/api/v2/wallets/dummy/locks?page=1&limit=1", response.Meta.Self);
+            Assert.AreEqual("/api/v2/wallets/dummy/locks?page=1&limit=1", response.Meta.First);
+            Assert.AreEqual("/api/v2/wallets/dummy/locks?page=1&limit=1", response.Meta.Last);
+
+            CollectionAssert.AllItemsAreInstancesOfType(response.Data, typeof(Lock));
+            CollectionAssert.AllItemsAreNotNull(response.Data);
+            CollectionAssert.AllItemsAreUnique(response.Data);
+            Assert.AreEqual(1, response.Data.Count());
         }
     }
 }
