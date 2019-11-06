@@ -1,0 +1,15 @@
+{
+    "data": {
+        "ip": "167.114.236.183",
+        "port": 4002,
+        "ports": {
+            "@arkecosystem/core-webhooks": -1,
+            "@arkecosystem/core-exchange-json-rpc": -1,
+            "@arkecosystem/core-wallet-api": 4040,
+            "@arkecosystem/core-api": 4003
+        },
+        "version": "2.5.0",
+        "height": 2932354,
+        "latency": 28
+    }
+}

@@ -12,9 +12,14 @@ namespace ArkEcosystem.Client.API.Models
         public string Symbol { get; set; }
         public string Explorer { get; set; }
         public int Version { get; set; }
-        public Dictionary<string, Int16> Ports { get; set; }
+        public Dictionary<string, Int16?> Ports { get; set; }
         public NodeConstants Constants { get; set; }
-        public List<FeeStatistics> FeeStatistics { get; set; }
+        public TransactionPoolConfiguration TransactionPool { get; set; }
+
+        public class TransactionPoolConfiguration
+        {
+            public DynamicFees DynamicFees { get; set; }
+        }
     }
 
     [JsonObject]
@@ -23,6 +28,7 @@ namespace ArkEcosystem.Client.API.Models
         public bool Synced { get; set; }
         public long Now { get; set; }
         public long BlocksCount { get; set; }
+        public int Timestamp { get; set; }
     }
 
     [JsonObject]
@@ -71,17 +77,20 @@ namespace ArkEcosystem.Client.API.Models
     }
 
     [JsonObject]
+    public class DynamicFees
+    {
+        public long MinFeePool { get; set; }
+        public long MinFeeBroadast { get; set; }
+        public Fees AddonBytes { get; set; }
+    }
+
+    [JsonObject]
     public class FeeStatistics
     {
         public byte Type { get; set; }
-        public FeeStats Fees { get; set; }
-
-        [JsonObject]
-        public class FeeStats
-        {
-            public long MinFee { get; set; }
-            public long MaxFee { get; set; }
-            public long AvgFee { get; set; }
-        }
+        public long Avg { get; set; }
+        public long Min { get; set; }
+        public long Max { get; set; }
+        public long Sum { get; set; }
     }
 }
